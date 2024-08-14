@@ -1,0 +1,82 @@
+---
+const { img, title, tag, date, summary } = Astro.props;
+---
+
+<article class="blog-post-preview">
+  <div class="blog-post-preview__image-wrapper">
+    <img
+      class="blog-post-preview__image"
+      src={img.src}
+      alt="Imagen de la entrada del blog"
+    />
+  </div>
+  <main class="blog-post-preview__main">
+    <h3 class="blog-post-preview__title">
+      {title}
+    </h3>
+    <p class="blog-post-preview__tag">{date} - {tag}</p>
+    <p class="blog-post-preview__summary">
+      {summary}
+    </p>
+    <a class="blog-post-preview__button"> Leer más <span>-></span> </a>
+  </main>
+</article>
+
+<style>
+  .blog-post-preview {
+    position: relative;
+    max-width: 17.1875rem;
+    max-height: 12.5rem;
+  }
+
+  .blog-post-preview__image-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 17.1875rem;
+    max-height: 12.5rem;
+    overflow: hidden;
+  }
+
+  .blog-post-preview__main {
+    background-color: var(--bg-color);
+    position: relative;
+    z-index: 2;
+    max-width: 80%;
+    transform: translate3d(0, -35%, 0);
+    padding: 0.5rem;
+  }
+
+  .blog-post-preview__tag {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    margin-block: 0.5rem 1rem;
+    font-weight: 700;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 40%;
+      bottom: -0.5rem;
+      height: 1px;
+      background-color: var(--color-yellow-700);
+    }
+  }
+
+  .blog-post-preview__summary {
+    font-size: 0.8rem;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .blog-post-preview__button,
+  .blog-post-preview__button:visited {
+    color: var(--color-yellow-700);
+    text-decoration: underline;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    display: inline-block;
+  }
+</style>
