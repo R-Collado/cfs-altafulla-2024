@@ -1,0 +1,83 @@
+---
+const { isLatestPost, postTitle, img, pageTitle } = Astro.props;
+
+isLatestPost: isLatestPost.toString();
+---
+
+<article class="header-post-card" data-latest-post={isLatestPost}>
+  <div class="header-post-card__image-wrapper">
+    <img class="header-post-card__img" src={img} alt="" />
+  </div>
+  <div class="header-post-card__text">
+    <h2 class="header-post-card__title">
+      {postTitle}
+    </h2>
+    <button class="header-post-card__button">
+      <p>Leer artículo</p>
+    </button>
+  </div>
+</article>
+
+<style>
+  .header-post-card {
+    z-index: 1;
+    width: 12.5rem;
+    position: relative;
+    height: 20.25rem;
+    display: flex;
+    flex-direction: column-reverse;
+    cursor: pointer;
+    flex-shrink: 0;
+
+    &[data-latest-post="true"] {
+      width: 23.75rem;
+
+      & .header-post-card__image-wrapper {
+        max-width: 23.75rem;
+      }
+    }
+  }
+
+  .header-post-card__image-wrapper {
+    position: absolute;
+    z-index: -1;
+    max-width: 12.5rem;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .header-post-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .header-post-card__text {
+    padding-inline: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .header-post-card__title {
+    color: var(--bg-color);
+    font-size: 1rem;
+  }
+
+  .header-post-card__button {
+    background: var(--primary-color);
+    text-transform: uppercase;
+    font-weight: 700;
+    border: 0;
+    padding: 0 1rem;
+    line-height: 0.5;
+
+    transition:
+      background-color 250ms ease-in-out,
+      color 250ms ease-in-out;
+  }
+
+  .header-post-card:hover .header-post-card__button,
+  .header-post-card__button:focus {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+  }
+</style>
