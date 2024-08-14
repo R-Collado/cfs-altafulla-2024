@@ -1,18 +1,46 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import HeaderPostSection from "../components/HeaderPostsSection.astro";
+import Timer from "/components/Timer.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-
-	</main>
+<Layout title="Club FutSal Altafulla">
+  <main>
+    <HeaderPostSection />
+    <Timer />
+  </main>
 </Layout>
 
 <style>
-	:root {
-		--primary-color: #FFEC01;
-		--secondary-color: #1D1D1D;
-		--bg-color: #FAFAFA;
-	}
+  :root {
+    --primary-color: #ffec01;
+    --secondary-color: #1d1d1d;
+    --bg-color: #fafafa;
+
+    --color-grey-600: #9a9a9a;
+
+    --primary-font: "Figtree", sans-serif;
+  }
+
+  @font-face {
+    font-family: "Figtree";
+    src: url("/fonts/Figtree-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  body {
+    font-family: var(--primary-font);
+  }
+</style>
+
+<style is:global>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
 </style>
