@@ -3,10 +3,7 @@ import { getCollection, getEntry } from "astro:content";
 import type { BlogPost } from "../types/blogPost";
 import BlogPostLayout from "../layouts/BlogPostLayout.astro";
 
-const blogEntries: BlogPost[] = await getCollection("blog");
-
 const blogPost: BlogPost = await getEntry("blog", "post-1");
-console.log(blogPost.data.image);
 ---
 
 <BlogPostLayout blogPost={blogPost} />

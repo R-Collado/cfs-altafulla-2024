@@ -9,5 +9,13 @@ export interface BlogPost {
 export interface Data {
   title: string;
   tags: string[];
-  image: string;
+  cover: {
+    src: string;
+    width: number;
+
+    height: number;
+
+    format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
+  };
+  date?: string;
 }
