@@ -1,17 +1,19 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import HeaderPostSection from "../components/HeaderPostsSection.astro";
-import Timer from "/components/Timer.astro";
+import { getCollection, getEntry } from "astro:content";
+import type { BlogPost } from "../types/blogPost";
+import BlogPostLayout from "../layouts/BlogPostLayout.astro";
+
+const blogEntries: BlogPost[] = await getCollection("blog");
+
+const blogPost: BlogPost = await getEntry("blog", "post-1");
+console.log(blogPost.data.image);
 ---
 
-<Layout title="Club FutSal Altafulla">
-  <main>
-    <HeaderPostSection />
-    <Timer />
-  </main>
-</Layout>
+<BlogPostLayout blogPost={blogPost} />
 
 <style>
+  @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+
   :root {
     --primary-color: #ffec01;
     --secondary-color: #1d1d1d;
@@ -19,15 +21,9 @@ import Timer from "/components/Timer.astro";
 
     --color-grey-600: #9a9a9a;
 
-    --primary-font: "Figtree", sans-serif;
-  }
+    --color-yellow-700: #e6d71e;
 
-  @font-face {
-    font-family: "Figtree";
-    src: url("/fonts/Figtree-Regular.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+    --primary-font: "Figtree", sans-serif;
   }
 
   body {

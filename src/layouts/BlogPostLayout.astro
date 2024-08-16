@@ -1,0 +1,70 @@
+---
+const { blogPost } = Astro.props;
+console.log(blogPost);
+import { Image } from "astro:assets";
+---
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{blogPost.data.title}</title>
+  </head>
+  <body>
+    <article class="blog-post">
+      <img class="blog-post__img" src={blogPost.data.cover.src} />
+      <div class="blog-post__container">
+        <h3 class="blog-post__heading">{blogPost.data.title}</h3>
+        <p class="blog-post__body">
+          {blogPost.body}
+        </p>
+      </div>
+    </article>
+  </body>
+</html>
+
+<style>
+  /* .blog-post__container {
+    background-color: var(--bg-color);
+    position: relative;
+    z-index: 2;
+  } */
+
+  .blog-post__container {
+    padding-inline: 2rem;
+    padding-top: 1rem;
+  }
+
+  .blog-post__img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+  }
+
+  .blog-post__heading {
+    font-size: 4rem;
+    color: var(--bg-color);
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-block: 20rem;
+  }
+
+  .blog-post__heading::before {
+    content: "";
+    position: absolute;
+    background: var(--bg-color);
+    height: 0.6rem;
+    width: 4rem;
+    border-radius: 100vw;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* .blog-post__body {
+    font-size: 1.25rem;
+    color: var(--color-grey-600);
+    position: relative;
+    z-index: 2;
+  } */
+</style>
