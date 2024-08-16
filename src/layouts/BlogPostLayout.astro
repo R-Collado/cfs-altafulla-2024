@@ -1,7 +1,7 @@
 ---
 const { blogPost } = Astro.props;
-console.log(blogPost);
-import { Image } from "astro:assets";
+
+const { Content } = await blogPost.render();
 ---
 
 <html>
@@ -14,21 +14,23 @@ import { Image } from "astro:assets";
       <img class="blog-post__img" src={blogPost.data.cover.src} />
       <div class="blog-post__container">
         <h3 class="blog-post__heading">{blogPost.data.title}</h3>
-        <p class="blog-post__body">
-          {blogPost.body}
-        </p>
+        <div class="blog-post__body">
+          <Content />
+          <hr />
+          <footer class="author-info">
+            <img class="author-img" src={blogPost.data.authorImg.src} />
+            <div class="post-info">
+              <p class="author-name">{blogPost.data.author}</p>
+              <p class="post-date">{blogPost.data.date}</p>
+            </div>
+          </footer>
+        </div>
       </div>
     </article>
   </body>
 </html>
 
 <style>
-  /* .blog-post__container {
-    background-color: var(--bg-color);
-    position: relative;
-    z-index: 2;
-  } */
-
   .blog-post__container {
     padding-inline: 2rem;
     padding-top: 1rem;
@@ -61,10 +63,48 @@ import { Image } from "astro:assets";
     transform: translateX(-50%);
   }
 
-  /* .blog-post__body {
+  .blog-post__body {
     font-size: 1.25rem;
-    color: var(--color-grey-600);
     position: relative;
     z-index: 2;
-  } */
+    margin: 24rem auto;
+    max-width: 60ch;
+    padding-top: 1rem;
+    text-align: justify;
+  }
+
+  .author-name {
+    font-weight: bold;
+  }
+
+  .author-img {
+    height: 4rem;
+  }
+
+  .author-info {
+    display: flex;
+    margin-top: 2rem;
+  }
+
+  .author-name {
+    margin-top: 0 !important;
+    margin-bottom: 0.8rem !important;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .post-date {
+    color: var(--color-grey-600);
+    margin-block: 0 !important;
+    margin-left: 1rem;
+    font-size: 1.25rem;
+  }
 </style>
+
+<script>
+  const paragraphs = document.querySelectorAll("p");
+
+  paragraphs.forEach((p) => {
+    p.style.marginBlock = "2rem";
+  });
+</script>

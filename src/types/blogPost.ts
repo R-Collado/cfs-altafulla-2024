@@ -12,9 +12,14 @@ export interface Data {
   cover: {
     src: string;
     width: number;
-
     height: number;
-
+    format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
+  };
+  author: string;
+  authorImg: {
+    src: string;
+    width: number;
+    height: number;
     format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
   };
   date?: string;
