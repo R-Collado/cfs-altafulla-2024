@@ -1,0 +1,76 @@
+---
+import SpanishFlag from "/images/flags/spanish-flag.png";
+import CatalanFlag from "/images/flags/catalan-flag.png";
+import EnglishFlag from "/images/flags/english-flag.png";
+import { getLangFromUrl, useTranslatedPath } from "/i18n/utils";
+import { getActualComponentRoute } from "/utils/components";
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+
+const actualRoute = getActualComponentRoute(Astro.url.pathname);
+---
+
+<ul class="language-list">
+  <li>
+    <a href={translatePath(actualRoute, "es")}>
+      <img src={SpanishFlag.src} alt="Bandera de España" />
+      ES
+    </a>
+  </li>
+  <li>
+    <a href={translatePath(actualRoute, "ca")}>
+      <img src={CatalanFlag.src} alt="Bandera de Catalunya" />
+      CA
+    </a>
+  </li>
+  <li>
+    <a href={translatePath(actualRoute, "en")}>
+      <img src={EnglishFlag.src} alt="Bandera de Reino Unido" />
+      EN
+    </a>
+  </li>
+</ul>
+
+<style>
+  a,
+  a:visited {
+    color: var(--bg-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a.active-language {
+    font-weight: 600;
+  }
+
+  .language-list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    width: max-content;
+    margin: 0 auto;
+  }
+</style>
+
+<script>
+  import { getLangFromLocation, setLangToLocalStorage } from "/i18n/utils";
+
+  const actualLanguage = window.location.pathname.split("/")[1];
+  const languages = document.querySelectorAll(".language-list a");
+
+  languages.forEach((lang) => {
+    const langValue = lang.textContent?.split("\n")[1].toLowerCase();
+    if (langValue === actualLanguage) {
+      lang.classList.add("active-language");
+    } else if (!actualLanguage && langValue === "es") {
+      // add active class to default language => Spanish
+      lang.classList.add("active-language");
+    }
+  });
+
+  setLangToLocalStorage(getLangFromLocation());
+</script>
