@@ -4,6 +4,7 @@ import CatalanFlag from "/images/flags/catalan-flag.png";
 import EnglishFlag from "/images/flags/english-flag.png";
 import { getLangFromUrl, useTranslatedPath } from "/i18n/utils";
 import { getActualComponentRoute } from "/utils/components";
+import chevron from "/svgs/chevron.svg";
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
@@ -11,7 +12,7 @@ const translatePath = useTranslatedPath(lang);
 const actualRoute = getActualComponentRoute(Astro.url.pathname);
 ---
 
-<ul class="language-list">
+<ul class="language-list mobile">
   <li>
     <a href={translatePath(actualRoute, "es")}>
       <img src={SpanishFlag.src} alt="Bandera de España" />
@@ -32,6 +33,30 @@ const actualRoute = getActualComponentRoute(Astro.url.pathname);
   </li>
 </ul>
 
+<div class="language-list desktop">
+  <img class="chevron-icon" src={chevron.src} />
+  <ul>
+    <li>
+      <a href={translatePath(actualRoute, "es")}>
+        <img src={SpanishFlag.src} alt="Bandera de España" />
+        ES
+      </a>
+    </li>
+    <li>
+      <a href={translatePath(actualRoute, "ca")}>
+        <img src={CatalanFlag.src} alt="Bandera de Catalunya" />
+        CA
+      </a>
+    </li>
+    <li>
+      <a href={translatePath(actualRoute, "en")}>
+        <img src={EnglishFlag.src} alt="Bandera de Reino Unido" />
+        EN
+      </a>
+    </li>
+  </ul>
+</div>
+
 <style>
   a,
   a:visited {
@@ -43,34 +68,141 @@ const actualRoute = getActualComponentRoute(Astro.url.pathname);
     text-decoration: underline;
   }
 
-  a.active-language {
+  li.active-language a {
     font-weight: 600;
   }
 
-  .language-list {
+  .language-list.mobile {
     display: flex;
     gap: 2rem;
     list-style: none;
     width: max-content;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10%;
+  }
+
+  .language-list.desktop {
+    position: relative;
+    max-height: 1rem;
+    overflow: hidden;
+    display: none;
+  }
+
+  .language-list.desktop ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: max-content;
     margin: 0 auto;
+    background: var(--secondary-color);
+    height: max-content;
+    padding-inline: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  .language-list.desktop li {
+    order: 2;
+    opacity: 0;
+    display: flex;
+  }
+
+  .language-list.desktop li a {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .language-list.desktop li.active-language {
+    order: 1;
+    opacity: 1;
+  }
+
+  .language-button {
+    border: 0;
+    background: transparent;
+    color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    cursor: pointer;
+  }
+
+  .language-list.desktop.active {
+    overflow: visible;
+
+    & li {
+      opacity: 1;
+    }
+
+    & li a {
+      pointer-events: auto;
+    }
+  }
+
+  .chevron-icon {
+    width: 0.75rem;
+    height: 0.75rem;
+    fill: var(--bg-color);
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: 55%;
+    transform: translateY(-50%);
+  }
+
+  @media (min-width: 1000px) {
+    .language-list.mobile {
+      display: none;
+    }
+
+    .language-list.desktop {
+      display: flex;
+    }
   }
 </style>
 
 <script>
   import { getLangFromLocation, setLangToLocalStorage } from "/i18n/utils";
 
-  const actualLanguage = window.location.pathname.split("/")[1];
-  const languages = document.querySelectorAll(".language-list a");
+  // Add active class to the current language
+  const actualLanguage = getLangFromLocation();
+  const languages = Array.from(
+    document.querySelectorAll(".language-list a"),
+  ) as HTMLElement[];
 
   languages.forEach((lang) => {
     const langValue = lang.textContent?.split("\n")[1].toLowerCase();
-    if (langValue === actualLanguage) {
-      lang.classList.add("active-language");
-    } else if (!actualLanguage && langValue === "es") {
-      // add active class to default language => Spanish
-      lang.classList.add("active-language");
+    if (
+      langValue === actualLanguage ||
+      (!actualLanguage && langValue === "es")
+    ) {
+      lang.parentElement?.classList.add("active-language");
     }
   });
 
+  // Language list desktop events
+  const chevronIcon = document.querySelector(".chevron-icon") as HTMLElement;
+  const languageList = document.querySelector(
+    ".language-list.desktop",
+  ) as HTMLElement;
+
+  // Toggle language list visibility on chevron icon click
+  chevronIcon.onclick = () => {
+    languageList.classList.toggle("active");
+  };
+
+  // Prevent default link behavior and toggle language list visibility on active language click
+  const anchorTag = document.querySelector(
+    ".language-list.desktop li.active-language",
+  ) as HTMLAnchorElement;
+  anchorTag.addEventListener("click", (event) => {
+    event.preventDefault();
+    languageList.classList.toggle("active");
+  });
+
+  // Set the current language to local storage
   setLangToLocalStorage(getLangFromLocation());
 </script>

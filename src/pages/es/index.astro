@@ -1,0 +1,42 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import type { BlogPost } from "../../types/blogPost";
+import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
+import PrimaryNav from "/components/PrimaryNav.astro";
+import Layout from "/layouts/Layout.astro";
+
+const blogPost: BlogPost = await getEntry("blog", "post-1");
+---
+
+<Layout title="124x">
+  <PrimaryNav />
+</Layout>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+
+  :root {
+    --primary-color: #ffec01;
+    --secondary-color: #1d1d1d;
+    --bg-color: #fafafa;
+
+    --color-grey-600: #9a9a9a;
+
+    --color-yellow-700: #e6d71e;
+
+    --primary-font: "Figtree", sans-serif;
+  }
+
+  body {
+    font-family: var(--primary-font);
+  }
+</style>
+
+<style is:global>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+</style>

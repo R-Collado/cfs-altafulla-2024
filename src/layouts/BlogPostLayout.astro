@@ -1,4 +1,6 @@
 ---
+import PrimaryNav from "/components/PrimaryNav.astro";
+
 const { blogPost } = Astro.props;
 
 const { Content } = await blogPost.render();
@@ -14,6 +16,7 @@ const { Content } = await blogPost.render();
     <title>{blogPost.title}</title>
   </head>
   <body>
+    <PrimaryNav />
     <article class="blog-post">
       <img class="blog-post__img" src={blogPost.data.cover.src} />
       <div class="blog-post__container">
