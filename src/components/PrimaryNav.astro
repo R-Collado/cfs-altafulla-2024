@@ -1,10 +1,15 @@
 ---
 import LanguageSelector from "./LanguageSelector.astro";
-import { getLangFromUrl, useTranslations } from "/i18n/utils";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "/i18n/utils";
 
 import logo from "/images/logo.svg";
 
 const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
 const t = useTranslations(lang);
 ---
 
@@ -18,21 +23,29 @@ const t = useTranslations(lang);
     <div class="menu">
       <ul class="menu-items">
         <li>
-          <a class="links" href={`/news`} data-value="news">{t("nav.news")}</a>
-        </li>
-        <li>
-          <a class="links" href={`/players`} data-value="players"
-            >{t("nav.players")}</a
+          <a class="links" href={translatePath("/news", lang)} data-value="news"
+            >{t("nav.news")}</a
           >
         </li>
         <li>
-          <a class="links" href={`/contact`} data-value="contact"
-            >{t("nav.contact")}</a
+          <a
+            class="links"
+            href={translatePath("/players", lang)}
+            data-value="players">{t("nav.players")}</a
           >
         </li>
         <li>
-          <a class="links" href={`/sponsors`} data-value="sponsors"
-            >{t("nav.sponsors")}</a
+          <a
+            class="links"
+            href={translatePath("/contact", lang)}
+            data-value="contact">{t("nav.contact")}</a
+          >
+        </li>
+        <li>
+          <a
+            class="links"
+            href={translatePath("/sponsors", lang)}
+            data-value="sponsors">{t("nav.sponsors")}</a
           >
         </li>
       </ul>
