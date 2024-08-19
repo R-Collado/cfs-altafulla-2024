@@ -4,8 +4,11 @@
     "baseUrl": ".",
     "paths": {
       "/*": ["src/*"],
+      "/assets/*": ["src/assets"],
       "/images/*": ["src/assets/images/*"],
-      "/styles/*": ["src/assets/styles/*"]
+      "/layouts/*": ["src/layouts/*"],
+      "/styles/*": ["src/assets/styles/*"],
+      "/svgs/*": ["src/assets/svgs/*"]
     }
   }
 }
