@@ -14,6 +14,13 @@ export function getLangFromLocalStorage() {
   return lang === "es" ? "" : lang;
 }
 
+export function redirectToDesiredLang() {
+  const lang = getLangFromLocalStorage();
+  if (lang !== "") {
+    window.location.href = `/${lang}`;
+  }
+}
+
 export function getLangFromLocation() {
   return getLangFromUrl(new URL(window.location.href));
 }
