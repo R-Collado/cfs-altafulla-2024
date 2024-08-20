@@ -1,12 +1,18 @@
 ---
-const { img, title, tag, date, summary } = Astro.props;
+import { getLangFromUrl, useTranslations } from "/i18n/utils";
+
+const { blogPostData } = Astro.props;
+const { cover, title, tag, date, summary, post_id } = blogPostData;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <article class="blog-post-preview">
   <div class="blog-post-preview__image-wrapper">
     <img
       class="blog-post-preview__image"
-      src={img.src}
+      src={cover.src}
       alt="Imagen de la entrada del blog"
     />
   </div>
@@ -18,7 +24,10 @@ const { img, title, tag, date, summary } = Astro.props;
     <p class="blog-post-preview__summary">
       {summary}
     </p>
-    <a class="blog-post-preview__button"> Leer más <span>-></span> </a>
+    <a class="blog-post-preview__button" href={`/news/${post_id}`}>
+      {t("blog.readMore")}
+      <span>-></span>
+    </a>
   </main>
 </article>
 

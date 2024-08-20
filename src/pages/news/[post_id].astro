@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
+
+const { post_id } = Astro.params;
+
+const blogEntries = await getCollection("blog");
+const entry = blogEntries.find((entry) => entry.data.post_id === post_id);
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog");
+
+  return blogEntries.map((entry) => ({
+    params: {
+      post_id: entry.data.post_id,
+    },
+  }));
+}
+---
+
+<BlogPostLayout blogPost={entry}>
+  <h1>{entry?.data.title}</h1>
+</BlogPostLayout>
