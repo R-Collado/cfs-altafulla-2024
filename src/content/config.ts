@@ -15,6 +15,8 @@ const blogCollection = defineCollection({
       authorImg: image().refine((img) => img.width >= 20, {
         message: "Author image must be at least 200 pixels wide!",
       }),
+      summary: z.string(),
+      post_id: z.string(),
       image: z.string().optional(),
       date: z.string().optional(),
     }),

@@ -6,7 +6,7 @@ summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmo
 author: "Roger Collado"
 authorImg: "/images/roger-img.png"
 date: "07 agost 2024 - 16:05"
-post_id: "nueva-victoria"
+post_id: "123"
 ---
 
 _Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis commodo consequat._
