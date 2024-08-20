@@ -9,6 +9,7 @@ export const showDefaultLang = false;
 
 export const ui = {
   ca: {
+    "blog.readMore": "Llegir més",
     "nav.news": "Notícies",
     "nav.players": "Jugadors",
     "nav.sponsors": "Patrocinadors",
@@ -16,6 +17,7 @@ export const ui = {
     "utils.close": "Tancar",
   },
   en: {
+    "blog.readMore": "Read more",
     "nav.news": "News",
     "nav.players": "Players",
     "nav.sponsors": "Sponsors",
@@ -23,6 +25,7 @@ export const ui = {
     "utils.close": "Close",
   },
   es: {
+    "blog.readMore": "Leer más",
     "nav.news": "Noticias",
     "nav.players": "Jugadores",
     "nav.sponsors": "Patrocinadores",
