@@ -1,10 +1,16 @@
 ---
 import Layout from "/layouts/Layout.astro";
-import { getLangFromUrl, useTranslations } from "/i18n/utils";
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from "/i18n/utils";
 import BlogPostPreview from "/components/BlogPostPreview.astro";
 import { getCollection } from "astro:content";
+import FirstBlogPostPreview from "/components/FirstBlogPostPreview.astro";
 
 const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
 const t = useTranslations(lang);
 
 const blogEntries = await getCollection("blog");
@@ -12,7 +18,17 @@ const blogEntries = await getCollection("blog");
 
 <Layout title={t("nav.news")}>
   <section class="blog-posts">
-    {blogEntries.map((entry) => <BlogPostPreview blogPostData={entry.data} />)}
+    {
+      blogEntries.map((entry, idx) => {
+        if (idx === 0) {
+          console.log(entry.data);
+
+          return <FirstBlogPostPreview blogPostData={entry.data} />;
+        } else {
+          return <BlogPostPreview blogPostData={entry.data} />;
+        }
+      })
+    }
   </section>
 </Layout>
 
@@ -23,14 +39,14 @@ const blogEntries = await getCollection("blog");
     justify-content: center;
     padding: 5rem 5rem;
     max-width: 100vw;
-    column-gap: 2rem;
+    column-gap: 1rem;
     row-gap: 10rem;
   }
 
   @media (min-width: 768px) {
     .blog-posts {
-      padding: 5rem 16.25rem;
-      justify-content: start;
+      /* padding: 5rem 16.25rem; */
+      justify-content: center;
     }
   }
 </style>

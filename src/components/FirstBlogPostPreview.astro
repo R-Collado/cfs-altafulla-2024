@@ -60,7 +60,6 @@ const t = useTranslations(lang);
     max-height: 12.5rem;
     overflow: hidden;
   }
-
   .blog-post-preview__image-wrapper img {
     width: 100%;
   }
@@ -107,5 +106,45 @@ const t = useTranslations(lang);
     display: inline-block;
     border: 0;
     background-color: transparent;
+  }
+
+  @media (min-width: 1000px) {
+    .blog-post-preview {
+      width: 80%;
+      max-width: none;
+      position: relative;
+      max-height: none;
+      padding: 2.5rem 2.5rem;
+      height: 31.25rem;
+      cursor: pointer;
+      margin-bottom: -5rem;
+    }
+
+    .blog-post-preview__image-wrapper {
+      max-width: 100%;
+      position: absolute;
+      inset: 0;
+      max-height: none;
+      height: 100%;
+    }
+
+    .blog-post-preview__image-wrapper img {
+      width: 100%;
+    }
+
+    .blog-post-preview__main {
+      max-width: 20rem;
+      height: 100%;
+      transform: translate3d(0, 0, 0);
+      padding: 1.25rem;
+    }
+
+    .blog-post-preview__title {
+      font-size: 1.5rem;
+    }
+
+    .blog-post-preview__button {
+      display: none;
+    }
   }
 </style>
