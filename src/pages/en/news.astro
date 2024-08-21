@@ -21,8 +21,6 @@ const blogEntries = await getCollection("blog");
     {
       blogEntries.map((entry, idx) => {
         if (idx === 0) {
-          console.log(entry.data);
-
           return <FirstBlogPostPreview blogPostData={entry.data} />;
         } else {
           return <BlogPostPreview blogPostData={entry.data} />;
