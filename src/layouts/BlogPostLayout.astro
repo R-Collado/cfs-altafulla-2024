@@ -19,9 +19,11 @@ const { Content } = await blogPost.render();
   <body>
     <PrimaryNav />
     <article class="blog-post">
-      <img class="blog-post__img" src={blogPost.data.cover.src} />
-      <div class="blog-post__container">
+      <header class="blog-post__header">
+        <img class="blog-post__img" src={blogPost.data.cover.src} />
         <h3 class="blog-post__heading">{blogPost.data.title}</h3>
+      </header>
+      <div class="blog-post__container">
         <div class="blog-post__body">
           <Content />
           <hr />
@@ -41,22 +43,35 @@ const { Content } = await blogPost.render();
 <style>
   .blog-post__container {
     padding-inline: 2rem;
-    padding-top: 1rem;
+  }
+
+  .blog-post__header {
+    position: relative;
+    z-index: 1;
+    max-height: 30rem;
+    overflow: hidden;
   }
 
   .blog-post__img {
     width: 100%;
     height: auto;
-    position: absolute;
+    object-fit: cover;
+    object-position: center;
   }
 
   .blog-post__heading {
-    font-size: 4rem;
+    font-size: 1.5rem;
     color: var(--bg-color);
-    position: relative;
     z-index: 2;
     text-align: center;
-    margin-block: 20rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    @media (min-width: 450px) {
+      font-size: 2rem;
+    }
   }
 
   .blog-post__heading::before {
@@ -75,7 +90,7 @@ const { Content } = await blogPost.render();
     font-size: 1.25rem;
     position: relative;
     z-index: 2;
-    margin: 24rem auto;
+    margin: 0 auto;
     max-width: 60ch;
     padding-top: 1rem;
     text-align: justify;
