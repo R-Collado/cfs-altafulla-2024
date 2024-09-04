@@ -1,9 +1,100 @@
 ---
-import { getLangFromUrl, useTranslations } from "/i18n/utils";
+import PlayerCard from "/components/PlayerCard.astro";
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from "/i18n/utils";
 import Layout from "/layouts/Layout.astro";
+import { keepersList, playersList } from "/configs/players.ts";
+import PlayersSection from "/components/PlayersSection.astro";
 
 const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
 const t = useTranslations(lang);
+const roles = ["keeper", "defender", "wing", "pivot"];
 ---
 
-<Layout title={t("nav.players")} />
+<Layout title={t("nav.players")}>
+  <header>
+    <ul class="player-roles-links">
+      <li>
+        <a href="#keepers">Porteros</a>
+      </li>
+      <li>
+        <a href="#defenders">Cierres</a>
+      </li>
+      <li>
+        <a href="#wings">Alas</a>
+      </li>
+      <li>
+        <a href="#pivots">Pivot</a>
+      </li>
+    </ul>
+  </header>
+  <main>
+    {
+      roles.map((role) => {
+        if (role === "keeper") {
+          return <PlayersSection playersList={keepersList} role={role} />;
+        }
+        return;
+        <a href="">
+          <PlayersSection playersList={playersList} role={role} />;
+        </a>;
+      })
+    }
+  </main>
+</Layout>
+
+<style>
+  body {
+    scroll-behavior: smooth;
+  }
+
+  header {
+    padding-top: 10rem;
+  }
+
+  .player-roles-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+  }
+
+  .player-roles-links li {
+    margin: 0 1rem;
+  }
+
+  .player-roles-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    border: 1px solid var(--secondary-color);
+    background-color: #e0e0e0;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  .player-roles-link a:hover {
+    text-decoration: underline;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  section {
+    padding: 1rem;
+    padding-top: 1rem;
+  }
+
+  h2 {
+    margin: 0 auto;
+    width: max-content;
+  }
+</style>

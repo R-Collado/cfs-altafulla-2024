@@ -7,13 +7,27 @@ export const language = {
 export const defaultLanguage = "es";
 export const showDefaultLang = false;
 
-export const ui = {
+export const ui: { [key: string]: { [key: string]: string } } = {
   ca: {
     "blog.readMore": "Llegir més",
     "nav.news": "Notícies",
     "nav.players": "Jugadors",
     "nav.sponsors": "Patrocinadors",
     "nav.contact": "Contacte",
+    "roles.keeper": "Porter",
+    "roles.defender": "Tanca",
+    "roles.wing": "Ala",
+    "roles.pivot": "Pivot",
+    "roles.plural.keeper": "Porters",
+    "roles.plural.defender": "Tanques",
+    "roles.plural.wing": "Ales",
+    "roles.plural.pivot": "Pivots",
+    "stats.matches": "Partits",
+    "stats.goals": "Gols",
+    "stats.assists": "Assistències",
+    "stats.clean_sheets": "Porteria a 0",
+    "stats.saves": "Parades",
+    "stats.season": "Temporada",
     "utils.close": "Tancar",
   },
   en: {
@@ -22,6 +36,20 @@ export const ui = {
     "nav.players": "Players",
     "nav.sponsors": "Sponsors",
     "nav.contact": "Contact",
+    "roles.keeper": "Keeper",
+    "roles.defender": "Defender",
+    "roles.wing": "Wing",
+    "roles.pivot": "Pivot",
+    "roles.plural.keeper": "Keepers",
+    "roles.plural.defender": "Defenders",
+    "roles.plural.wing": "Wings",
+    "roles.plural.pivot": "Pivots",
+    "stats.matches": "Matches",
+    "stats.goals": "Goals",
+    "stats.assists": "Assists",
+    "stats.clean_sheets": "Clean sheets",
+    "stats.season": "Season",
+    "stats.saves": "Saves",
     "utils.close": "Close",
   },
   es: {
@@ -30,6 +58,24 @@ export const ui = {
     "nav.players": "Jugadores",
     "nav.sponsors": "Patrocinadores",
     "nav.contact": "Contacto",
+    "roles.keeper": "Portero",
+    "roles.defender": "Cierre",
+    "roles.wing": "Ala",
+    "roles.pivot": "Pívot",
+    "roles.plural.keeper": "Porteros",
+    "roles.plural.defender": "Cierres",
+    "roles.plural.wing": "Alas",
+    "roles.plural.pivot": "Pívots",
+    "stats.matches": "Partidos",
+    "stats.goals": "Goles",
+    "stats.assists": "Asistencias",
+    "stats.clean_sheets": "Portería a 0",
+    "stats.season": "Temporada",
+    "stats.saves": "Paradas",
     "utils.close": "Cerrar",
   },
-} as const;
+};
+
+export function getTranslation(language: string, key: string): string {
+  return ui[language][key];
+}
