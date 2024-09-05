@@ -1,18 +1,21 @@
 ---
-import PlayerCard from "/components/PlayerCard.astro";
 import {
   getLangFromUrl,
   useTranslatedPath,
   useTranslations,
 } from "/i18n/utils";
-import Layout from "/layouts/Layout.astro";
-import { keepersList, playersList } from "/configs/players.ts";
-import PlayersSection from "/components/PlayersSection.astro";
+import Layout from "@/layouts/Layout.astro";
+import { keepersList, playersList } from "@/configs/players.ts";
+import PlayersSection from "@/components/PlayersSection.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
 const t = useTranslations(lang);
+
 const roles = ["keeper", "defender", "wing", "pivot"];
+
+console.log(playersList);
+console.log(roles);
 ---
 
 <Layout title={t("nav.players")}>
@@ -38,10 +41,7 @@ const roles = ["keeper", "defender", "wing", "pivot"];
         if (role === "keeper") {
           return <PlayersSection playersList={keepersList} role={role} />;
         }
-        return;
-        <a href="">
-          <PlayersSection playersList={playersList} role={role} />;
-        </a>;
+        return <PlayersSection playersList={playersList} role={role} />;
       })
     }
   </main>

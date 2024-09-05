@@ -7,7 +7,7 @@ import playerBg2 from "@/images/player-background-wing.svg";
 import playerBg3 from "@/images/player-img-background-3.webp";
 import playerBg4 from "@/images/player-background-pivot.svg";
 
-import type { FieldPlayer } from "../types/player";
+import type { Keeper } from "../types/player";
 import {
   getLangFromUrl,
   useTranslatedPath,
@@ -17,70 +17,58 @@ import {
 const images: ImageMetadata[] = [playerBg1, playerBg2, playerBg3, playerBg4];
 
 const lang = getLangFromUrl(Astro.url);
-// const translatePath = useTranslatedPath(lang);
+const translatePath = useTranslatedPath(lang);
 const t = useTranslations(lang);
 
 interface PlayerCardProps {
-  player: FieldPlayer;
-  roleTranslation: string;
+  player: Keeper;
 }
 
-const { player, roleTranslation }: PlayerCardProps =
-  Astro.props as PlayerCardProps;
-
-const playerNumberStr = player.number.toString();
+const { player }: PlayerCardProps = Astro.props as PlayerCardProps;
 ---
 
 <div class="player-card" id=`${player.number}-card`>
-  <a href=`/players/${playerNumberStr}`>
-    <div class="player-card__img-wrapper">
-      <img
-        class="player-card__img__bg"
-        src={images[player.background - 1].src}
-      />
-      <img class="player-card__img first" src={playerImgTest.src} />
-      <img class="player-card__img hover" src={playerImgChangerTest.src} />
-    </div>
-    <main class="player-card__info">
-      <p>
-        <span class="player-number">{player.number}</span>
-        <span class="player-name">{player.name}</span>
-      </p>
-      <p class="player-position">{roleTranslation}</p>
-    </main>
-    <p class="player-nickname-bg">
-      <span class="player-nickname">{player.nickname || player.name}</span>
+  <div class="player-card__img-wrapper">
+    <img class="player-card__img__bg" src={images[player.background - 1].src} />
+    <img class="player-card__img first" src={playerImgTest.src} />
+    <img class="player-card__img hover" src={playerImgChangerTest.src} />
+  </div>
+  <main class="player-card__info">
+    <p>
+      <span class="player-number">{player.number}</span>
+      <span class="player-name">{player.name}</span>
     </p>
-    <section class="player-stats">
-      <div class="total-stats">
-        <div class="stat matches">
-          <p class="stat-name">{t("stats.matches")}</p>
-          <p class="stat-amount">{player.total_stats.matches}</p>
-        </div>
-        <div class="stat goals">
-          <p class="stat-name">{t("stats.goals")}</p>
-          <p class="stat-amount">{player.total_stats.goals}</p>
-        </div>
-        <div class="stat assists">
-          <p class="stat-name">{t("stats.assists")}</p>
-          <p class="stat-amount">21</p>
-        </div>
+    <p class="player-position">{player.role}</p>
+  </main>
+  <p class="player-nickname-bg">
+    <span class="player-nickname">{player.nickname || player.name}</span>
+  </p>
+  <section class="player-stats">
+    <div class="total-stats">
+      <div class="stat matches">
+        <p class="stat-name">{t("stats.matches")}</p>
+        <p class="stat-amount">{player.total_stats.matches}</p>
       </div>
-      <div class="actual-season">
-        <p class="actual-season-header">{t("stats.season")} 2024-2025</p>
-        <div class="actual-season-stats">
-          <p class="actual-matches">{player.season_stats.matches}</p>
-          <p class="actual-goals">{player.season_stats.goals}</p>
-          <p class="actual-assists">{player.season_stats.assists}</p>
-        </div>
+      <div class="stat goals">
+        <p class="stat-name">{t("stats.clean_sheets")}</p>
+        <p class="stat-amount">{player.total_stats.clean_sheets}</p>
       </div>
-    </section>
-  </a>
-  <style>
-    a {
-      color: var(--bg-color);
-    }
+      <div class="stat assists">
+        <p class="stat-name">{t("stats.saves")}</p>
+        <p class="stat-amount">{player.total_stats.saves}</p>
+      </div>
+    </div>
+    <div class="actual-season">
+      <p class="actual-season-header">{t("stats.season")} 2024-2025</p>
+      <div class="actual-season-stats">
+        <p class="actual-matches">{player.season_stats.matches}</p>
+        <p class="actual-goals">{player.season_stats.clean_sheets}</p>
+        <p class="actual-assists">{player.season_stats.saves}</p>
+      </div>
+    </div>
+  </section>
 
+  <style>
     .player-card {
       aspect-ratio: 1 / 1;
       color: var(--bg-color);
@@ -139,14 +127,12 @@ const playerNumberStr = player.number.toString();
       transform: translate3d(-50%, 0, 0);
       z-index: 10;
       font-size: 1.5625rem;
-      width: max-content;
     }
 
     .player-number,
     .player-name {
       display: inline-block;
       font-weight: 800;
-      max-width: max-content;
     }
 
     .player-nickname-bg {
@@ -192,15 +178,6 @@ const playerNumberStr = player.number.toString();
       transform: translate3d(-50%, 0, 0);
       z-index: 10;
       opacity: 0;
-    }
-
-    .stat.goals,
-    .stat.matches {
-      transform: translate(30%, 0);
-    }
-
-    .stat.assists {
-      transform: translate(5%, 0);
     }
 
     .stat-name {
@@ -333,7 +310,9 @@ const playerNumberStr = player.number.toString();
 
       card.addEventListener("mouseleave", () => {
         timeline.reverse();
-        imageTimeline.reverse();
+        setTimeout(() => {
+          imageTimeline.reverse();
+        }, 0.2);
       });
     });
   </script>

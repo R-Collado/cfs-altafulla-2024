@@ -1,9 +1,9 @@
 ---
 import { getCollection, getEntry } from "astro:content";
-import type { BlogPost } from "/types/blogPost";
-import BlogPostLayout from "/layouts/BlogPostLayout.astro";
-import PrimaryNav from "/components/PrimaryNav.astro";
-import Layout from "/layouts/Layout.astro";
+import type { BlogPost } from "@/types/blogPost";
+import BlogPostLayout from "@/layouts/BlogPostLayout.astro";
+import PrimaryNav from "@/components/PrimaryNav.astro";
+import Layout from "@/layouts/Layout.astro";
 
 const blogPost: BlogPost = await getEntry("blog", "post-1");
 ---

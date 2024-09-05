@@ -6,7 +6,7 @@ import {
   useTranslatedPath,
 } from "/i18n/utils";
 
-import logo from "/images/logo.svg";
+import logo from "@/images/logo.svg";
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
@@ -62,7 +62,7 @@ const t = useTranslations(lang);
     padding: 1rem 2.5rem;
     background-color: var(--secondary-color);
     color: var(--bg-color);
-    z-index: 100;
+    z-index: 1000;
     position: fixed;
     top: 0;
     width: 100vw;

@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import PlayerDetailsLayout from "@/layouts/PlayerDetailsLayout.astro";
+import { playersList } from "@/configs/players";
+
+const { player_number } = Astro.params;
+const playersEntries = await getCollection("players");
+
+const player = playersList.find(
+  (player) => player.number.toString() === player_number,
+);
+
+const playerContent = playersEntries.find(
+  (player) => player.data.number === player_number,
+);
+
+export async function getStaticPaths() {
+  const playersEntries = await getCollection("players");
+
+  return playersEntries.map((player) => ({
+    params: {
+      player_number: player.data.number,
+    },
+  }));
+}
+---
+
+<PlayerDetailsLayout player={player} playerContent={playerContent}>
+  <h1>1</h1>
+</PlayerDetailsLayout>

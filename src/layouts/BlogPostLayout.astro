@@ -1,5 +1,5 @@
 ---
-import PrimaryNav from "/components/PrimaryNav.astro";
+import PrimaryNav from "@/components/PrimaryNav.astro";
 import "/styles/global.css";
 
 const { blogPost } = Astro.props;
@@ -88,7 +88,7 @@ const { Content } = await blogPost.render();
   }
 
   .blog-post__body {
-    font-size: 1.25rem;
+    font-size: 1rem;
     position: relative;
     z-index: 2;
     margin: 0 auto;

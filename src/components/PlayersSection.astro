@@ -1,0 +1,62 @@
+---
+import KeeperCard from "./KeeperCard.astro";
+import PlayerCard from "./PlayerCard.astro";
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from "/i18n/utils";
+import type { FieldPlayer, Keeper } from "@/types/player";
+
+const { playersList, role } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+const t = useTranslations(lang);
+
+let rolePlayers;
+let roleTranslation;
+
+if (role === "keeper") {
+  roleTranslation = "roles.plural.keeper";
+  rolePlayers = playersList;
+} else {
+  roleTranslation = `roles.plural.${role}`;
+  rolePlayers = playersList.filter(
+    (player: FieldPlayer) => player.role === role,
+  );
+}
+---
+
+<section id={`${role}s`}>
+  <h2 class="role-heading">{t(roleTranslation)}</h2>
+  <ul class="players-list">
+    {
+      rolePlayers.map((player: FieldPlayer | Keeper) => (
+        <li>
+          {player.role === "keeper" ? (
+            <KeeperCard player={player} />
+          ) : (
+            <PlayerCard player={player} roleTranslation={t(`roles.${role}`)} />
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .role-heading {
+    margin: 0 auto;
+    width: max-content;
+    margin-bottom: 5rem;
+    margin-top: 2.5rem;
+  }
+
+  .players-list {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+</style>

@@ -1,0 +1,30 @@
+---
+import HeaderPostCard from "./HeaderPostCard.astro";
+
+import postTestImg from "@/images/post-test-img.png";
+---
+
+<section class="header-post-cards">
+  <HeaderPostCard
+    postTitle="Os presentamos nuestra camiseta para la nueva temporada"
+    img={postTestImg.src}
+    isLatestPost="false"
+  />
+  <HeaderPostCard
+    postTitle="Hemos ganado el segundo partido de la liga"
+    img={postTestImg.src}
+    isLatestPost="true"
+  />
+  <HeaderPostCard
+    postTitle="Os presentamos nuestra camiseta para la nueva temporada"
+    img={postTestImg.src}
+    isLatestPost="false"
+  />
+</section>
+
+<style>
+  .header-post-cards {
+    display: flex;
+    gap: 2.5rem;
+  }
+</style>

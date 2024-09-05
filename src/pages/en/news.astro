@@ -1,13 +1,13 @@
 ---
-import Layout from "/layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
 import {
   getLangFromUrl,
   useTranslatedPath,
   useTranslations,
 } from "/i18n/utils";
-import BlogPostPreview from "/components/BlogPostPreview.astro";
+import BlogPostPreview from "@/components/BlogPostPreview.astro";
 import { getCollection } from "astro:content";
-import FirstBlogPostPreview from "/components/FirstBlogPostPreview.astro";
+import FirstBlogPostPreview from "@/components/FirstBlogPostPreview.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);

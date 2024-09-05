@@ -1,10 +1,10 @@
 ---
-import SpanishFlag from "/images/flags/spanish-flag.png";
-import CatalanFlag from "/images/flags/catalan-flag.png";
-import EnglishFlag from "/images/flags/english-flag.png";
+import SpanishFlag from "@/images/flags/spanish-flag.png";
+import CatalanFlag from "@/images/flags/catalan-flag.png";
+import EnglishFlag from "@/images/flags/english-flag.png";
 import { getLangFromUrl, useTranslatedPath } from "/i18n/utils";
 import { getActualComponentRoute } from "/utils/components";
-import chevron from "/svgs/chevron.svg";
+import chevron from "@/svgs/chevron.svg";
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);

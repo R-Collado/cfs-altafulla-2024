@@ -1,0 +1,248 @@
+---
+import PrimaryNav from "@/components/PrimaryNav.astro";
+import "/styles/global.css";
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from "/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const { player, playerContent } = Astro.props;
+const { Content } = await playerContent.render();
+
+---
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{`${player.name} ${player.first_surname}`}</title>
+  </head>
+  <body>
+    <PrimaryNav />
+    <main class="main">
+      <header>
+        <div class="header-container flex">
+          <p class="nickname">{player.nickname || player.name}</p>
+          <div class="image-container">
+            <img src={player.img} alt="" />
+          </div>
+          <div class="player-info-container">
+            <p class="player-role">{t(`roles.${player.role}`)}</p>
+            <div class="flex">
+              <p class="player-number">{player.number}</p>
+              <p class="player-name">
+                {player.name}
+                <span class="player-surname"> {player.first_surname}</span>
+              </p>
+            </div>
+            <div class="player-stats">
+              <div class="matches stat-container">
+                <p class="stat-header">{t("stats.matches")}</p>
+                <p class="stat">{player.total_stats.matches}</p>
+                <p class="actual-season-header">Temporada actual</p>
+                <p class="stat actual-season">{player.season_stats.matches}</p>
+              </div>
+              <div class="goals stat-container">
+                <p class="stat-header">{t("stats.goals")}</p>
+                <p class="stat">{player.total_stats.goals}</p>
+                <p class="actual-season-header">Temporada actual</p>
+                <p class="stat actual-season">{player.season_stats.goals}</p>
+              </div>
+              <div class="assists stat-container">
+                <p class="stat-header">{t("stats.assists")}</p>
+                <p class="stat">{player.total_stats.assists}</p>
+                <p class="actual-season-header">Temporada actual</p>
+                <p class="stat actual-season">{player.season_stats.assists}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <button id="biography-opener">open biografia</button>
+      <aside class="biography">
+        <div class="overlay"></div>
+        <div class="content">
+          <Content />
+        </div>
+      </aside>
+    </main>
+  </body>
+</html>
+
+<style>
+  .flex {
+    display: flex;
+  }
+
+  .header-container {
+    flex-direction: column;
+    padding-top: 2rem;
+    background: var(--bg-color);
+    color: var(--bg-color);
+    position: relative;
+  }
+
+  .nickname {
+    font-size: 7rem;
+    text-align: center;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 900;
+    background-image: linear-gradient(
+      180deg,
+      var(--bg-color),
+      hsla(0, 0%, 100%, 0.1)
+    );
+    background-clip: text;
+    color: transparent;
+  }
+
+  .image-container {
+    width: 100%;
+    padding-top: 5rem;
+    position: relative;
+    background-image: linear-gradient(
+      to right,
+      hsla(0, 0%, 0%, 1),
+      hsla(0, 0%, 0%, 0.6)
+    );
+    display: flex;
+    justify-content: center;
+  }
+
+  .image-container img {
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+  }
+
+  .player-info-container {
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem;
+  }
+
+  .player-role {
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .player-number,
+  .player-role {
+    opacity: 0.8;
+  }
+
+  .player-number,
+  .player-name {
+    font-size: 1.25rem;
+    font-weight: 400;
+  }
+
+  .player-name {
+    margin-left: 0.5rem;
+  }
+
+  .player-surname {
+    font-weight: 600;
+  }
+
+  .player-stats {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .player-stats .stat {
+    color: var(--primary-color);
+  }
+
+  .stat-container {
+    text-align: center;
+  }
+
+  .stat-header {
+    text-transform: uppercase;+
+    font-size: .5rem;
+    margin-block: .5rem;
+  }
+
+  .stat {
+    font-size: 1.25rem;
+  }
+
+  .actual-season-header {
+    font-size: .6rem;
+    opacity: .8;
+    margin-block: .5rem;
+  }
+
+  .stat.actual-season {
+    font-size: 1rem;
+  }
+
+  .biography {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 20;
+    opacity: 0;
+  }
+
+  .biography .content {
+    position: absolute;
+    max-width: 50vw;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: var(--bg-color);
+    z-index: 1;
+  }
+
+  .biography .overlay {
+    content: '';
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    transform: translateX(-50%);
+    inset: 0;
+    background-color: hsla(0, 0%, 0%, 0.3);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .biography.open {
+    opacity: 1;
+    z-index: 1000;
+
+    &::before {
+      pointer-events: all;
+    }
+  }
+</style>
+
+
+<script>
+
+  const biographyOpener = document.getElementById("biography-opener") as HTMLButtonElement;
+  const biography = document.querySelector(".biography") as HTMLElement;
+  const biographyContent = document.querySelector(".biography .content") as HTMLElement;
+  
+
+</script>
