@@ -1,7 +1,5 @@
 ---
-const { isLatestPost, postTitle, img, pageTitle } = Astro.props;
-
-isLatestPost: isLatestPost.toString();
+const { isLatestPost, postTitle, img } = Astro.props;
 ---
 
 <article class="header-post-card" data-latest-post={isLatestPost}>

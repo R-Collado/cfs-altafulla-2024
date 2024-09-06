@@ -1,17 +1,10 @@
 ---
 import SideDialog from "./SideDialog.astro";
 
-import playerBg1 from "@/images/player-background-keeper.svg";
-import playerBg2 from "@/images/player-background-wing.svg";
-import playerBg3 from "@/images/player-img-background-3.webp";
-import playerBg4 from "@/images/player-background-pivot.svg";
-
 import playerLayoutTest from "@/images/player-layout-test.webp";
 
 const { player, playerContent } = Astro.props;
 const { Content } = await playerContent.render();
-
-const images: ImageMetadata[] = [playerBg1, playerBg2, playerBg3, playerBg4];
 ---
 
 <section class="player-biography">

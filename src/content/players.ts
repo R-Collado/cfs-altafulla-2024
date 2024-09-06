@@ -2,9 +2,9 @@
 import { z, defineCollection } from "astro:content";
 
 // 2. Define a `type` and `schema` for each collection
-const playersCollection = defineCollection({
+export const playersCollection = defineCollection({
   type: "content", // v2.5.0 and later
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
       name: z.string(),
       surname: z.string(),
@@ -12,8 +12,8 @@ const playersCollection = defineCollection({
     }),
 });
 
-// 3. Export a single `collections` object to register your collection(s)
-//    This key should match your collection directory name in "src/content"
+// // 3. Export a single `collections` object to register your collection(s)
+// // //    This key should match your collection directory name in "src/content"
 export const collections = {
   players: playersCollection,
 };
