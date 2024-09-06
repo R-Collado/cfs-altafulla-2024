@@ -9,13 +9,9 @@ import { keepersList, playersList } from "@/configs/players.ts";
 import PlayersSection from "@/components/PlayersSection.astro";
 
 const lang = getLangFromUrl(Astro.url);
-const translatePath = useTranslatedPath(lang);
 const t = useTranslations(lang);
 
 const roles = ["keeper", "defender", "wing", "pivot"];
-
-console.log(playersList);
-console.log(roles);
 ---
 
 <Layout title={t("nav.players")}>
