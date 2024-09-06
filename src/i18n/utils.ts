@@ -32,7 +32,7 @@ export function useTranslations(lang: keyof typeof ui) {
 }
 
 export function useTranslatedPath(lang: keyof typeof ui) {
-  return function translatePath(path: string, l: string = lang) {
+  return function translatePath(path: string, l: string | number = lang) {
     return !showDefaultLang && l === defaultLanguage ? path : `/${l}${path}`;
   };
 }

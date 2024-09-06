@@ -3,7 +3,7 @@ export interface Player {
   first_surname: string;
   second_surname: string | undefined;
   nickname: string;
-  number: number;
+  number: string;
   img: string;
   background: number;
   age: number;
