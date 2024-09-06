@@ -1,18 +1,13 @@
 ---
 import PrimaryNav from "@/components/PrimaryNav.astro";
-import "/styles/global.css";
-import {
-  getLangFromUrl,
-  useTranslatedPath,
-  useTranslations,
-} from "/i18n/utils";
+import "@/styles/global.css";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import PlayerBiography from "@/components/PlayerBiography.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const { player, playerContent } = Astro.props;
-const { Content } = await playerContent.render();
-
 ---
 
 <html>
@@ -65,16 +60,21 @@ const { Content } = await playerContent.render();
           </div>
         </div>
       </header>
-      <button id="biography-opener">open biografia</button>
-      <aside class="biography">
-        <div class="overlay"></div>
-        <div class="content">
-          <Content />
-        </div>
-      </aside>
+      <PlayerBiography player={player} playerContent={playerContent} />
     </main>
   </body>
 </html>
+
+<script>
+  const dialog = document.querySelector("dialog") as HTMLDialogElement;
+  const biographyOpener = document.querySelector(
+    "#biography-opener",
+  ) as HTMLButtonElement;
+
+  biographyOpener.onclick = () => {
+    dialog.show();
+  };
+</script>
 
 <style>
   .flex {
@@ -175,9 +175,9 @@ const { Content } = await playerContent.render();
   }
 
   .stat-header {
-    text-transform: uppercase;+
-    font-size: .5rem;
-    margin-block: .5rem;
+    text-transform: uppercase;
+    font-size: 0.5rem;
+    margin-block: 0.5rem;
   }
 
   .stat {
@@ -185,9 +185,9 @@ const { Content } = await playerContent.render();
   }
 
   .actual-season-header {
-    font-size: .6rem;
-    opacity: .8;
-    margin-block: .5rem;
+    font-size: 0.6rem;
+    opacity: 0.8;
+    margin-block: 0.5rem;
   }
 
   .stat.actual-season {
@@ -216,7 +216,7 @@ const { Content } = await playerContent.render();
   }
 
   .biography .overlay {
-    content: '';
+    content: "";
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -237,12 +237,12 @@ const { Content } = await playerContent.render();
   }
 </style>
 
-
 <script>
-
-  const biographyOpener = document.getElementById("biography-opener") as HTMLButtonElement;
+  const biographyOpener = document.getElementById(
+    "biography-opener",
+  ) as HTMLButtonElement;
   const biography = document.querySelector(".biography") as HTMLElement;
-  const biographyContent = document.querySelector(".biography .content") as HTMLElement;
-  
-
+  const biographyContent = document.querySelector(
+    ".biography .content",
+  ) as HTMLElement;
 </script>

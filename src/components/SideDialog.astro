@@ -1,0 +1,91 @@
+---
+import type { FieldPlayer, Keeper } from "@/types/player";
+
+interface Props {
+  isOpen: boolean;
+  player: FieldPlayer | Keeper;
+}
+
+const { isOpen, player } = Astro.props;
+---
+
+<dialog open={isOpen}>
+  <aside>
+    <div class="text">
+      <h2 class="biography-header">
+        {`${player.name} ${player.first_surname}`}
+      </h2>
+      <main>
+        <slot />
+      </main>
+    </div>
+  </aside>
+</dialog>
+
+<style>
+  dialog {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: hsla(0, 0%, 0%, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border: 0;
+  }
+
+  aside {
+    background-color: var(--bg-color);
+    height: 100%;
+    padding: 1rem 2rem;
+    max-width: 48.125rem;
+    margin-left: auto;
+    pointer-events: none;
+    animation: fadeIn 0.75s;
+  }
+
+  .text {
+    max-width: 41.75rem;
+    margin: 0 auto;
+  }
+
+  .biography-header {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 1s;
+  }
+
+  main {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #222;
+    animation: fadeIn 1.25s;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(50%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>
+
+<script>
+  const biographyParagraphs = document.querySelectorAll("dialog aside p");
+  const dialog = document.querySelector("dialog") as HTMLDialogElement;
+
+  setTimeout(() => {
+    biographyParagraphs.forEach((p: any) => {
+      p.style.marginBlock = "2rem";
+    }, 1);
+  });
+
+  dialog.onclick = () => {
+    dialog.close();
+  };
+</script>
