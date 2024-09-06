@@ -5,12 +5,12 @@ import BlogPostLayout from "@/layouts/BlogPostLayout.astro";
 const { post_id } = Astro.params;
 
 const blogEntries = await getCollection("blog");
-const entry = blogEntries.find((entry) => entry.data.post_id === post_id);
+const entry = blogEntries.find((entry: any) => entry.data.post_id === post_id);
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
 
-  return blogEntries.map((entry) => ({
+  return blogEntries.map((entry: any) => ({
     params: {
       post_id: entry.data.post_id,
     },

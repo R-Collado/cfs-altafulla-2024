@@ -1,12 +1,13 @@
 ---
 title: "¡Nueva victoria del equipo tras un duro partido!"
 tags: ["primer equipo"]
-cover: "./post-test-img.png"
+cover: "/images/post-test-img.png"
 summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod t.."
 author: "Roger Collado"
 authorImg: "/images/roger-img.png"
 date: "07 agost 2024 - 16:05"
 post_id: "nueva-victoria"
+id: 0
 ---
 
 _Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis commodo consequat._

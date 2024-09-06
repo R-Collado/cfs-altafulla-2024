@@ -4,9 +4,10 @@ tags: ["primer equipo"]
 cover: "./post-test-img.png"
 summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod t.."
 author: "Roger Collado"
-authorImg: "/images/roger-img.png"
+authorImg: "./images/roger-img.png"
 date: "07 agost 2024 - 16:05"
 post_id: "4493"
+id: 3
 ---
 
 _Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis commodo consequat._

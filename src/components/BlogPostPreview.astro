@@ -5,8 +5,8 @@ import {
   useTranslations,
 } from "@/i18n/utils";
 
-const { blogPostData } = Astro.props;
-const { cover, title, tag, date, summary, post_id } = blogPostData;
+const { blogPostData, cover } = Astro.props;
+const { title, tag, date, summary, post_id } = blogPostData;
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);

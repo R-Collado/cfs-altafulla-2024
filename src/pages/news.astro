@@ -5,6 +5,15 @@ import BlogPostPreview from "@/components/BlogPostPreview.astro";
 import { getCollection } from "astro:content";
 import FirstBlogPostPreview from "@/components/FirstBlogPostPreview.astro";
 
+const images = await Astro.glob("/src/assets/images/post-covers/*").then(
+  (files) => {
+    return files.map((file) => file.default);
+  },
+);
+
+const imagesReversed = images.reverse();
+console.log(imagesReversed[3]);
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
@@ -14,11 +23,21 @@ const blogEntries = await getCollection("blog");
 <Layout title={t("nav.news")}>
   <section class="blog-posts">
     {
-      blogEntries.map((entry, idx) => {
+      blogEntries.map((entry: any, idx: number) => {
         if (idx === 0) {
-          return <FirstBlogPostPreview blogPostData={entry.data} />;
+          return (
+            <FirstBlogPostPreview
+              blogPostData={entry.data}
+              cover={imagesReversed[0]}
+            />
+          );
         } else {
-          return <BlogPostPreview blogPostData={entry.data} />;
+          return (
+            <BlogPostPreview
+              blogPostData={entry.data}
+              cover={imagesReversed[idx]}
+            />
+          );
         }
       })
     }

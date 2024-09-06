@@ -1,10 +1,19 @@
 ---
 import PrimaryNav from "@/components/PrimaryNav.astro";
 import "@/styles/global.css";
+import postTestImg from "@/images/post-test-img.png";
 
 const { blogPost } = Astro.props;
 
 const { Content } = await blogPost.render();
+
+const images = await Astro.glob("/src/assets/images/post-covers/*").then(
+  (files) => {
+    return files.map((file) => file.default);
+  },
+);
+
+console.log(images[0]);
 ---
 
 <html>
@@ -20,7 +29,7 @@ const { Content } = await blogPost.render();
     <PrimaryNav />
     <article class="blog-post">
       <header class="blog-post__header">
-        <img class="blog-post__img" src={blogPost.data.cover.src} />
+        <img class="blog-post__img" src={images[blogPost.data.id].src} />
         <h3 class="blog-post__heading">{blogPost.data.title}</h3>
       </header>
       <div class="blog-post__container">
