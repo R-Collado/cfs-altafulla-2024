@@ -9,10 +9,5 @@ export default defineConfig({
     defaultLocale: "es",
     locales: ["en", "es", "ca"],
   },
-  integrations: [
-    react(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
-  ],
+  integrations: [react()],
 });
