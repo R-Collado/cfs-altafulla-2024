@@ -1,10 +1,16 @@
 ---
+import PlayerBirthInfo from "./PlayerBirthInfo.astro";
 import SideDialog from "./SideDialog.astro";
 
 import playerLayoutTest from "@/images/player-layout-test.webp";
 
 const { player, playerContent } = Astro.props;
 const { Content } = await playerContent.render();
+
+const separatedPlayerContent = playerContent.body.split("\n");
+
+const bioFirstParagraph = separatedPlayerContent[3];
+const bioSecondParagraph = separatedPlayerContent[5];
 ---
 
 <section class="player-biography">
@@ -13,13 +19,10 @@ const { Content } = await playerContent.render();
   </div>
   <section class="player-short-bio">
     <p class="header">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores
-      distinctio repudiandae ea deleniti, minima sequi eveniet aliquid debitis
-      quod.
+      {bioFirstParagraph}
     </p>
     <p class="description">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nobis nihil
-      voluptatum ratione? Accusamus amet ullam cum dicta sequi porro.
+      {bioSecondParagraph}
     </p>
     <button id="biography-opener">Biografía completa</button>
   </section>
@@ -27,11 +30,12 @@ const { Content } = await playerContent.render();
   <SideDialog isOpen={false} player={player}>
     <Content />
   </SideDialog>
+  <PlayerBirthInfo />
 </section>
 
 <style>
   .player-biography {
-    padding: 2rem;
+    padding-top: 2rem;
     display: flex;
     align-items: center;
     flex-direction: column;

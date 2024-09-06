@@ -1,0 +1,36 @@
+---
+const { player } = Astro.props;
+---
+
+<section class="player-birth-info">
+  <p class="heading">Edad</p>
+  <p class="info">22</p>
+  <p class="heading">Lugar de nacimiento</p>
+  <p class="info">Altafulla (España)</p>
+  <p class="heading">Fecha de nacimiento</p>
+  <p class="info">15/09/2000</p>
+</section>
+
+<style>
+  .player-birth-info {
+    background-color: var(--secondary-color);
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2.5rem;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  .heading {
+    color: var(--bg-color);
+    text-transform: uppercase;
+  }
+
+  .info {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+  }
+</style>
