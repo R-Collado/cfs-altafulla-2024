@@ -6,7 +6,7 @@ export function getLangFromUrl(url: URL) {
 }
 
 export function setLangToLocalStorage(lang: keyof typeof ui) {
-  localStorage.setItem("lang", lang);
+  localStorage.setItem("lang", String(lang));
 }
 
 export function getLangFromLocalStorage() {
