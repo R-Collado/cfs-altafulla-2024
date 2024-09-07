@@ -2,8 +2,85 @@
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import Layout from "@/layouts/Layout.astro";
 
+import instagramIcon from "@/svgs/instagram.svg";
+import tiktokIcon from "@/svgs/tiktok.svg";
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<Layout title={t("nav.contact")} />
+<Layout title={t("nav.contact")}>
+  <section id="contact">
+    <h2>Contáctanos</h2>
+    <p>
+      Trataremos de responder a la mayor brevedad posible. Ya sea directamente
+      por correo desde nuestras redes sociales.
+    </p>
+    <a class="mail" href="mailto:info@cfsaltafulla.com">info@cfsaltafulla.com</a
+    >
+    <div class="socials">
+      <img class="social" src={instagramIcon.src} alt="Instagram" />
+      <img class="social" src={tiktokIcon.src} alt="TikTok" />
+    </div>
+    <section class="type-of-contact">
+      <h3>Consultas</h3>
+      <p>
+        Podéis contactarnos en castellano, catalán e inglés sin problema. Para
+        una mayor velocidad de respuesta contactad entre las 8 y las 17. ¡Muchas
+        gracias!
+      </p>
+    </section>
+    <section class="type-of-contact">
+      <h3>Sugerencias</h3>
+      <p>
+        Apreciamos mucho vuestras sugerencias y buscamos llevar el club al mayor
+        nivel posible. Queremos escucharos ya que también formáis parte de él.
+      </p>
+    </section>
+    <section class="type-of-contact">
+      <h3>Patrocinios</h3>
+      <p>
+        Si tenéis interés en patrocinar al club tenemos a vuestra disposición un
+        dossier indicando las diferentes posibilidades.
+      </p>
+    </section>
+  </section>
+</Layout>
+
+<style>
+  #contact {
+    padding-block: 6rem;
+    padding-inline: 2rem;
+  }
+
+  h2 {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+  }
+
+  .mail {
+    color: var(--secondary-color);
+    margin-block: 1rem;
+    display: inline-block;
+    font-size: 1.25remx;
+  }
+
+  .socials {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .type-of-contact {
+    margin-top: 2rem;
+  }
+
+  .type-of-contact h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+</style>
