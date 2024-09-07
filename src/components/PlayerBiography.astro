@@ -2,7 +2,7 @@
 import PlayerBirthInfo from "./PlayerBirthInfo.astro";
 import SideDialog from "./SideDialog.astro";
 
-import playerLayoutTest from "@/images/player-layout-test.webp";
+import playerLayoutTest from "@/images/player-img-test.webp";
 
 const { player, playerContent } = Astro.props;
 const { Content } = await playerContent.render();
@@ -43,14 +43,14 @@ const bioSecondParagraph = separatedPlayerContent[5];
 
   .player-img-wrapper {
     position: relative;
-    max-width: 17.375rem;
-    max-height: 23.4375rem;
+    width: 17.375rem;
+    height: 23.4375rem;
   }
 
   img {
     height: 100%;
     border-radius: 1rem;
-    max-width: 17.375rem;
+    width: 100%;
     z-index: 2;
     position: relative;
   }
