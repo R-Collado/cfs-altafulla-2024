@@ -1,5 +1,5 @@
-import playerTestImg from "@/images/player-img-test.webp";
-import playerTestBiographyLayout from "@/images/post-test-img.png";
+import playerHeroImg from "@/images/player-images/2/hero-img.webp";
+
 import type { FieldPlayer, Keeper, Player } from "@/types/player";
 
 export const keepersList: Keeper[] = [
@@ -13,7 +13,7 @@ export const keepersList: Keeper[] = [
     birth_date: "07/01/1995",
     birth_place: "Lleida",
     number: "1",
-    img: playerTestImg.src,
+    img: playerHeroImg.src,
     background: 1,
     last_teams: [],
     total_stats: {
@@ -38,7 +38,7 @@ export const keepersList: Keeper[] = [
     birth_place: "Altafulla",
     number: "69",
     background: 2,
-    img: playerTestImg.src,
+    img: playerHeroImg.src,
     last_teams: ["Centre Esports Altafulla"],
     total_stats: {
       matches: 0,
@@ -64,7 +64,7 @@ export const playersList: FieldPlayer[] = [
     birth_date: "28/04/1998",
     birth_place: "Altafulla",
     number: "2",
-    img: playerTestImg.src,
+    img: playerHeroImg.src,
     background: 2,
     last_teams: [
       "Club Futbol Sala Altafulla",
@@ -93,7 +93,7 @@ export const playersList: FieldPlayer[] = [
     birth_date: "18/04/2005",
     birth_place: "Altafulla",
     number: "4",
-    img: playerTestImg.src,
+    img: playerHeroImg.src,
     background: 3,
     last_teams: [
       "Club Futbol Sala Altafulla",
@@ -121,7 +121,7 @@ export const playersList: FieldPlayer[] = [
     birth_date: "28/04/1998",
     birth_place: "Morocco",
     number: "5",
-    img: playerTestImg.src,
+    img: playerHeroImg.src,
     background: 4,
     last_teams: [
       "Centre Esports Altafulla",
@@ -149,7 +149,7 @@ export const playersList: FieldPlayer[] = [
     birth_date: "10/05/1984",
     birth_place: "Priego de Córdoba",
     number: "6",
-    img: playerTestImg.src,
+    img: playerHeroImg.src,
     background: 2,
     last_teams: [
       "Boca Futbol Sala Priego",
@@ -177,7 +177,7 @@ export const playersList: FieldPlayer[] = [
     birth_date: "07/05/2002",
     birth_place: "Altafulla",
     number: "9",
-    img: playerTestImg.src,
+    img: playerHeroImg.src,
     background: 1,
     last_teams: ["Gimnastic de Tarragona Futsal", "Salou Futbol Sala"],
     total_stats: {
@@ -201,7 +201,7 @@ export const playersList: FieldPlayer[] = [
     birth_date: "12/07/2004",
     birth_place: "Altafulla",
     number: "10",
-    img: playerTestImg.src,
+    img: playerHeroImg.src,
     background: 4,
     last_teams: [
       "Club Futbol Sala Altafulla",
@@ -229,7 +229,7 @@ export const playersList: FieldPlayer[] = [
     birth_date: "15/04/2003",
     birth_place: "Reus",
     number: "14",
-    img: playerTestImg.src,
+    img: playerHeroImg.src,
     background: 3,
     last_teams: ["Club Futbol Sala El Morell", "Club Futbol Pobla de Mafumet"],
     total_stats: {
@@ -253,7 +253,7 @@ export const playersList: FieldPlayer[] = [
     birth_date: "03/10/1990",
     birth_place: "Argentina",
     number: "12",
-    img: playerTestImg.src,
+    img: playerHeroImg.src,
     background: 4,
     last_teams: ["Salou Futbol Sala"],
     total_stats: {

@@ -2,7 +2,7 @@
 import PlayerBirthInfo from "./PlayerBirthInfo.astro";
 import SideDialog from "./SideDialog.astro";
 
-import playerLayoutTest from "@/images/player-img-test.webp";
+import playerBiographyImg from "@/images/player-images/2/img-biography.webp";
 
 const { player, playerContent } = Astro.props;
 const { Content } = await playerContent.render();
@@ -15,7 +15,7 @@ const bioSecondParagraph = separatedPlayerContent[5];
 
 <section class="player-biography">
   <div class="player-img-wrapper">
-    <img src={playerLayoutTest.src} alt="" />
+    <img src={playerBiographyImg.src} alt="" />
   </div>
   <section class="player-short-bio">
     <p class="header">
@@ -30,7 +30,10 @@ const bioSecondParagraph = separatedPlayerContent[5];
   <SideDialog isOpen={false} player={player}>
     <Content />
   </SideDialog>
-  <PlayerBirthInfo />
+</section>
+
+<section>
+  <PlayerBirthInfo player={player} />
 </section>
 
 <style>
@@ -53,6 +56,7 @@ const bioSecondParagraph = separatedPlayerContent[5];
     width: 100%;
     z-index: 2;
     position: relative;
+    object-fit: cover;
   }
 
   .player-img-wrapper::before,
@@ -124,5 +128,58 @@ const bioSecondParagraph = separatedPlayerContent[5];
 
   #biography-opener:hover {
     text-decoration: underline;
+  }
+
+  @media (min-width: 768px) {
+    .player-img-wrapper {
+      width: 20rem;
+      height: 27rem;
+    }
+
+    .player-short-bio {
+      margin-left: 2rem;
+      max-width: 90rem;
+    }
+
+    .player-short-bio .header {
+      font-size: 1rem;
+    }
+
+    .player-short-bio .description {
+      font-size: 0.875rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .player-biography {
+      flex-direction: row;
+      justify-content: center;
+      padding-top: 4rem;
+      padding-inline: 4rem;
+      max-width: 90rem;
+      margin: 0 auto;
+      gap: 2rem;
+    }
+
+    .player-img-wrapper {
+      width: 50%;
+      aspect-ratio: 2 / 1;
+    }
+
+    .player-short-bio {
+      max-width: none;
+      width: 50%;
+    }
+
+    .player-short-bio .header {
+      font-size: 2rem;
+      font-weight: 800;
+      text-transform: none;
+    }
+
+    .player-short-bio .description {
+      font-size: 1.15rem;
+      line-height: 1.25rem;
+    }
   }
 </style>

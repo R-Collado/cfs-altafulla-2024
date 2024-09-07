@@ -3,12 +3,18 @@ const { player } = Astro.props;
 ---
 
 <section class="player-birth-info">
-  <p class="heading">Edad</p>
-  <p class="info">22</p>
-  <p class="heading">Lugar de nacimiento</p>
-  <p class="info">Altafulla (España)</p>
-  <p class="heading">Fecha de nacimiento</p>
-  <p class="info">15/09/2000</p>
+  <div>
+    <p class="heading">Edad</p>
+    <p class="info">22</p>
+  </div>
+  <div>
+    <p class="heading">Lugar de nacimiento</p>
+    <p class="info">Altafulla (España)</p>
+  </div>
+  <div>
+    <p class="heading">Fecha de nacimiento</p>
+    <p class="info">15/09/2000</p>
+  </div>
 </section>
 
 <style>
@@ -32,5 +38,22 @@ const { player } = Astro.props;
     color: var(--primary-color);
     margin-bottom: 2rem;
     font-size: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .player-birth-info {
+      flex-direction: row;
+      justify-content: center;
+      gap: 10rem;
+    }
+
+    .heading {
+      font-size: 1rem;
+    }
+
+    .info {
+      font-size: 2rem;
+      margin-top: 0.5rem;
+    }
   }
 </style>
