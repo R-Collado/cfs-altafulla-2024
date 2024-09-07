@@ -15,7 +15,9 @@ const t = useTranslations(lang);
 
 <header class="primary-nav">
   <div class="team-info">
-    <img id="logo" src={logo.src} alt="Logo" />
+    <a href={translatePath("/", lang)}>
+      <img id="logo" src={logo.src} alt="Logo" />
+    </a>
     <h1 class="team-name">Club FutSal Altafulla</h1>
   </div>
   <div class="menu-container">
