@@ -12,7 +12,7 @@ const t = useTranslations(lang);
 <Layout title={t("nav.contact")}>
   <section id="contact">
     <h2>Contáctanos</h2>
-    <p>
+    <p class="subtitle">
       Trataremos de responder a la mayor brevedad posible. Ya sea directamente
       por correo desde nuestras redes sociales.
     </p>
@@ -29,27 +29,30 @@ const t = useTranslations(lang);
         <img class="social" src={tiktokIcon.src} alt="TikTok" />
       </a>
     </div>
-    <section class="type-of-contact">
-      <h3>Consultas</h3>
-      <p>
-        Podéis contactarnos en castellano, catalán e inglés sin problema. Para
-        una mayor velocidad de respuesta contactad entre las 8 y las 17. ¡Muchas
-        gracias!
-      </p>
-    </section>
-    <section class="type-of-contact">
-      <h3>Sugerencias</h3>
-      <p>
-        Apreciamos mucho vuestras sugerencias y buscamos llevar el club al mayor
-        nivel posible. Queremos escucharos ya que también formáis parte de él.
-      </p>
-    </section>
-    <section class="type-of-contact">
-      <h3>Patrocinios</h3>
-      <p>
-        Si tenéis interés en patrocinar al club tenemos a vuestra disposición un
-        dossier indicando las diferentes posibilidades.
-      </p>
+    <section class="type-of-contacts">
+      <div class="type-of-contact">
+        <h3>Consultas</h3>
+        <p>
+          Podéis contactarnos en castellano, catalán e inglés sin problema. Para
+          una mayor velocidad de respuesta contactad entre las 8 y las 17.
+          ¡Muchas gracias!
+        </p>
+      </div>
+      <div class="type-of-contact">
+        <h3>Sugerencias</h3>
+        <p>
+          Apreciamos mucho vuestras sugerencias y buscamos llevar el club al
+          mayor nivel posible. Queremos escucharos ya que también formáis parte
+          de él.
+        </p>
+      </div>
+      <div class="type-of-contact">
+        <h3>Patrocinios</h3>
+        <p>
+          Si tenéis interés en patrocinar al club tenemos a vuestra disposición
+          un dossier indicando las diferentes posibilidades.
+        </p>
+      </div>
     </section>
   </section>
 </Layout>
@@ -89,5 +92,38 @@ const t = useTranslations(lang);
   .type-of-contact h3 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    #contact {
+      max-width: 100rem;
+      margin-inline: auto;
+    }
+
+    h2 {
+      font-size: 4rem;
+      margin-top: 5rem;
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      max-width: 30rem;
+    }
+
+    .mail {
+      font-size: 1.5rem;
+    }
+
+    .social {
+      height: 3.5rem;
+      width: 3.5rem;
+    }
+
+    .type-of-contacts {
+      display: flex;
+      gap: 4rem;
+      margin-top: 2.5rem;
+      font-size: 1.5rem;
+    }
   }
 </style>
