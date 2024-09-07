@@ -196,45 +196,89 @@ const { player, playerContent } = Astro.props;
     font-size: 1rem;
   }
 
-  .biography {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 20;
-    opacity: 0;
-  }
+  @media (min-width: 1200px) {
+    header {
+      background-image: linear-gradient(
+        to right,
+        hsla(0, 0%, 0%, 1),
+        hsla(0, 0%, 0%, 0.6)
+      );
+      width: 100vw;
+    }
+    .header-container {
+      flex-direction: row-reverse;
+      padding-top: 0;
+      background: transparent;
+      max-width: 100rem;
+      margin: 0 auto;
+    }
 
-  .biography .content {
-    position: absolute;
-    max-width: 50vw;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-color: var(--bg-color);
-    z-index: 1;
-  }
+    .image-container {
+      margin-left: auto;
+      background-image: none;
+    }
 
-  .biography .overlay {
-    content: "";
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    transform: translateX(-50%);
-    inset: 0;
-    background-color: hsla(0, 0%, 0%, 0.3);
-    z-index: -1;
-    pointer-events: none;
-  }
+    .image-container img {
+      margin: 0 0 0 auto;
+    }
 
-  .biography.open {
-    opacity: 1;
-    z-index: 1000;
+    .nickname {
+      font-size: 20rem;
+      opacity: 0.6;
+    }
 
-    &::before {
-      pointer-events: all;
+    .player-info-container {
+      background-color: transparent;
+      position: absolute;
+      left: 0;
+      top: 30%;
+      flex-direction: column-reverse;
+    }
+
+    .player-stats {
+      background-image: linear-gradient(
+        to bottom right,
+        hsla(0, 0%, 0%, 0.6),
+        hsla(0, 0%, 0%, 0)
+      );
+      padding: 1rem 2rem;
+      opacity: 1;
+      z-index: 100;
+      transform: translateY(-10%);
+      margin-bottom: -1.5rem;
+    }
+
+    .stat-header {
+      font-size: 1rem;
+    }
+
+    .stat {
+      font-size: 5rem;
+    }
+
+    .actual-season-header {
+      font-size: 1rem;
+    }
+
+    .stat.actual-season {
+      font-size: 1.5rem;
+    }
+
+    .player-role {
+      opacity: 0.8;
+      font-size: 1.25rem;
+    }
+
+    .player-number,
+    .player-role {
+      opacity: 0.8;
+    }
+
+    .player-number,
+    .player-name {
+      font-size: 1.5rem;
+      font-weight: 400;
+      transform: translateY(200%);
     }
   }
 </style>
