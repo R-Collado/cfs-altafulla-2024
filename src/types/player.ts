@@ -9,6 +9,7 @@ export interface Player {
   age: number;
   birth_date: string;
   birth_place: string;
+  birth_country: string;
   last_teams: string[] | undefined;
 }
 

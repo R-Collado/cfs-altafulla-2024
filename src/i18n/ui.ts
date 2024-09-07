@@ -10,6 +10,9 @@ export const showDefaultLang = false;
 export const ui: { [key: string]: { [key: string]: string } } = {
   ca: {
     "blog.readMore": "Llegir més",
+    "country.argentina": "Argentina",
+    "country.morocco": "Marroc",
+    "country.spain": "Espanya",
     "nav.news": "Notícies",
     "nav.players": "Jugadors",
     "nav.sponsors": "Patrocinadors",
@@ -32,6 +35,9 @@ export const ui: { [key: string]: { [key: string]: string } } = {
   },
   en: {
     "blog.readMore": "Read more",
+    "country.argentina": "Argentina",
+    "country.morocco": "Morocco",
+    "country.spain": "Spain",
     "nav.news": "News",
     "nav.players": "Players",
     "nav.sponsors": "Sponsors",
@@ -54,6 +60,9 @@ export const ui: { [key: string]: { [key: string]: string } } = {
   },
   es: {
     "blog.readMore": "Leer más",
+    "country.argentina": "Argentina",
+    "country.morocco": "Marruecos",
+    "country.spain": "España",
     "nav.news": "Noticias",
     "nav.players": "Jugadores",
     "nav.sponsors": "Patrocinadores",
