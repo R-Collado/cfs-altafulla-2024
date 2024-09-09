@@ -6,7 +6,7 @@ import {
 } from "@/i18n/utils";
 
 const { blogPostData, cover } = Astro.props;
-const { title, tag, date, summary, post_id } = blogPostData;
+const { title, tag, date, hour, summary, post_id } = blogPostData;
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
@@ -29,7 +29,7 @@ const t = useTranslations(lang);
       <h3 class="blog-post-preview__title">
         {title}
       </h3>
-      <p class="blog-post-preview__tag">{date} - {tag}</p>
+      <p class="blog-post-preview__tag">{date} - {hour} - {tag}</p>
       <p class="blog-post-preview__summary">
         {summary}
       </p>

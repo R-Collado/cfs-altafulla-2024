@@ -12,23 +12,25 @@ const images = await Astro.glob("/src/assets/images/post-covers/*").then(
 );
 
 const imagesReversed = images.reverse();
-console.log(imagesReversed[3]);
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const blogEntries = await getCollection("blog");
+const blogEntriesSorted = blogEntries.sort((a: any, b: any) =>
+  b.data.date.localeCompare(a.data.date),
+);
 ---
 
 <Layout title={t("nav.news")}>
   <section class="blog-posts">
     {
-      blogEntries.map((entry: any, idx: number) => {
+      blogEntriesSorted.map((entry: any, idx: number) => {
         if (idx === 0) {
           return (
             <FirstBlogPostPreview
               blogPostData={entry.data}
-              cover={imagesReversed[0]}
+              cover={imagesReversed[idx]}
             />
           );
         } else {

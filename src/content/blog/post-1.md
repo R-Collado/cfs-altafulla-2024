@@ -1,12 +1,13 @@
 ---
-title: "¡Nueva victoria del equipo tras un duro partido!"
+title: "¡Hemos creado el equipo!"
 tags: ["primer equipo"]
-cover: "/images/post-test-img.png"
+cover: "./post-test-img.png"
 summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod t.."
 author: "Roger Collado"
-authorImg: "/images/roger-img.png"
-date: "07 agost 2024 - 16:05"
-post_id: "nueva-victoria"
+authorImg: "./images/roger-img.png"
+date: "09.07.2024"
+hour: "9:05"
+post_id: "creación-del-equipo"
 id: 0
 ---
 
