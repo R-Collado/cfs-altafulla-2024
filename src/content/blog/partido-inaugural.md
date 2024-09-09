@@ -1,5 +1,5 @@
 ---
-title: "¡Partido inaugural del equipo en casa! La copa Francisco Largo ya es una realidad"
+title: "¡Partido inaugural del equipo en casa!"
 tags: ["primer equipo"]
 cover: "/images/post-test-img.png"
 summary: "En un emocionante día marcado por la pasión y el espíritu deportivo, nues.."
