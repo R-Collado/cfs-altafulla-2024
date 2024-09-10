@@ -4,6 +4,7 @@ import {
   useTranslatedPath,
   useTranslations,
 } from "@/i18n/utils";
+import { truncateText } from "@/utils/text";
 
 const { blogPostData, cover } = Astro.props;
 const { title, tag, date, hour, summary, post_id } = blogPostData;
@@ -11,6 +12,7 @@ const { title, tag, date, hour, summary, post_id } = blogPostData;
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
 const t = useTranslations(lang);
+const charactersLimit = 250;
 ---
 
 <article class="blog-post-preview">
@@ -31,7 +33,7 @@ const t = useTranslations(lang);
       </h3>
       <p class="blog-post-preview__tag">{date} - {hour} - {tag}</p>
       <p class="blog-post-preview__summary">
-        {summary}
+        {truncateText(summary, charactersLimit)}
       </p>
       <button class="blog-post-preview__button">
         {t("blog.readMore")}
@@ -94,6 +96,16 @@ const t = useTranslations(lang);
     font-size: 0.8rem;
     font-style: italic;
     line-height: 1.6;
+    max-width: 25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media (min-width: 1000px) {
+      white-space: initial;
+      overflow: initial;
+      text-overflow: initial;
+    }
   }
 
   .blog-post-preview__button {

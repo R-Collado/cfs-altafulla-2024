@@ -2,7 +2,7 @@
 title: "El torneo para recaudar fondos fue un éxito"
 tags: ["primer equipo"]
 cover: "/images/post-test-img.png"
-summary: "El torneo organizado para recaudar fondos para nuestro club conclu..."
+summary: "El torneo organizado para recaudar fondos para nuestro club concluyó con un rotundo éxito, dejando una huella imborrable de talento, ilusión y competitividad entre los participantes. El evento no solo cumplió su objetivo financiero, sino que también sirvió como un vibrante escaparate del espíritu deportivo y la camaradería."
 author: "Roger Collado"
 authorImg: "/images/roger-img.png"
 date: "09.08.2024"

@@ -2,7 +2,7 @@
 title: "¡Partido inaugural del equipo en casa!"
 tags: ["primer equipo"]
 cover: "/images/post-test-img.png"
-summary: "En un emocionante día marcado por la pasión y el espíritu deportivo, nuestro equipo hizo su debut en casa, inaugurando la copa Francisco Largo. "
+summary: "En un emocionante día marcado por la pasión y el espíritu deportivo, nuestro equipo hizo su debut en casa, inaugurando la copa Francisco Largo. A pesar de un resultado adverso de 2-3 contra nuestro competidor, el encuentro dejó en claro que estamos en el camino correcto, mostrando una notable mejoría en nuestro juego."
 author: "Roger Collado"
 authorImg: "/images/roger-img.png"
 date: "09.09.2024"

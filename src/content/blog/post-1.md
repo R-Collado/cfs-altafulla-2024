@@ -2,7 +2,7 @@
 title: "¡Hemos creado el equipo!"
 tags: ["primer equipo"]
 cover: "./post-test-img.png"
-summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod t.."
+summary: "Nos complace anunciar la creación de nuestro nuevo equipo, Club Futsal Altafulla, un proyecto nacido del amor por el fútbol sala y la pasión por el deporte en nuestra querida localidad de Altafulla. Este equipo es el resultado del esfuerzo conjunto de aficionados, jugadores y entrenadores que desean hacer historia en el deporte local."
 author: "Roger Collado"
 authorImg: "./images/roger-img.png"
 date: "09.07.2024"
