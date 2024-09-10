@@ -63,6 +63,9 @@ const charactersLimit = 250;
     overflow: hidden;
   }
   .blog-post-preview__image-wrapper img {
+    object-fit: cover;
+    object-position: center center;
+    height: 100%;
     width: 100%;
   }
 
@@ -138,10 +141,6 @@ const charactersLimit = 250;
       inset: 0;
       max-height: none;
       height: 100%;
-    }
-
-    .blog-post-preview__image-wrapper img {
-      width: 100%;
     }
 
     .blog-post-preview__main {
