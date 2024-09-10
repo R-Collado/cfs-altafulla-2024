@@ -1,0 +1,95 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const { player } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="player-stats">
+  <div class="matches stat-container">
+    <p class="stat-header">{t("stats.matches")}</p>
+    <p class="stat">{player.total_stats.matches}</p>
+    <p class="actual-season-header">Temporada actual</p>
+    <p class="stat actual-season">{player.season_stats.matches}</p>
+  </div>
+  <div class="goals stat-container">
+    <p class="stat-header">{t("stats.goals")}</p>
+    <p class="stat">{player.total_stats.goals}</p>
+    <p class="actual-season-header">Temporada actual</p>
+    <p class="stat actual-season">{player.season_stats.goals}</p>
+  </div>
+  <div class="assists stat-container">
+    <p class="stat-header">{t("stats.assists")}</p>
+    <p class="stat">{player.total_stats.assists}</p>
+    <p class="actual-season-header">Temporada actual</p>
+    <p class="stat actual-season">{player.season_stats.assists}</p>
+  </div>
+</div>
+
+<style>
+  .player-stats {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .player-stats .stat {
+    color: var(--primary-color);
+  }
+
+  .stat-container {
+    text-align: center;
+  }
+
+  .stat-header {
+    text-transform: uppercase;
+    font-size: 0.5rem;
+    margin-block: 0.5rem;
+  }
+
+  .stat {
+    font-size: 1.25rem;
+  }
+
+  .actual-season-header {
+    font-size: 0.6rem;
+    opacity: 0.8;
+    margin-block: 0.5rem;
+  }
+
+  .stat.actual-season {
+    font-size: 1rem;
+  }
+
+  @media (min-width: 1200px) {
+    .player-stats {
+      background-image: linear-gradient(
+        to bottom right,
+        hsla(0, 0%, 0%, 0.6),
+        hsla(0, 0%, 0%, 0)
+      );
+      padding: 1rem 2rem;
+      opacity: 1;
+      z-index: 100;
+      transform: translateY(-10%);
+      margin-bottom: -1.5rem;
+    }
+
+    .stat-header {
+      font-size: 1rem;
+    }
+
+    .stat {
+      font-size: 5rem;
+    }
+
+    .actual-season-header {
+      font-size: 1rem;
+    }
+
+    .stat.actual-season {
+      font-size: 1.5rem;
+    }
+  }
+</style>

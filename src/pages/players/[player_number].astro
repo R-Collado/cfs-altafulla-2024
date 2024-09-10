@@ -1,15 +1,26 @@
 ---
 import { getCollection } from "astro:content";
 import PlayerDetailsLayout from "@/layouts/PlayerDetailsLayout.astro";
-import { playersList } from "@/configs/players";
-import type { Player } from "@/types/player";
+import { playersList, keeperNumbers } from "@/configs/players";
+import type { Keeper, Player } from "@/types/player";
+import { keepersList } from "@/configs/players";
 
 const { player_number } = Astro.params;
 const playersEntries = await getCollection("players");
 
-const player = playersList.find(
-  (player: Player) => player.number.toString() === player_number,
-);
+let player: Player | Keeper | undefined;
+let isKeeper: boolean = false;
+
+if (keeperNumbers.includes(player_number)) {
+  isKeeper = true;
+  player = keepersList.find(
+    (keeper: Keeper) => keeper.number.toString() === player_number,
+  );
+} else {
+  player = playersList.find(
+    (player: Player) => player.number.toString() === player_number,
+  );
+}
 
 const playerContent = playersEntries.find(
   (player: any) => player.data.number === player_number,
@@ -26,6 +37,8 @@ export async function getStaticPaths() {
 }
 ---
 
-<PlayerDetailsLayout player={player} playerContent={playerContent}>
-  <h1>1</h1>
-</PlayerDetailsLayout>
+<PlayerDetailsLayout
+  player={player}
+  playerContent={playerContent}
+  isKeeper={isKeeper}
+/>

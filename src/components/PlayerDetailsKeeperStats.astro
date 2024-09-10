@@ -1,0 +1,95 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const { keeper } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="keeper-stats">
+  <div class="matches stat-container">
+    <p class="stat-header">{t("stats.matches")}</p>
+    <p class="stat">{keeper.total_stats.matches}</p>
+    <p class="actual-season-header">Temporada actual</p>
+    <p class="stat actual-season">{keeper.season_stats.matches}</p>
+  </div>
+  <div class="clean_sheets stat-container">
+    <p class="stat-header">{t("stats.clean_sheets")}</p>
+    <p class="stat">{keeper.total_stats.clean_sheets}</p>
+    <p class="actual-season-header">Temporada actual</p>
+    <p class="stat actual-season">{keeper.season_stats.clean_sheets}</p>
+  </div>
+  <div class="saves stat-container">
+    <p class="stat-header">{t("stats.saves")}</p>
+    <p class="stat">{keeper.total_stats.saves}</p>
+    <p class="actual-season-header">Temporada actual</p>
+    <p class="stat actual-season">{keeper.season_stats.saves}</p>
+  </div>
+</div>
+
+<style>
+  .keeper-stats {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .keeper-stats .stat {
+    color: var(--primary-color);
+  }
+
+  .stat-container {
+    text-align: center;
+  }
+
+  .stat-header {
+    text-transform: uppercase;
+    font-size: 0.5rem;
+    margin-block: 0.5rem;
+  }
+
+  .stat {
+    font-size: 1.25rem;
+  }
+
+  .actual-season-header {
+    font-size: 0.6rem;
+    opacity: 0.8;
+    margin-block: 0.5rem;
+  }
+
+  .stat.actual-season {
+    font-size: 1rem;
+  }
+
+  @media (min-width: 1200px) {
+    .keeper-stats {
+      background-image: linear-gradient(
+        to bottom right,
+        hsla(0, 0%, 0%, 0.6),
+        hsla(0, 0%, 0%, 0)
+      );
+      padding: 1rem 2rem;
+      opacity: 1;
+      z-index: 100;
+      transform: translateY(-10%);
+      margin-bottom: -1.5rem;
+    }
+
+    .stat-header {
+      font-size: 1rem;
+    }
+
+    .stat {
+      font-size: 5rem;
+    }
+
+    .actual-season-header {
+      font-size: 1rem;
+    }
+
+    .stat.actual-season {
+      font-size: 1.5rem;
+    }
+  }
+</style>

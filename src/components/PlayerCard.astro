@@ -71,271 +71,272 @@ const playerNumberStr = player.number.toString();
       </div>
     </section>
   </a>
-  <style>
-    a {
-      color: var(--bg-color);
-    }
-
-    .player-card {
-      aspect-ratio: 1 / 1;
-      color: var(--bg-color);
-      position: relative;
-      cursor: pointer;
-      height: 20rem;
-      overflow: hidden;
-    }
-
-    .player-card__img-wrapper {
-      width: 100%;
-      height: 100%;
-      padding-top: 100%;
-      position: relative;
-    }
-
-    .player-card__img-wrapper::before {
-      content: "";
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      background-image: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0) 20%,
-        rgba(0, 0, 0, 0.8) 100%
-      );
-      top: 0;
-      left: 0;
-      z-index: 4;
-    }
-
-    .player-card__img__bg {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .player-card__img {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      max-width: 80%;
-      transform: translate3d(-50%, 0, 0);
-      z-index: 2;
-    }
-
-    .player-card__img.hover {
-      opacity: 0;
-    }
-
-    .player-card__info {
-      position: absolute;
-      bottom: 0%;
-      left: 50%;
-      transform: translate3d(-50%, 0, 0);
-      z-index: 10;
-      font-size: 1.5625rem;
-      width: max-content;
-    }
-
-    .player-number,
-    .player-name {
-      display: inline-block;
-      font-weight: 800;
-      max-width: max-content;
-    }
-
-    .player-nickname-bg {
-      position: absolute;
-      font-size: 8rem;
-      font-style: italic;
-      text-transform: uppercase;
-      z-index: 1;
-      top: 30%;
-      left: 50%;
-      font-weight: 800;
-      transform: translate3d(-50%, 0, 0);
-      opacity: 0;
-
-      transition:
-        opacity 0.4s ease-in,
-        top 0.4s ease-in;
-    }
-
-    .player-card:hover {
-      .player-nickname-bg {
-        opacity: 1;
-        top: 28%;
-      }
-    }
-
-    .player-position {
-      text-align: center;
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      font-weight: 400;
-      margin-block: 0.5rem 1.5rem;
-    }
-
-    .total-stats {
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      gap: 1rem;
-      position: absolute;
-      bottom: 7.5%;
-      left: 50%;
-      transform: translate3d(-50%, 0, 0);
-      z-index: 10;
-      opacity: 0;
-    }
-
-    .stat.goals,
-    .stat.matches {
-      transform: translate(30%, 0);
-    }
-
-    .stat.assists {
-      transform: translate(5%, 0);
-    }
-
-    .stat-name {
-      text-transform: uppercase;
-      font-size: 0.5rem;
-      font-weight: 100;
-    }
-
-    .stat-amount {
-      font-weight: 700;
-      font-size: 1rem;
-    }
-
-    .actual-season {
-      position: absolute;
-      bottom: 0%;
-      z-index: 10;
-      width: 100%;
-      text-align: center;
-      opacity: 0;
-    }
-
-    .actual-season-header {
-      font-size: 0.625rem;
-      font-weight: 200;
-    }
-
-    .actual-season-stats {
-      display: flex;
-      justify-content: center;
-      color: var(--primary-color);
-      font-size: 0.75rem;
-    }
-
-    .actual-season-stats .actual-matches {
-      transform: translateX(-1.55rem);
-    }
-
-    .actual-goals {
-      transform: translateX(0.75rem);
-    }
-
-    .actual-assists {
-      transform: translateX(2.7rem);
-    }
-  </style>
-
-  <script>
-    import gsap from "gsap";
-
-    const playerCards = document.querySelectorAll(".player-card");
-
-    playerCards.forEach((card) => {
-      const timeline = gsap.timeline({ paused: true });
-      const imageTimeline = gsap.timeline({ paused: true });
-
-      const image = card.querySelector(".player-card__img");
-      const imageHover = card.querySelector(".player-card__img.hover");
-
-      const playerName = card.querySelector(".player-name");
-      const playerNumber = card.querySelector(".player-number");
-      const playerPosition = card.querySelector(".player-position");
-      const playerTotalStats = card.querySelector(".total-stats");
-      const playerActualStats = card.querySelector(".actual-season");
-
-      imageTimeline
-        .add("image")
-        .to(
-          image,
-          {
-            opacity: 0,
-            duration: 0.25,
-          },
-          "image",
-        )
-        .to(
-          imageHover,
-          {
-            opacity: 1,
-            duration: 0.25,
-          },
-          "image",
-        );
-
-      timeline
-        .add("card")
-        .to(
-          playerName,
-          {
-            duration: 0.5,
-            y: "-150%",
-          },
-          "card",
-        )
-        .to(
-          playerNumber,
-          {
-            duration: 0.5,
-            y: "-150%",
-          },
-          "card",
-        )
-        .to(
-          playerPosition,
-          {
-            duration: 0.65,
-            y: "-350%",
-          },
-          "card",
-        )
-        .to(
-          playerTotalStats,
-          {
-            opacity: 1,
-            duration: 0.65,
-            y: "-70%",
-            delay: 0.2,
-          },
-          "card",
-        )
-        .to(
-          playerActualStats,
-          {
-            opacity: 1,
-            duration: 0.65,
-            y: "-70%",
-            delay: 0.2,
-          },
-          "card",
-        );
-
-      card.addEventListener("mouseenter", () => {
-        imageTimeline.play();
-        timeline.play();
-      });
-
-      card.addEventListener("mouseleave", () => {
-        timeline.reverse();
-        imageTimeline.reverse();
-      });
-    });
-  </script>
 </div>
+
+<style>
+  a {
+    color: var(--bg-color);
+  }
+
+  .player-card {
+    aspect-ratio: 1 / 1;
+    color: var(--bg-color);
+    position: relative;
+    cursor: pointer;
+    height: 20rem;
+    overflow: hidden;
+  }
+
+  .player-card__img-wrapper {
+    width: 100%;
+    height: 100%;
+    padding-top: 100%;
+    position: relative;
+  }
+
+  .player-card__img-wrapper::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 20%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+    top: 0;
+    left: 0;
+    z-index: 4;
+  }
+
+  .player-card__img__bg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .player-card__img {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    max-width: 80%;
+    transform: translate3d(-50%, 0, 0);
+    z-index: 2;
+  }
+
+  .player-card__img.hover {
+    opacity: 0;
+  }
+
+  .player-card__info {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    z-index: 10;
+    font-size: 1.5625rem;
+    width: max-content;
+  }
+
+  .player-number,
+  .player-name {
+    display: inline-block;
+    font-weight: 800;
+    max-width: max-content;
+  }
+
+  .player-nickname-bg {
+    position: absolute;
+    font-size: 8rem;
+    font-style: italic;
+    text-transform: uppercase;
+    z-index: 1;
+    top: 30%;
+    left: 50%;
+    font-weight: 800;
+    transform: translate3d(-50%, 0, 0);
+    opacity: 0;
+
+    transition:
+      opacity 0.4s ease-in,
+      top 0.4s ease-in;
+  }
+
+  .player-card:hover {
+    .player-nickname-bg {
+      opacity: 1;
+      top: 28%;
+    }
+  }
+
+  .player-position {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin-block: 0.5rem 1.5rem;
+  }
+
+  .total-stats {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+    position: absolute;
+    bottom: 7.5%;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    z-index: 10;
+    opacity: 0;
+  }
+
+  .stat.goals,
+  .stat.matches {
+    transform: translate(30%, 0);
+  }
+
+  .stat.assists {
+    transform: translate(5%, 0);
+  }
+
+  .stat-name {
+    text-transform: uppercase;
+    font-size: 0.5rem;
+    font-weight: 100;
+  }
+
+  .stat-amount {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .actual-season {
+    position: absolute;
+    bottom: 0%;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+  }
+
+  .actual-season-header {
+    font-size: 0.625rem;
+    font-weight: 200;
+  }
+
+  .actual-season-stats {
+    display: flex;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 0.75rem;
+  }
+
+  .actual-season-stats .actual-matches {
+    transform: translateX(-1.55rem);
+  }
+
+  .actual-goals {
+    transform: translateX(0.75rem);
+  }
+
+  .actual-assists {
+    transform: translateX(2.7rem);
+  }
+</style>
+
+<script>
+  import gsap from "gsap";
+
+  const playerCards = document.querySelectorAll(".player-card");
+
+  playerCards.forEach((card) => {
+    const timeline = gsap.timeline({ paused: true });
+    const imageTimeline = gsap.timeline({ paused: true });
+
+    const image = card.querySelector(".player-card__img");
+    const imageHover = card.querySelector(".player-card__img.hover");
+
+    const playerName = card.querySelector(".player-name");
+    const playerNumber = card.querySelector(".player-number");
+    const playerPosition = card.querySelector(".player-position");
+    const playerTotalStats = card.querySelector(".total-stats");
+    const playerActualStats = card.querySelector(".actual-season");
+
+    imageTimeline
+      .add("image")
+      .to(
+        image,
+        {
+          opacity: 0,
+          duration: 0.25,
+        },
+        "image",
+      )
+      .to(
+        imageHover,
+        {
+          opacity: 1,
+          duration: 0.25,
+        },
+        "image",
+      );
+
+    timeline
+      .add("card")
+      .to(
+        playerName,
+        {
+          duration: 0.5,
+          y: "-150%",
+        },
+        "card",
+      )
+      .to(
+        playerNumber,
+        {
+          duration: 0.5,
+          y: "-150%",
+        },
+        "card",
+      )
+      .to(
+        playerPosition,
+        {
+          duration: 0.65,
+          y: "-350%",
+        },
+        "card",
+      )
+      .to(
+        playerTotalStats,
+        {
+          opacity: 1,
+          duration: 0.65,
+          y: "-70%",
+          delay: 0.2,
+        },
+        "card",
+      )
+      .to(
+        playerActualStats,
+        {
+          opacity: 1,
+          duration: 0.65,
+          y: "-70%",
+          delay: 0.2,
+        },
+        "card",
+      );
+
+    card.addEventListener("mouseenter", () => {
+      imageTimeline.play();
+      timeline.play();
+    });
+
+    card.addEventListener("mouseleave", () => {
+      timeline.reverse();
+      imageTimeline.reverse();
+    });
+  });
+</script>
