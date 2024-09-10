@@ -7,7 +7,7 @@ import {
 import { truncateText } from "@/utils/text";
 
 const { blogPostData, cover } = Astro.props;
-const { title, tag, date, hour, summary, post_id } = blogPostData;
+const { title, tags, date, hour, summary, post_id } = blogPostData;
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
@@ -31,7 +31,7 @@ const charactersLimit = 250;
       <h3 class="blog-post-preview__title">
         {title}
       </h3>
-      <p class="blog-post-preview__tag">{date} - {hour} - {tag}</p>
+      <p class="blog-post-preview__tag">{date} - {hour} - {tags[0]}</p>
       <p class="blog-post-preview__summary">
         {truncateText(summary, charactersLimit)}
       </p>
