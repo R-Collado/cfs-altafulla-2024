@@ -2,6 +2,8 @@ import playerHeroImg from "@/images/player-images/2/hero-img.webp";
 
 import type { FieldPlayer, Keeper, Player } from "@/types/player";
 
+export const keeperNumbers: string[] = ["1", "69"];
+
 export const keepersList: Keeper[] = [
   {
     name: "Joel",
