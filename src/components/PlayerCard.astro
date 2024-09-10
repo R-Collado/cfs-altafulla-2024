@@ -226,13 +226,20 @@ const playerNumberStr = player.number.toString();
     .actual-season-stats {
       display: flex;
       justify-content: center;
-      gap: 2.5rem;
       color: var(--primary-color);
       font-size: 0.75rem;
     }
 
-    .actual-season-stats p:first-of-type {
-      transform: translate3d(50%, 0, 0);
+    .actual-season-stats .actual-matches {
+      transform: translateX(-1.55rem);
+    }
+
+    .actual-goals {
+      transform: translateX(0.75rem);
+    }
+
+    .actual-assists {
+      transform: translateX(2.7rem);
     }
   </style>
 
