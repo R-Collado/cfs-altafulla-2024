@@ -63,11 +63,22 @@ const images = await Astro.glob("/src/assets/images/post-covers/*").then(
     overflow: hidden;
   }
 
+  .blog-post__header::before {
+    content: "";
+    position: absolute;
+    background: hsla(0, 0%, 0%, 0.45);
+    inset: 0;
+  }
+
   .blog-post__img {
     width: 100%;
-    height: auto;
+    height: 20rem;
     object-fit: cover;
     object-position: center;
+
+    @media (min-width: 768px) {
+      height: 30rem;
+    }
   }
 
   .blog-post__heading {
