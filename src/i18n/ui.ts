@@ -10,6 +10,18 @@ export const showDefaultLang = false;
 export const ui: { [key: string]: { [key: string]: string } } = {
   ca: {
     "blog.readMore": "Llegir més",
+    "contact.header": "Contacta'ns",
+    "contact.subtitle":
+      "Intentarem respondre el més aviat possible. Ja sigui directament per correu electrònic o des de les nostres xarxes socials.",
+    "contact.consults": "Consultes",
+    "contact.consults.subtitle":
+      "Podeu contactar-nos en català, castellà i anglès sense cap problema. Per a una resposta més ràpida contacteu entre les 8 i les 17. Moltes gràcies!",
+    "contact.sugestions": "Suggeriments",
+    "contact.sugestions.subtitle":
+      "Apreciem molt els vostres suggeriments i busquem portar el club al major nivell possible. Volem escoltar-vos ja que també formeu part d'ell.",
+    "contact.sponsors": "Patrocinadors",
+    "contact.sponsors.subtitle":
+      "Si teniu interès en patrocinar el club tenim a la vostra disposició un dossier indicant les diferents possibilitats.",
     "country.argentina": "Argentina",
     "country.morocco": "Marroc",
     "country.spain": "Espanya",
@@ -40,6 +52,18 @@ export const ui: { [key: string]: { [key: string]: string } } = {
   },
   en: {
     "blog.readMore": "Read more",
+    "contact.header": "Contact us",
+    "contact.subtitle":
+      "We will try to answer as soon as possible. Either directly by email or from our social networks.",
+    "contact.consults": "Consults",
+    "contact.consults.subtitle":
+      "You can contact us in English, Catalan and Spanish without any problem. For a faster response contact between 8 and 17. Thank you very much!",
+    "contact.sugestions": "Suggestions",
+    "contact.sugestions.subtitle":
+      "We really appreciate your suggestions and we seek to take the club to the highest possible level. We want to hear from you as you are also part of it.",
+    "contact.sponsors": "Sponsors",
+    "contact.sponsors.subtitle":
+      "If you are interested in sponsoring the club, we have at your disposal a dossier indicating the different possibilities.",
     "country.argentina": "Argentina",
     "country.morocco": "Morocco",
     "country.spain": "Spain",
@@ -70,6 +94,18 @@ export const ui: { [key: string]: { [key: string]: string } } = {
   },
   es: {
     "blog.readMore": "Leer más",
+    "contact.header": "Contáctanos",
+    "contact.subtitle":
+      "Trataremos de responder a la mayor brevedad posible. Ya sea directamente por correo desde nuestras redes sociales.",
+    "contact.consults": "Consultas",
+    "contact.consults.subtitle":
+      "Podéis contactarnos en castellano, catalán e inglés sin problema. Para una mayor velocidad de respuesta contactad entre las 8 y las 17. ¡Muchas gracias!",
+    "contact.sugestions": "Sugerencias",
+    "contact.sugestions.subtitle":
+      "Apreciamos mucho vuestras sugerencias y buscamos llevar el club al mayor nivel posible. Queremos escucharos ya que también formáis parte de él.",
+    "contact.sponsors": "Patrocinadores",
+    "contact.sponsors.subtitle":
+      "Si tenéis interés en patrocinar al club tenemos a vuestra disposición un dossier indicando las diferentes posibilidades.",
     "country.argentina": "Argentina",
     "country.morocco": "Marruecos",
     "country.spain": "España",

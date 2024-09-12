@@ -11,10 +11,9 @@ const t = useTranslations(lang);
 
 <Layout title={t("nav.contact")}>
   <section id="contact">
-    <h2>Contáctanos</h2>
+    <h2>{t("contact.header")}</h2>
     <p class="subtitle">
-      Trataremos de responder a la mayor brevedad posible. Ya sea directamente
-      por correo desde nuestras redes sociales.
+      {t("contact.subtitle")}
     </p>
     <a class="mail" href="mailto:info@cfsaltafulla.com">info@cfsaltafulla.com</a
     >
@@ -31,26 +30,21 @@ const t = useTranslations(lang);
     </div>
     <section class="type-of-contacts">
       <div class="type-of-contact">
-        <h3>Consultas</h3>
+        <h3>{t("contact.consults")}</h3>
         <p>
-          Podéis contactarnos en castellano, catalán e inglés sin problema. Para
-          una mayor velocidad de respuesta contactad entre las 8 y las 17.
-          ¡Muchas gracias!
+          {t("contact.consults.subtitle")}
         </p>
       </div>
       <div class="type-of-contact">
-        <h3>Sugerencias</h3>
+        <h3>{t("contact.sugestions")}</h3>
         <p>
-          Apreciamos mucho vuestras sugerencias y buscamos llevar el club al
-          mayor nivel posible. Queremos escucharos ya que también formáis parte
-          de él.
+          {t("contact.sugestions.subtitle")}
         </p>
       </div>
       <div class="type-of-contact">
-        <h3>Patrocinios</h3>
+        <h3>{t("contact.sponsors")}</h3>
         <p>
-          Si tenéis interés en patrocinar al club tenemos a vuestra disposición
-          un dossier indicando las diferentes posibilidades.
+          {t("contact.sponsors.subtitle")}
         </p>
       </div>
     </section>

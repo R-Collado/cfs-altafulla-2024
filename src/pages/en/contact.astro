@@ -2,8 +2,122 @@
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import Layout from "@/layouts/Layout.astro";
 
+import instagramIcon from "@/svgs/instagram.svg";
+import tiktokIcon from "@/svgs/tiktok.svg";
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<Layout title={t("nav.contact")} />
+<Layout title={t("nav.contact")}>
+  <section id="contact">
+    <h2>{t("contact.header")}</h2>
+    <p class="subtitle">
+      {t("contact.subtitle")}
+    </p>
+    <a class="mail" href="mailto:info@cfsaltafulla.com">info@cfsaltafulla.com</a
+    >
+    <div class="socials">
+      <a
+        href="https://www.instagram.com/cfsaltafulla/"
+        rel="noopener noreferrer"
+      >
+        <img class="social" src={instagramIcon.src} alt="Instagram" />
+      </a>
+      <a href="https://www.tiktok.com/@cfsaltafulla" rel="noopener noreferrer">
+        <img class="social" src={tiktokIcon.src} alt="TikTok" />
+      </a>
+    </div>
+    <section class="type-of-contacts">
+      <div class="type-of-contact">
+        <h3>{t("contact.consults")}</h3>
+        <p>
+          {t("contact.consults.subtitle")}
+        </p>
+      </div>
+      <div class="type-of-contact">
+        <h3>{t("contact.sugestions")}</h3>
+        <p>
+          {t("contact.sugestions.subtitle")}
+        </p>
+      </div>
+      <div class="type-of-contact">
+        <h3>{t("contact.sponsors")}</h3>
+        <p>
+          {t("contact.sponsors.subtitle")}
+        </p>
+      </div>
+    </section>
+  </section>
+</Layout>
+
+<style>
+  #contact {
+    padding-block: 6rem;
+    padding-inline: 2rem;
+  }
+
+  h2 {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+  }
+
+  .mail {
+    color: var(--secondary-color);
+    margin-block: 1rem;
+    display: inline-block;
+    font-size: 1.25remx;
+  }
+
+  .socials {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .type-of-contact {
+    margin-top: 2rem;
+  }
+
+  .type-of-contact h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    #contact {
+      max-width: 100rem;
+      margin-inline: auto;
+    }
+
+    h2 {
+      font-size: 4rem;
+      margin-top: 5rem;
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      max-width: 30rem;
+    }
+
+    .mail {
+      font-size: 1.5rem;
+    }
+
+    .social {
+      height: 3.5rem;
+      width: 3.5rem;
+    }
+
+    .type-of-contacts {
+      display: flex;
+      gap: 4rem;
+      margin-top: 2.5rem;
+      font-size: 1.5rem;
+    }
+  }
+</style>
