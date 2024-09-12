@@ -9,6 +9,7 @@ date: "09.08.2024"
 hour: "9:05"
 post_id: "torneo-benéfico"
 id: 1
+lang: "es"
 ---
 
 El torneo organizado para recaudar fondos para nuestro club concluyó con un rotundo éxito, dejando una huella imborrable de talento, ilusión y competitividad entre los participantes. El evento no solo cumplió su objetivo financiero, sino que también sirvió como un vibrante escaparate del espíritu deportivo y la camaradería.

@@ -9,6 +9,7 @@ date: "09.09.2024"
 hour: "9:05"
 post_id: "partido-inaugural"
 id: 2
+lang: "es"
 ---
 
 En un emocionante día marcado por la pasión y el espíritu deportivo, nuestro equipo hizo su debut en casa, inaugurando la copa Francisco Largo. A pesar de un resultado adverso de 2-3 contra nuestro competidor, el encuentro dejó en claro que estamos en el camino correcto, mostrando una notable mejoría en nuestro juego.

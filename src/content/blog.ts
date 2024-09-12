@@ -6,7 +6,7 @@ export const blogCollection = defineCollection({
   type: "content", // v2.5.0 and later
   schema: ({ image }) =>
     z.object({
-      id: z.number(),
+      id: z.string(),
       title: z.string(),
       tags: z.array(z.string()),
       cover: image().refine((img) => img.width >= 200, {
