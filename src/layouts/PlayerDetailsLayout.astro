@@ -76,6 +76,8 @@ const { player, playerContent, isKeeper } = Astro.props;
     background: var(--bg-color);
     color: var(--bg-color);
     position: relative;
+    width: 100vw;
+    overflow: hidden;
   }
 
   .nickname {
@@ -98,10 +100,11 @@ const { player, playerContent, isKeeper } = Astro.props;
     );
     background-clip: text;
     color: transparent;
+    display: none;
   }
 
   .image-container {
-    width: 100%;
+    width: 100vw;
     padding-top: 5rem;
     position: relative;
     background-image: linear-gradient(
