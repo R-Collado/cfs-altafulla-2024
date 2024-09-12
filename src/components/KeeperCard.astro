@@ -8,11 +8,16 @@ import playerBg3 from "@/images/player-img-background-3.webp";
 import playerBg4 from "@/images/player-background-pivot.svg";
 
 import type { Keeper } from "../types/player";
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from "@/i18n/utils";
 
 const images: ImageMetadata[] = [playerBg1, playerBg2, playerBg3, playerBg4];
 
 const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
 const t = useTranslations(lang);
 
 interface PlayerCardProps {
@@ -20,11 +25,10 @@ interface PlayerCardProps {
 }
 
 const { player }: PlayerCardProps = Astro.props as PlayerCardProps;
-const playerNumberStr = player.number.toString();
 ---
 
 <div class="player-card" id=`${player.number}-card`>
-  <a href=`/players/${playerNumberStr}`>
+  <a href={translatePath(`/players/${player.number}`, lang)}>
     <div class="player-card__img-wrapper">
       <img
         class="player-card__img__bg"
