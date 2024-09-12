@@ -27,8 +27,6 @@ interface PlayerCardProps {
 
 const { player, roleTranslation }: PlayerCardProps =
   Astro.props as PlayerCardProps;
-
-const playerNumberStr = player.number.toString();
 ---
 
 <div class="player-card" id=`${player.number}-card`>
@@ -196,15 +194,6 @@ const playerNumberStr = player.number.toString();
     opacity: 0;
   }
 
-  .stat.goals,
-  .stat.matches {
-    transform: translate(30%, 0);
-  }
-
-  .stat.assists {
-    transform: translate(5%, 0);
-  }
-
   .stat-name {
     text-transform: uppercase;
     font-size: 0.5rem;
@@ -235,18 +224,7 @@ const playerNumberStr = player.number.toString();
     justify-content: center;
     color: var(--primary-color);
     font-size: 0.75rem;
-  }
-
-  .actual-season-stats .actual-matches {
-    transform: translateX(-2.15rem);
-  }
-
-  .actual-goals {
-    transform: translateX(0.1rem);
-  }
-
-  .actual-assists {
-    transform: translateX(2.7rem);
+    gap: 2rem;
   }
 </style>
 

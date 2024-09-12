@@ -1,4 +1,5 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import PlayerBirthInfo from "./PlayerBirthInfo.astro";
 import SideDialog from "./SideDialog.astro";
 
@@ -6,6 +7,9 @@ import playerBiographyImg from "@/images/player-images/2/img-biography.webp";
 
 const { player, playerContent } = Astro.props;
 const { Content } = await playerContent.render();
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const separatedPlayerContent = playerContent.body.split("\n");
 
@@ -24,7 +28,7 @@ const bioSecondParagraph = separatedPlayerContent[5];
     <p class="description">
       {bioSecondParagraph}
     </p>
-    <button id="biography-opener">Biografía completa</button>
+    <button id="biography-opener">{t("player.info.bio")}</button>
   </section>
 
   <SideDialog isOpen={false} player={player}>

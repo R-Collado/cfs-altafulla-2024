@@ -7,7 +7,6 @@ import {
 import type { FieldPlayer, Keeper } from "@/types/player";
 
 const lang = getLangFromUrl(Astro.url);
-const translatePath = useTranslatedPath(lang);
 const t = useTranslations(lang);
 
 interface Props {
@@ -21,15 +20,15 @@ const playerCountry = t(`country.${player.birth_country}`);
 
 <section class="player-birth-info">
   <div>
-    <p class="heading">Edad</p>
+    <p class="heading">{t("player.info.age")}</p>
     <p class="info">{player.age}</p>
   </div>
   <div>
-    <p class="heading">Lugar de nacimiento</p>
+    <p class="heading">{t("player.info.birthplace")}</p>
     <p class="info">{player.birth_place} ({playerCountry})</p>
   </div>
   <div>
-    <p class="heading">Fecha de nacimiento</p>
+    <p class="heading">{t("player.info.birthday")}</p>
     <p class="info">{player.birth_date}</p>
   </div>
 </section>

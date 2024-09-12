@@ -11,19 +11,19 @@ const t = useTranslations(lang);
   <div class="matches stat-container">
     <p class="stat-header">{t("stats.matches")}</p>
     <p class="stat">{player.total_stats.matches}</p>
-    <p class="actual-season-header">Temporada actual</p>
+    <p class="actual-season-header">{t("player.info.actual_season")}</p>
     <p class="stat actual-season">{player.season_stats.matches}</p>
   </div>
   <div class="goals stat-container">
     <p class="stat-header">{t("stats.goals")}</p>
     <p class="stat">{player.total_stats.goals}</p>
-    <p class="actual-season-header">Temporada actual</p>
+    <p class="actual-season-header">{t("player.info.actual_season")}</p>
     <p class="stat actual-season">{player.season_stats.goals}</p>
   </div>
   <div class="assists stat-container">
     <p class="stat-header">{t("stats.assists")}</p>
     <p class="stat">{player.total_stats.assists}</p>
-    <p class="actual-season-header">Temporada actual</p>
+    <p class="actual-season-header">{t("player.info.actual_season")}</p>
     <p class="stat actual-season">{player.season_stats.assists}</p>
   </div>
 </div>
