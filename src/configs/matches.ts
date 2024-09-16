@@ -1,4 +1,4 @@
-interface Match {
+export interface Match {
   rival: string;
   date: string;
   atHome: boolean;
@@ -11,6 +11,15 @@ interface Result {
 }
 
 export const matches: Match[] = [
+  {
+    date: "2024-09-14T19:00:00",
+    rival: "El Vendrell",
+    atHome: false,
+    result: {
+      goalsFulla: 2,
+      goalsRival: 3,
+    },
+  },
   {
     date: "2024-09-28T19:30:00",
     rival: "El Morell CFS A",

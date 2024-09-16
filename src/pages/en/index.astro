@@ -1,25 +1,39 @@
 ---
-import { getCollection, getEntry } from "astro:content";
-import type { BlogPost } from "@/types/blogPost";
-import BlogPostLayout from "@/layouts/BlogPostLayout.astro";
-import PrimaryNav from "@/components/PrimaryNav.astro";
 import Layout from "@/layouts/Layout.astro";
-
-const blogPost: BlogPost = await getEntry("blog", "post-1");
+import heroImage from "@/images/post-test-img.png";
+import HomeCarousel from "@/components/HomeCarousel.astro";
+import Timer from "@/components/Timer.astro";
 ---
 
-<Layout title="124x" />
+<Layout title="CFS Altafulla">
+  <header>
+    <img src={heroImage.src} class="hero-img" />
+    <HomeCarousel />
+  </header>
+  <section class="timer">
+    <Timer />
+  </section>
+</Layout>
 <style is:global>
   @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
 
   body {
     font-family: var(--primary-font);
+    overflow-x: hidden;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+  }
+
+  .timer {
+    margin-block: 5rem;
   }
 </style>
 
-<style is:global></style>
-
 <script>
   import { redirectToDesiredLang } from "@/i18n/utils";
-  redirectToDesiredLang();
+  // redirectToDesiredLang();
 </script>

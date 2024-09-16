@@ -17,11 +17,18 @@
 </div>
 
 <script>
-  const targetDate = new Date("2024-09-28T19:30:00");
+  import { matches } from "@/configs/matches";
+  import { formatTimerDate, getNextMatch } from "@/utils/matches";
+
+  const nextMatch = getNextMatch(matches);
+  const nextMatchDate = new Date(nextMatch!.date);
+
+  const matchDay = document.querySelector(".timer__matchday") as HTMLElement;
+  matchDay.innerText = formatTimerDate(nextMatchDate);
 
   const updateTimer = () => {
     const now = new Date();
-    const timeDifference = Number(targetDate) - Number(now);
+    const timeDifference = Number(nextMatchDate) - Number(now);
 
     const { days, hours, minutes, seconds } = getTimer();
 
