@@ -1,8 +1,19 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import heroImage from "@/images/post-test-img.png";
+import HomeCarousel from "@/components/HomeCarousel.astro";
+import Timer from "@/components/Timer.astro";
 ---
 
-<Layout title="CFS Altafulla" />
+<Layout title="CFS Altafulla">
+  <header>
+    <img src={heroImage.src} class="hero-img" />
+    <HomeCarousel />
+  </header>
+  <section class="timer">
+    <Timer />
+  </section>
+</Layout>
 <style is:global>
   @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
 
@@ -10,9 +21,19 @@ import Layout from "@/layouts/Layout.astro";
     font-family: var(--primary-font);
     overflow-x: hidden;
   }
+
+  .hero-img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+  }
+
+  .timer {
+    margin-block: 5rem;
+  }
 </style>
 
 <script>
   import { redirectToDesiredLang } from "@/i18n/utils";
-  redirectToDesiredLang();
+  // redirectToDesiredLang();
 </script>

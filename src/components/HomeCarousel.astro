@@ -1,0 +1,224 @@
+---
+import { getLangFromUrl, useTranslatedPath } from "@/i18n/utils";
+import { getCollection } from "astro:content";
+import { posts } from "@/configs/posts";
+import arrowIcon from "@/svgs/arrow.svg";
+import "@/styles/embla.css";
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+
+const blogEntries = await getCollection("blog");
+const blogEntriesFiltered = blogEntries.filter(
+  (entry: any) => entry.data.lang === lang,
+);
+---
+
+<section class="embla">
+  <div class="embla__viewport">
+    <div class="embla__container">
+      {
+        blogEntriesFiltered.map((entry: any) => {
+          const entryCover = posts.find(
+            (post: any) => entry.data.id === post.id,
+          );
+          return (
+            <div class="embla__slide || post-preview">
+              <a
+                href={translatePath(`/news/${entry.data.post_id}`, lang)}
+                class="post-preview__link"
+              >
+                <h4 class="embla-slide__header || post-preview__header">
+                  {entry.data.title}
+                </h4>
+                <span class="post-preview__link-text">Read more</span>
+
+                <div class="post-preview__image-container">
+                  <img class="slide-img" src={entryCover?.cover.src} />
+                </div>
+              </a>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <div class="embla__controls">
+      <div class="embla__buttons">
+        <button
+          class="embla__button embla__button--prev || arrow-button arrow-button--prev"
+          type="button"
+        >
+          <img src={arrowIcon.src} />
+          <div class="circle"></div>
+        </button>
+
+        <button
+          class="embla__button embla__button--next || || arrow-button arrow-button--next"
+          type="button"
+        >
+          <img src={arrowIcon.src} />
+          <div class="circle"></div>
+        </button>
+      </div>
+
+      <div class="embla__dots"></div>
+    </div>
+
+    <style>
+      a {
+        text-decoration: none;
+      }
+
+      .post-preview {
+        box-shadow:
+          0px 27px 11px rgba(0, 0, 0, 0.01),
+          0px 15px 9px rgba(0, 0, 0, 0.05),
+          0px 7px 7px rgba(0, 0, 0, 0.09),
+          0px 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 12rem;
+        height: 20rem;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column-reverse;
+      }
+
+      .embla__viewport {
+        transform: translateX(-12rem);
+        overflow: visible;
+      }
+
+      .post-preview__header {
+        color: var(--bg-color);
+      }
+
+      .slide-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .post-preview__image-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        inset: 0;
+        z-index: -1;
+
+        img {
+          transition:
+            transform 250ms ease-in-out,
+            blur 250ms ease-in-out;
+        }
+      }
+
+      .post-preview__image-container::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+        z-index: 1;
+      }
+
+      .post-preview__link-text {
+        background-color: var(--primary-color);
+        display: inline-block;
+        width: max-content;
+        color: var(--secondary-color);
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 0.8rem;
+        padding: 0.5rem 1.5rem;
+        margin-block: 1rem;
+        transition:
+          color 250ms ease-in-out,
+          background-color 250ms ease-in-out;
+      }
+
+      .arrow-controls {
+        position: absolute;
+        left: 0;
+        bottom: -2rem;
+        margin-left: 2rem;
+      }
+
+      .arrow-button img {
+        position: absolute;
+        transition:
+          left 250ms ease-in-out,
+          right 250ms ease-in-out;
+      }
+
+      .arrow-button .circle {
+        width: 1.6rem;
+        height: 1.6rem;
+        border-radius: 50%;
+        border: 1px solid var(--secondary-color);
+        z-index: -1;
+      }
+
+      .arrow-button--prev img {
+        transform: rotate(180deg);
+        left: 2rem;
+      }
+
+      .arrow-button--next img {
+        left: 3.9rem;
+      }
+
+      .arrow-button--prev:hover img {
+        left: 1.5rem;
+      }
+
+      .arrow-button--next:hover img {
+        left: 4.4rem;
+      }
+
+      .post-preview:hover {
+        .post-preview__image-container img {
+          transform: scale(1.2);
+          filter: blur(2px);
+        }
+
+        .post-preview__link-text {
+          background-color: var(--secondary-color);
+          color: var(--primary-color);
+        }
+      }
+    </style>
+
+    <script>
+      import EmblaCarousel, { type EmblaOptionsType } from "embla-carousel";
+      import { addPrevNextBtnsClickHandlers } from "@/utils/carousel";
+
+      const OPTIONS: EmblaOptionsType = { startIndex: 1 };
+
+      const emblaNode = document.querySelector(".embla") as HTMLElement;
+      const viewportNode = document.querySelector(
+        ".embla__viewport",
+      ) as HTMLElement;
+      const prevBtnNode = document.querySelector(
+        ".embla__button--prev",
+      ) as HTMLElement;
+      const nextBtnNode = document.querySelector(
+        ".embla__button--next",
+      ) as HTMLElement;
+
+      const emblaApi = EmblaCarousel(viewportNode, OPTIONS);
+
+      const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(
+        emblaApi,
+        prevBtnNode,
+        nextBtnNode,
+      );
+
+      emblaApi.on("destroy", removePrevNextBtnsClickHandlers);
+    </script>
+  </div>
+</section>
