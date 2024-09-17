@@ -1,17 +1,20 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div class="timer">
   <p class="time">
     <span class="days">00</span>
-    <span class="type">días</span>
+    <span class="type">{t("timer.days")}</span>
     <span class="hours">00</span>
-    <span class="type">horas</span>
+    <span class="type">{t("timer.hours")}</span>
     <span class="minutes">: 00</span>
-    <span class="type">minutos</span>
+    <span class="type">{t("timer.minutes")}</span>
     <span class="seconds">: 00</span>
-    <span class="type">segundos</span>
+    <span class="type">{t("timer.seconds")}</span>
   </p>
   <p class="timer__matchday">DOMINGO, 29 SEPTIEMBRE</p>
 </div>

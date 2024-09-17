@@ -1,0 +1,16 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import Layout from "@/layouts/Layout.astro";
+import heroImage from "@/images/image-changer-test.webp";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title={"CFS Altafulla"}>
+  <main>
+    <header>
+      <img src={heroImage.src} />
+    </header>
+  </main>
+</Layout>

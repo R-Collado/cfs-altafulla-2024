@@ -52,6 +52,10 @@ export const ui: { [key: string]: { [key: string]: string } } = {
     "stats.clean_sheets": "Porteria a 0",
     "stats.saves": "Parades",
     "stats.season": "Temporada",
+    "timer.days": "Dies",
+    "timer.hours": "Hores",
+    "timer.minutes": "Minuts",
+    "timer.seconds": "Segons",
     "utils.close": "Tancar",
   },
   en: {
@@ -98,6 +102,10 @@ export const ui: { [key: string]: { [key: string]: string } } = {
     "stats.clean_sheets": "Clean sheets",
     "stats.season": "Season",
     "stats.saves": "Saves",
+    "timer.days": "Days",
+    "timer.hours": "Hours",
+    "timer.minutes": "Minutes",
+    "timer.seconds": "Seconds",
     "utils.close": "Close",
   },
   es: {
@@ -144,6 +152,10 @@ export const ui: { [key: string]: { [key: string]: string } } = {
     "stats.clean_sheets": "Portería a 0",
     "stats.season": "Temporada",
     "stats.saves": "Paradas",
+    "timer.days": "Días",
+    "timer.hours": "Horas",
+    "timer.minutes": "Minutos",
+    "timer.seconds": "Segundos",
     "utils.close": "Cerrar",
   },
 };
