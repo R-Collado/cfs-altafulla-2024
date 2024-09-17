@@ -7,6 +7,12 @@ export const getLastMatch = (matches: Match[]) => {
   return pastMatches.length > 0 ? pastMatches[pastMatches.length - 1] : null;
 };
 
+export const getLastTwoMatches = (matches: Match[]) => {
+  const today = new Date();
+  const pastMatches = matches.filter((match) => new Date(match.date) < today);
+  return pastMatches.slice(-2);
+};
+
 export const getNextMatch = (matches: Match[]) => {
   const today = new Date();
   const futureMatches = matches.filter((match) => new Date(match.date) > today);

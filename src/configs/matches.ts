@@ -2,6 +2,7 @@ export interface Match {
   rival: string;
   date: string;
   atHome: boolean;
+  matchType?: string;
   result?: Result;
 }
 
@@ -12,19 +13,27 @@ interface Result {
 
 export const matches: Match[] = [
   {
-    date: "2024-09-14T19:00:00",
-    rival: "El Vendrell",
-    atHome: false,
+    date: "2024-09-08T19:30:00",
+    rival: "C.E. Platense Calafell",
+    matchType: "friendly",
     result: {
       goalsFulla: 2,
       goalsRival: 3,
     },
+
+    atHome: true,
   },
   {
-    date: "2024-09-28T19:30:00",
-    rival: "El Morell CFS A",
-    atHome: false,
+    date: "2024-09-14T17:00:00",
+    rival: "El Vendrell",
+    atHome: true,
+    matchType: "friendly",
+    result: {
+      goalsFulla: 3,
+      goalsRival: 5,
+    },
   },
+
   {
     date: "2024-10-05T19:00:00",
     rival: "Montblanc CFS A",

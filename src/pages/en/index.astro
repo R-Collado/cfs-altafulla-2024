@@ -2,17 +2,22 @@
 import Layout from "@/layouts/Layout.astro";
 import heroImage from "@/images/post-test-img.png";
 import HomeCarousel from "@/components/HomeCarousel.astro";
-import Timer from "@/components/Timer.astro";
+import LastMatches from "@/components/LastMatches.astro";
+import NextMatch from "@/components/NextMatch.astro";
 ---
 
 <Layout title="CFS Altafulla">
-  <header>
+  <header class="header">
     <img src={heroImage.src} class="hero-img" />
-    <HomeCarousel />
+    <section class="carousel">
+      <HomeCarousel />
+    </section>
   </header>
-  <section class="timer">
-    <Timer />
+  <section class="matches">
+    <LastMatches />
+    <NextMatch />
   </section>
+  <section class="timer"></section>
 </Layout>
 <style is:global>
   @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
@@ -28,12 +33,26 @@ import Timer from "@/components/Timer.astro";
     object-fit: cover;
   }
 
-  .timer {
-    margin-block: 5rem;
+  .header {
+    overflow: hidden;
+  }
+
+  .carousel {
+    height: 10rem;
+  }
+
+  .matches {
+    position: relative;
+    @media (min-width: 768px) {
+      display: flex;
+    }
+
+    @media (min-width: 1400px) {
+      gap: 6rem;
+    }
   }
 </style>
 
 <script>
   import { redirectToDesiredLang } from "@/i18n/utils";
-  // redirectToDesiredLang();
 </script>

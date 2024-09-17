@@ -1,0 +1,49 @@
+---
+import PreviousMatch from "./PreviousMatch.astro";
+import { matches } from "@/configs/matches";
+import { getLastTwoMatches } from "@/utils/matches";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const lastMatches = getLastTwoMatches(matches);
+---
+
+<div class="last-matches">
+  <h3 class="heading">{t("match.last_matches")}:</h3>
+  <div class="last-matches__list">
+    {lastMatches.map((match) => <PreviousMatch match={match} />)}
+  </div>
+</div>
+
+<style>
+  .last-matches {
+    background-color: var(--color-grey-900);
+    color: var(--bg-color);
+    padding-block: 2rem;
+  }
+
+  .heading {
+    width: 20rem;
+    margin-inline: auto;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+
+    @media (min-width: 1400px) {
+      margin-inline: 5rem;
+    }
+  }
+
+  .last-matches__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media (min-width: 1400px) {
+      margin: 0 5rem;
+    }
+  }
+</style>

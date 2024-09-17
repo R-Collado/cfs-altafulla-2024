@@ -1,0 +1,120 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url).toString();
+const t = useTranslations(lang);
+
+const { atHome, date, rival, result, matchType } = Astro.props.match;
+const { goalsFulla, goalsRival } = result;
+
+const matchDate = new Date(date);
+const month = matchDate.toLocaleString(lang, { month: "short" }).slice(0, 3);
+const hours = matchDate.getHours().toString().padStart(2, "0");
+const minutes = matchDate.getMinutes().toString().padStart(2, "0");
+const type = t(`match.type.${matchType}`) || t("match.type.league");
+---
+
+<article class="match">
+  <div class="match__date">
+    <span class="match__date__day">{matchDate.getDate()}</span>
+    <span class="match__date__month">{month}</span>
+  </div>
+  <section class="match__info">
+    <h4 class="match__info__heading">
+      {`${type}: ${hours}:${minutes}`}
+    </h4>
+    <main class="match__results">
+      <div class="match__team match__team--local">
+        <span class="match__team__name">
+          {atHome ? "CFS Altafulla" : rival}</span
+        >
+        <span class="match__team__goals"
+          >{atHome ? goalsFulla : goalsRival}</span
+        >
+      </div>
+      <div class="match__team match__team--away">
+        <span class="match__team__name">{atHome ? rival : "CFS Altafulla"}</span
+        >
+        <span class="match__team__goals"
+          >{atHome ? goalsRival : goalsFulla}</span
+        >
+      </div>
+    </main>
+  </section>
+</article>
+
+<style>
+  .match {
+    display: flex;
+    gap: 2rem;
+    margin: 0 auto;
+    width: 20rem;
+
+    @media (min-width: 768px) {
+      width: 50vw;
+    }
+
+    @media (min-width: 1400px) {
+      width: 30rem;
+    }
+  }
+
+  .match__info__heading {
+    text-transform: uppercase;
+  }
+
+  .match__date {
+    background-color: var(--secondary-color);
+    max-width: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 1rem;
+  }
+
+  .match__date__day {
+    font-size: 1.25rem;
+  }
+
+  .match__date__month {
+    font-size: 0.85rem;
+    text-transform: capitalize;
+  }
+
+  .match__results {
+    margin-block: 1rem;
+  }
+
+  .match__results > * + * {
+    margin-top: 0.5rem;
+  }
+
+  .match__info__heading {
+    color: var(--color-grey-600);
+    font-weight: 100;
+    font-size: 0.75rem;
+  }
+
+  .match__team {
+    display: flex;
+    justify-content: space-between;
+    width: 12.5rem;
+  }
+
+  .match__team__goals {
+    color: var(--primary-color);
+    margin-left: 1rem;
+  }
+</style>
+
+<script>
+  const teamNames = document.querySelectorAll(
+    ".match__team__name",
+  ) as NodeListOf<HTMLSpanElement>;
+
+  teamNames.forEach((team) => {
+    if (team?.textContent?.trim() === "CFS Altafulla") {
+      team.style.fontWeight = "bold";
+    }
+  });
+</script>

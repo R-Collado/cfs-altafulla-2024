@@ -1,0 +1,143 @@
+---
+import { getNextMatch } from "@/utils/matches";
+import Timer from "./Timer.astro";
+import { matches } from "@/configs/matches";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url).toString();
+const t = useTranslations(lang);
+
+const nextMatch = getNextMatch(matches);
+const matchType = nextMatch?.matchType || "league";
+const matchDate = new Date(nextMatch!.date);
+const matchMonth = matchDate
+  .toLocaleString(lang, { month: "short" })
+  .slice(0, 3);
+const hours = matchDate.getHours().toString().padStart(2, "0");
+const minutes = matchDate.getMinutes().toString().padStart(2, "0");
+const type = t(`match.type.${matchType}`) || t("match.type.league");
+---
+
+<section class="next-match">
+  <header>
+    <h4 class="next-match__heading">{t("match.next_match")}:</h4>
+  </header>
+  <main>
+    <div class="next-match__date">
+      <span class="next-match__day"> {matchDate.getDate()} </span>
+      <span class="next-match__month"> {matchMonth} </span>
+    </div>
+    <div class="next-match__info">
+      <p class="next-match__info__header">{`${type}: ${hours}:${minutes}`}</p>
+      <p class="match__team__name local">
+        {nextMatch?.atHome ? "CFS Altafulla" : nextMatch?.rival}
+      </p>
+      <p class="match__team__name away">
+        {nextMatch?.atHome ? nextMatch.rival : "CFS Altafulla"}
+      </p>
+      <a
+        class="match__team__standings"
+        href="https://www.fcf.cat/classificacio/2425/futbol-sala/lliga-segona-divisio-catalana-futbol-sala/tgn-gr-11"
+        rel="noopener noreferrer nofollow"
+        target="_blank"
+      >
+        Clasificación
+      </a>
+    </div>
+  </main>
+  <Timer />
+</section>
+
+<style>
+  .next-match {
+    background: var(--secondary-color);
+    color: var(--bg-color);
+    padding-top: 2rem;
+    position: relative;
+
+    @media (min-width: 768px) {
+      width: 50vw;
+    }
+
+    @media (min-width: 1400px) {
+      width: 70vw;
+    }
+  }
+
+  .next-match__heading {
+    text-transform: uppercase;
+    width: 20rem;
+    margin: 0 auto;
+
+    @media (min-width: 1400px) {
+      margin: 0 5rem;
+    }
+  }
+
+  main {
+    display: flex;
+    gap: 2rem;
+    margin: 0 auto;
+    width: 20rem;
+
+    @media (min-width: 1400px) {
+      margin: 0 5rem;
+    }
+  }
+
+  .next-match__date {
+    margin-top: 1rem;
+    background-color: var(--color-grey-900);
+    width: max-content;
+    padding: 1rem 0.75rem;
+    text-align: center;
+  }
+
+  .next-match__month {
+    font-size: 0.85rem;
+    text-transform: capitalize;
+  }
+
+  .next-match__date span {
+    display: block;
+  }
+
+  .next-match__info {
+    padding-block: 2rem;
+  }
+
+  .next-match__info__header {
+    color: var(--color-grey-600);
+    font-weight: 100;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .match__team__name {
+    font-size: 1.25rem;
+    margin-block: 1rem;
+  }
+
+  .match__team__name.away {
+    margin-bottom: 1.5rem;
+  }
+
+  .match__team__standings {
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+
+    transition:
+      background 0.4s ease-in-out,
+      color 0.4s ease-in-out;
+  }
+
+  .match__team__standings:hover {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+  }
+</style>
