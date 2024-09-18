@@ -50,28 +50,22 @@ const { player, roleTranslation }: PlayerCardProps =
       <span class="player-nickname">{player.nickname || player.name}</span>
     </p>
     <section class="player-stats">
-      <div class="total-stats">
-        <div class="stat matches">
-          <p class="stat-name">{t("stats.matches")}</p>
-          <p class="stat-amount">{player.total_stats.matches}</p>
-        </div>
-        <div class="stat goals">
-          <p class="stat-name">{t("stats.goals")}</p>
-          <p class="stat-amount">{player.total_stats.goals}</p>
-        </div>
-        <div class="stat assists">
-          <p class="stat-name">{t("stats.assists")}</p>
-          <p class="stat-amount">{player.total_stats.assists}</p>
-        </div>
+      <div class="stat matches">
+        <p class="stat-name">{t("stats.matches")}</p>
+        <p class="stat-amount">{player.total_stats.matches}</p>
+        <p class="stat-amount actual">{player.season_stats.matches}</p>
       </div>
-      <div class="actual-season">
-        <p class="actual-season-header">{t("stats.season")} 2024-2025</p>
-        <div class="actual-season-stats">
-          <p class="actual-matches">{player.season_stats.matches}</p>
-          <p class="actual-goals">{player.season_stats.goals}</p>
-          <p class="actual-assists">{player.season_stats.assists}</p>
-        </div>
+      <div class="stat goals">
+        <p class="stat-name">{t("stats.goals")}</p>
+        <p class="stat-amount">{player.total_stats.goals}</p>
+        <p class="stat-amount actual">{player.season_stats.goals}</p>
       </div>
+      <div class="stat assists">
+        <p class="stat-name">{t("stats.assists")}</p>
+        <p class="stat-amount">{player.total_stats.assists}</p>
+        <p class="stat-amount actual">{player.season_stats.assists}</p>
+      </div>
+      <p class="actual-season-header">{t("stats.season")} 2024-2025</p>
     </section>
   </a>
 </div>
@@ -181,17 +175,22 @@ const { player, roleTranslation }: PlayerCardProps =
     margin-block: 0.5rem 1.5rem;
   }
 
-  .total-stats {
+  .player-stats {
     display: flex;
     justify-content: center;
     text-align: center;
     gap: 1rem;
     position: absolute;
-    bottom: 7.5%;
+    bottom: -5%;
     left: 50%;
     transform: translate3d(-50%, 0, 0);
     z-index: 10;
     opacity: 0;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
   }
 
   .stat-name {
@@ -205,26 +204,18 @@ const { player, roleTranslation }: PlayerCardProps =
     font-size: 1rem;
   }
 
-  .actual-season {
-    position: absolute;
-    bottom: 0%;
-    z-index: 10;
-    width: 100%;
-    text-align: center;
-    opacity: 0;
+  .stat-amount.actual {
+    margin-top: 1rem;
+    color: var(--primary-color);
+    font-size: 0.75rem;
   }
 
   .actual-season-header {
     font-size: 0.625rem;
     font-weight: 200;
-  }
-
-  .actual-season-stats {
-    display: flex;
-    justify-content: center;
-    color: var(--primary-color);
-    font-size: 0.75rem;
-    gap: 2rem;
+    position: absolute;
+    bottom: 30%;
+    opacity: 0;
   }
 </style>
 
@@ -243,8 +234,8 @@ const { player, roleTranslation }: PlayerCardProps =
     const playerName = card.querySelector(".player-name");
     const playerNumber = card.querySelector(".player-number");
     const playerPosition = card.querySelector(".player-position");
-    const playerTotalStats = card.querySelector(".total-stats");
-    const playerActualStats = card.querySelector(".actual-season");
+    const playerStats = card.querySelector(".player-stats");
+    const actualSeasonHeader = card.querySelector(".actual-season-header");
 
     imageTimeline
       .add("image")
@@ -292,22 +283,21 @@ const { player, roleTranslation }: PlayerCardProps =
         "card",
       )
       .to(
-        playerTotalStats,
+        playerStats,
         {
           opacity: 1,
           duration: 0.65,
-          y: "-70%",
+          y: "-40%",
           delay: 0.2,
         },
         "card",
       )
       .to(
-        playerActualStats,
+        actualSeasonHeader,
         {
           opacity: 1,
           duration: 0.65,
-          y: "-70%",
-          delay: 0.2,
+          delay: 0.4,
         },
         "card",
       );
