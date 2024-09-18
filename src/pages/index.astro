@@ -5,6 +5,10 @@ import HomeCarousel from "@/components/HomeCarousel.astro";
 import LastMatches from "@/components/LastMatches.astro";
 import NextMatch from "@/components/NextMatch.astro";
 import HomePlayersSlider from "@/components/HomePlayersSlider.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <Layout title="CFS Altafulla">
@@ -19,7 +23,7 @@ import HomePlayersSlider from "@/components/HomePlayersSlider.astro";
     <NextMatch />
   </section>
   <section class="players-slider">
-    <h3 class="section-heading">Nuestros jugadores</h3>
+    <h3 class="section-heading">{t("player.our_players")}</h3>
     <HomePlayersSlider />
   </section>
 </Layout>
