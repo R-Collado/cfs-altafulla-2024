@@ -40,12 +40,20 @@ import NextMatch from "@/components/NextMatch.astro";
 
   .carousel {
     height: 10rem;
+
+    @media (max-width: 1200px) {
+      display: none;
+    }
   }
 
   .matches {
     position: relative;
     @media (min-width: 768px) {
       display: flex;
+    }
+
+    @media (max-width: 1200px) {
+      margin-top: -0.5rem;
     }
 
     @media (min-width: 1400px) {
