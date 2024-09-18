@@ -91,7 +91,6 @@ const { player, playerContent, isKeeper } = Astro.props;
     transform: translateX(-50%);
     z-index: 5;
     text-transform: uppercase;
-    font-style: italic;
     font-weight: 900;
     background-image: linear-gradient(
       180deg,
@@ -100,6 +99,10 @@ const { player, playerContent, isKeeper } = Astro.props;
     );
     background-clip: text;
     color: transparent;
+
+    @media (min-width: 768px) {
+      font-style: italic;
+    }
   }
 
   .image-container {
