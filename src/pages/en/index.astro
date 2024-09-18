@@ -4,6 +4,7 @@ import heroImage from "@/images/hero-img.jpeg";
 import HomeCarousel from "@/components/HomeCarousel.astro";
 import LastMatches from "@/components/LastMatches.astro";
 import NextMatch from "@/components/NextMatch.astro";
+import HomePlayersSlider from "@/components/HomePlayersSlider.astro";
 ---
 
 <Layout title="CFS Altafulla">
@@ -17,7 +18,10 @@ import NextMatch from "@/components/NextMatch.astro";
     <LastMatches />
     <NextMatch />
   </section>
-  <section class="timer"></section>
+  <section class="players-slider">
+    <h3 class="section-heading">Nuestros jugadores</h3>
+    <HomePlayersSlider />
+  </section>
 </Layout>
 <style is:global>
   @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
@@ -25,6 +29,13 @@ import NextMatch from "@/components/NextMatch.astro";
   body {
     font-family: var(--primary-font);
     overflow-x: hidden;
+  }
+
+  .section-heading {
+    margin: 0 auto;
+    width: max-content;
+    margin-block: 2rem;
+    text-transform: uppercase;
   }
 
   .hero-img {
@@ -59,6 +70,10 @@ import NextMatch from "@/components/NextMatch.astro";
     @media (min-width: 1400px) {
       gap: 6rem;
     }
+  }
+
+  .players-slider {
+    overflow: hidden;
   }
 </style>
 

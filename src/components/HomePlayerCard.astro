@@ -1,0 +1,194 @@
+---
+import playerImgTest from "@/images/player-img-test.webp";
+import playerImgChangerTest from "@/images/image-changer-test.webp";
+
+import playerBg1 from "@/images/player-background-keeper.svg";
+import playerBg2 from "@/images/player-background-wing.svg";
+import playerBg3 from "@/images/player-img-background-3.webp";
+import playerBg4 from "@/images/player-background-pivot.svg";
+
+import type { FieldPlayer } from "../types/player";
+import { getLangFromUrl, useTranslatedPath } from "@/i18n/utils";
+
+const images: ImageMetadata[] = [playerBg1, playerBg2, playerBg3, playerBg4];
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+
+interface PlayerCardProps {
+  player: FieldPlayer;
+  roleTranslation: string;
+}
+
+const { player, roleTranslation }: PlayerCardProps =
+  Astro.props as PlayerCardProps;
+---
+
+<div class="player-card" id=`${player.number}-card`>
+  <a href={translatePath(`/players/${player.number}`, lang)}>
+    <div class="player-card__img-wrapper">
+      <img
+        class="player-card__img__bg"
+        src={images[player.background - 1].src}
+      />
+      <img class="player-card__img first" src={playerImgTest.src} />
+      <img class="player-card__img hover" src={playerImgChangerTest.src} />
+    </div>
+    <main class="player-card__info">
+      <p>
+        <span class="player-number">{player.number}</span>
+        <span class="player-name">{player.name}</span>
+      </p>
+      <p class="player-position">{roleTranslation}</p>
+    </main>
+    <p class="player-nickname-bg">
+      <span class="player-nickname">{player.nickname || player.name}</span>
+    </p>
+  </a>
+</div>
+
+<style>
+  a {
+    color: var(--bg-color);
+  }
+
+  .player-card {
+    aspect-ratio: 1 / 1;
+    color: var(--bg-color);
+    position: relative;
+    cursor: pointer;
+    height: 20rem;
+    overflow: hidden;
+  }
+
+  .player-card__img-wrapper {
+    width: 100%;
+    height: 100%;
+    padding-top: 100%;
+    position: relative;
+  }
+
+  .player-card__img-wrapper::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 20%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+    top: 0;
+    left: 0;
+    z-index: 4;
+  }
+
+  .player-card__img__bg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .player-card__img {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    max-width: 80%;
+    transform: translate3d(-50%, 0, 0);
+    z-index: 2;
+  }
+
+  .player-card__img.hover {
+    opacity: 0;
+  }
+
+  .player-card__info {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    z-index: 10;
+    font-size: 1.5625rem;
+    width: max-content;
+  }
+
+  .player-number,
+  .player-name {
+    display: inline-block;
+    font-weight: 800;
+    max-width: max-content;
+  }
+
+  .player-nickname-bg {
+    position: absolute;
+    font-size: 8rem;
+    font-style: italic;
+    text-transform: uppercase;
+    z-index: 1;
+    top: 30%;
+    left: 50%;
+    font-weight: 800;
+    transform: translate3d(-50%, 0, 0);
+    opacity: 0;
+
+    transition:
+      opacity 0.4s ease-in,
+      top 0.4s ease-in;
+  }
+
+  .player-card:hover {
+    .player-nickname-bg {
+      opacity: 1;
+      top: 28%;
+    }
+  }
+
+  .player-position {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin-block: 0.5rem 1.5rem;
+  }
+</style>
+
+<script>
+  import gsap from "gsap";
+
+  const playerCards = document.querySelectorAll(".player-card");
+
+  playerCards.forEach((card) => {
+    const imageTimeline = gsap.timeline({ paused: true });
+
+    const image = card.querySelector(".player-card__img");
+    const imageHover = card.querySelector(".player-card__img.hover");
+
+    imageTimeline
+      .add("image")
+      .to(
+        image,
+        {
+          opacity: 0,
+          duration: 0.25,
+        },
+        "image",
+      )
+      .to(
+        imageHover,
+        {
+          opacity: 1,
+          duration: 0.25,
+        },
+        "image",
+      );
+
+    card.addEventListener("mouseenter", () => {
+      imageTimeline.play();
+    });
+
+    card.addEventListener("mouseleave", () => {
+      imageTimeline.reverse();
+    });
+  });
+</script>
