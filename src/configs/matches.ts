@@ -33,7 +33,12 @@ export const matches: Match[] = [
       goalsRival: 5,
     },
   },
-
+  {
+    date: "2024-09-21T19:00:00",
+    rival: "UD Riudecols",
+    atHome: true,
+    matchType: "friendly",
+  },
   {
     date: "2024-10-05T19:00:00",
     rival: "Montblanc CFS A",
