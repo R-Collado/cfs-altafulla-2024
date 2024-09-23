@@ -38,6 +38,15 @@ export const matches: Match[] = [
     rival: "UD Riudecols",
     atHome: true,
     matchType: "friendly",
+    result: {
+      goalsFulla: 2,
+      goalsRival: 4,
+    },
+  },
+  {
+    date: "2024-09-28T19:30:00",
+    rival: "El Morell CFS A",
+    atHome: true,
   },
   {
     date: "2024-10-05T19:00:00",
