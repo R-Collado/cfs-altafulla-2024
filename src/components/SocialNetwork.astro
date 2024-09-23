@@ -1,0 +1,60 @@
+---
+const { variant, icon, link } = Astro.props;
+---
+
+<a
+  class="social-network"
+  href={link}
+  data-variant={variant}
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  <img src={icon} class="social-network__icon" alt="Social network icon" />
+  <p class="social-network__profile">CFS Altafulla</p>
+  <p class="social-network__username">@cfsaltafulla</p>
+</a>
+
+<style>
+  .social-network {
+    --spotify-color: #1ed760;
+
+    --instagram-yellow: #f9ce34;
+    --instagram-pink: #ee2a7b;
+    --instagram-purple: #6228d7;
+
+    display: inline-block;
+    height: 8rem;
+    width: 14rem;
+    color: var(--color-secondary);
+    text-decoration: none;
+    padding: 1rem;
+  }
+
+  .social-network__icon {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .social-network__profile {
+    margin-block: 0.5rem;
+  }
+
+  .social-network[data-variant="spotify"] {
+    background-color: var(--spotify-color);
+  }
+
+  .social-network[data-variant="instagram"] {
+    background-image: linear-gradient(
+      90deg,
+      var(--instagram-yellow),
+      var(--instagram-pink),
+      var(--instagram-purple)
+    );
+    color: var(--bg-color);
+  }
+
+  .social-network[data-variant="tiktok"] {
+    background-color: #000;
+    color: var(--bg-color);
+  }
+</style>

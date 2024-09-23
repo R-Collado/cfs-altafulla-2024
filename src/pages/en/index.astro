@@ -6,6 +6,7 @@ import LastMatches from "@/components/LastMatches.astro";
 import NextMatch from "@/components/NextMatch.astro";
 import HomePlayersSlider from "@/components/HomePlayersSlider.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import HomeSponsors from "@/components/HomeSponsors.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -25,6 +26,9 @@ const t = useTranslations(lang);
   <section class="players-slider">
     <h3 class="section-heading">{t("player.our_players")}</h3>
     <HomePlayersSlider />
+  </section>
+  <section class="sponsors">
+    <HomeSponsors />
   </section>
 </Layout>
 <style is:global>
@@ -78,6 +82,12 @@ const t = useTranslations(lang);
 
   .players-slider {
     overflow: hidden;
+  }
+
+  .sponsors {
+    background-color: var(--secondary-color);
+    padding: 1px;
+    padding-bottom: 5rem;
   }
 </style>
 
