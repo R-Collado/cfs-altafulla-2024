@@ -1,8 +1,9 @@
 import postCover1 from "@/images/post-covers/post-1.jpeg";
 import postCover2 from "@/images/post-covers/post-2.jpeg";
 import postCover3 from "@/images/post-covers/post-3.jpeg";
+import postCover4 from "@/images/post-covers/post-4.webp";
 
-export const postImages = [postCover1, postCover2, postCover3];
+export const postImages = [postCover1, postCover2, postCover3, postCover4];
 
 export const posts = [
   {
@@ -16,5 +17,9 @@ export const posts = [
   {
     id: 2,
     cover: postImages[2],
+  },
+  {
+    id: 3,
+    cover: postImages[3],
   },
 ];
