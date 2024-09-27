@@ -1,6 +1,7 @@
 import ilusion from "@/images/logos/ilusion.webp";
 import donQuijote from "@/images/logos/don-quijote.webp";
 import apolo from "@/images/logos/apolo.webp";
+import trattoria from "@/images/logos/trattoria.png";
 
 export interface Sponsor {
   name: string;
@@ -22,6 +23,11 @@ export const sponsors: Sponsor[] = [
   {
     name: "Apolo",
     logo: apolo.src,
+    isMainSponsor: true,
+  },
+  {
+    name: "Trattoria",
+    logo: trattoria.src,
     isMainSponsor: true,
   },
 ];
