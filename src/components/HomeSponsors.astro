@@ -1,10 +1,4 @@
 ---
-import SocialNetwork from "./SocialNetwork.astro";
-
-import instagramIcon from "@/svgs/socials/instagram-icon.svg";
-import spotifyIcon from "@/svgs/socials/spotify-icon.svg";
-import tiktokIcon from "@/svgs/socials/tiktok-icon.svg";
-
 import { sponsors } from "@/configs/sponsors";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 const mainSponsors = sponsors.filter((sponsor) => sponsor.isMainSponsor);
@@ -25,22 +19,6 @@ const t = useTranslations(lang);
     }
   </div>
 </header>
-<p class="social-media-message">
-  {t("sponsors.home.socials")}
-</p>
-<section class="social-icons">
-  <SocialNetwork variant="spotify" icon={spotifyIcon.src} />
-  <SocialNetwork
-    variant="instagram"
-    icon={instagramIcon.src}
-    link="https://www.instagram.com/cfsaltafulla/"
-  />
-  <SocialNetwork
-    variant="tiktok"
-    icon={tiktokIcon.src}
-    link="https://www.tiktok.com/@cfsaltafulla"
-  />
-</section>
 
 <style>
   .main-sponsors {
@@ -68,31 +46,10 @@ const t = useTranslations(lang);
     height: 6rem;
   }
 
-  .social-media-message {
-    color: var(--bg-color);
-    margin-inline: auto;
-    margin-bottom: 2rem;
-    width: max-content;
-  }
-
   .sponsor-logo img {
     object-fit: contain;
     width: 100%;
     height: 100%;
-  }
-
-  .social-icons {
-    display: flex;
-    width: max-content;
-    margin: 0 auto;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  @media (min-width: 768px) {
-    .social-icons {
-      flex-direction: row;
-    }
   }
 
   @media (min-width: 1200px) {

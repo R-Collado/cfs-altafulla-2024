@@ -1,0 +1,61 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import SocialNetwork from "./SocialNetwork.astro";
+
+import instagramIcon from "@/svgs/socials/instagram-icon.svg";
+import spotifyIcon from "@/svgs/socials/spotify-icon.svg";
+import tiktokIcon from "@/svgs/socials/tiktok-icon.svg";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<footer class="footer">
+  <p class="social-media-message">
+    {t("sponsors.home.socials")}
+  </p>
+  <div class="social-icons">
+    <SocialNetwork
+      variant="spotify"
+      icon={spotifyIcon.src}
+      link={"https://open.spotify.com/user/31mpgldgloleykie7lnkzx3u3vna"}
+    />
+    <SocialNetwork
+      variant="instagram"
+      icon={instagramIcon.src}
+      link="https://www.instagram.com/cfsaltafulla/"
+    />
+    <SocialNetwork
+      variant="tiktok"
+      icon={tiktokIcon.src}
+      link="https://www.tiktok.com/@cfsaltafulla"
+    />
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding-block: 5rem;
+    width: 100vw;
+    background-color: var(--secondary-color);
+  }
+
+  .social-media-message {
+    color: var(--bg-color);
+    margin-inline: auto;
+    margin-bottom: 2rem;
+    width: max-content;
+  }
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .social-icons {
+      flex-direction: row;
+    }
+  }
+</style>
