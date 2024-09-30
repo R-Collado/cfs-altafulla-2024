@@ -10,6 +10,7 @@ import bruixot from "@/images/logos/bruixot.png";
 import carme from "@/images/logos/carme.png";
 import casas from "@/images/logos/casas.png";
 import correa from "@/images/logos/correa.png";
+import finques from "@/images/logos/finques.png";
 import leon from "@/images/logos/leon.png";
 import llenyes from "@/images/logos/llenyes.png";
 import lluna from "@/images/logos/lluna.png";
@@ -84,6 +85,11 @@ export const sponsors: Sponsor[] = [
   {
     name: "Correa",
     logo: correa.src,
+    isMainSponsor: false,
+  },
+  {
+    name: "Finques",
+    logo: finques.src,
     isMainSponsor: false,
   },
   {
