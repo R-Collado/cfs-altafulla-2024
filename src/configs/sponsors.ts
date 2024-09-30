@@ -7,7 +7,9 @@ import altafun from "@/images/logos/altafun.png";
 import altalegal from "@/images/logos/altalegal.png";
 import barnaluminis from "@/images/logos/barnaluminis.png";
 import bruixot from "@/images/logos/bruixot.png";
+import carme from "@/images/logos/carme.png";
 import casas from "@/images/logos/casas.png";
+import correa from "@/images/logos/correa.png";
 import leon from "@/images/logos/leon.png";
 import llenyes from "@/images/logos/llenyes.png";
 import lluna from "@/images/logos/lluna.png";
@@ -70,8 +72,18 @@ export const sponsors: Sponsor[] = [
     isMainSponsor: false,
   },
   {
+    name: "Perruqueria Carme",
+    logo: carme.src,
+    isMainSponsor: false,
+  },
+  {
     name: "Casas",
     logo: casas.src,
+    isMainSponsor: false,
+  },
+  {
+    name: "Correa",
+    logo: correa.src,
     isMainSponsor: false,
   },
   {
