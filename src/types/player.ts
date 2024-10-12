@@ -4,7 +4,6 @@ export interface Player {
   second_surname: string | undefined;
   nickname: string;
   number: string;
-  img: string;
   background: number;
   age: number;
   birth_date: string;
