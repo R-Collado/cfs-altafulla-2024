@@ -31,8 +31,14 @@ const { player, roleTranslation }: PlayerCardProps =
         class="player-card__img__bg"
         src={images[player.background - 1].src}
       />
-      <img class="player-card__img first" src={playerImgTest.src} />
-      <img class="player-card__img hover" src={playerImgChangerTest.src} />
+      <img
+        class="player-card__img first"
+        src={`/images/players/${player.name.toLowerCase().replace(/\s+/g, "")}-base.webp`}
+      />
+      <img
+        class="player-card__img hover"
+        src={`/images/players/${player.name.toLowerCase().replace(/\s+/g, "")}-celebration.webp`}
+      />
     </div>
     <main class="player-card__info">
       <p>
@@ -92,7 +98,7 @@ const { player, roleTranslation }: PlayerCardProps =
 
   .player-card__img {
     position: absolute;
-    bottom: 0;
+    bottom: -20%;
     left: 50%;
     max-width: 80%;
     transform: translate3d(-50%, 0, 0);
