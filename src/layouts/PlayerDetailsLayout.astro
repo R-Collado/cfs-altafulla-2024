@@ -28,7 +28,10 @@ const { player, playerContent, isKeeper } = Astro.props;
         <div class="header-container flex">
           <p class="nickname">{player.nickname || player.name}</p>
           <div class="image-container">
-            <img src={player.img} alt="" />
+            <img
+              src={`/images/players/${player.name.toLowerCase().replace(/\s+/g, "")}-celebration.webp`}
+              alt=""
+            />
           </div>
           <div class="player-info-container">
             <p class="player-role">{t(`roles.${player.role}`)}</p>
@@ -179,10 +182,14 @@ const { player, playerContent, isKeeper } = Astro.props;
     .image-container {
       margin-left: auto;
       background-image: none;
+      max-height: 35rem;
+      overflow-y: hidden;
     }
 
     .image-container img {
       margin: 0 0 0 auto;
+      max-width: 30rem;
+      object-position: top;
     }
 
     .nickname {
