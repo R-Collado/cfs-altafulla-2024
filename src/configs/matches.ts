@@ -58,9 +58,13 @@ export const matches: Match[] = [
     atHome: true,
   },
   {
-    date: "2024-10-19T19:00:00",
+    date: "2024-10-12T18:30:00",
     rival: "CE Puigpelat A",
     atHome: false,
+    result: {
+      goalsFulla: 8,
+      goalsRival: 5,
+    },
   },
   {
     date: "2024-10-26T19:00:00",
