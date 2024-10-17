@@ -53,30 +53,6 @@ export const keepersList: Keeper[] = [
       saves: 0,
     },
   },
-  {
-    name: "Pedro",
-    first_surname: "Alvarez",
-    second_surname: "Marín",
-    nickname: "Chincheto",
-    role: "keeper",
-    number: "80",
-    age: getPlayerAge(new Date("2000-03-16")),
-    birth_date: "16/03/2000",
-    birth_place: "Barcelona",
-    birth_country: "spain",
-    last_teams: ["CFS Altafulla, CE Altafulla, Club Atlètic Roda de Barà"],
-    background: 3,
-    total_stats: {
-      matches: 1,
-      clean_sheets: 0,
-      saves: 0,
-    },
-    season_stats: {
-      matches: 1,
-      clean_sheets: 0,
-      saves: 0,
-    },
-  },
 ];
 
 export const playersList: FieldPlayer[] = [
@@ -122,34 +98,6 @@ export const playersList: FieldPlayer[] = [
     number: "4",
     background: 4,
     last_teams: ["CFS Altafulla, Centre Esports Altafulla"],
-    total_stats: {
-      matches: 1,
-      goals: 0,
-      assists: 0,
-    },
-    season_stats: {
-      matches: 1,
-      goals: 0,
-      assists: 0,
-    },
-  },
-  {
-    name: "Karim",
-    first_surname: "Amahdar",
-    second_surname: "El Bouziani",
-    nickname: "",
-    role: "defender",
-    age: getPlayerAge(new Date("1998-04-28")),
-    birth_date: "28/04/1998",
-    birth_place: "Nador",
-    birth_country: "morocco",
-    number: "5",
-    background: 4,
-    last_teams: [
-      "Centre Esports Altafulla",
-      "Unió Esportiva Creixell",
-      "Club Futbol La Riera",
-    ],
     total_stats: {
       matches: 1,
       goals: 0,
