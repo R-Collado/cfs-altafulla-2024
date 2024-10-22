@@ -21,12 +21,12 @@ export const keepersList: Keeper[] = [
     total_stats: {
       matches: 3,
       clean_sheets: 0,
-      saves: 0,
+      saves: 15,
     },
     season_stats: {
       matches: 3,
       clean_sheets: 0,
-      saves: 0,
+      saves: 15,
     },
   },
   {
@@ -45,12 +45,12 @@ export const keepersList: Keeper[] = [
     total_stats: {
       matches: 3,
       clean_sheets: 0,
-      saves: 0,
+      saves: 14,
     },
     season_stats: {
       matches: 3,
       clean_sheets: 0,
-      saves: 0,
+      saves: 14,
     },
   },
 ];
@@ -281,12 +281,12 @@ export const playersList: FieldPlayer[] = [
     background: 3,
     last_teams: ["Centre Esports Altafulla"],
     total_stats: {
-      matches: 3,
+      matches: 1,
       goals: 0,
       assists: 0,
     },
     season_stats: {
-      matches: 3,
+      matches: 1,
       goals: 0,
       assists: 0,
     },
@@ -329,12 +329,12 @@ export const playersList: FieldPlayer[] = [
     background: 3,
     last_teams: ["Camp Clar", "Tarragona Futbol Club"],
     total_stats: {
-      matches: 3,
+      matches: 1,
       goals: 1,
       assists: 0,
     },
     season_stats: {
-      matches: 3,
+      matches: 1,
       goals: 1,
       assists: 0,
     },

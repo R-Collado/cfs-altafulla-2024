@@ -25,7 +25,7 @@ const { player, roleTranslation, isKeeper }: PlayerCardProps =
   Astro.props as PlayerCardProps;
 
 const imagePath = isKeeper
-  ? `/images/keepers/${player.name.toLowerCase().replace(/\s+/g, "")}-gk`
+  ? `/images/players/${player.name.toLowerCase().replace(/\s+/g, "")}-gk`
   : `/images/players/${player.name.toLowerCase().replace(/\s+/g, "")}`;
 ---
 

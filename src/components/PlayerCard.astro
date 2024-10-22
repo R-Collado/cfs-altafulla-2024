@@ -7,6 +7,7 @@ import playerBg2 from "@/images/player-background-wing.svg";
 import playerBg3 from "@/images/player-img-background-3.webp";
 import playerBg4 from "@/images/player-background-pivot.svg";
 
+import { roundTo } from "@/utils/round";
 import type { FieldPlayer } from "../types/player";
 import {
   getLangFromUrl,
@@ -66,9 +67,13 @@ const imagePath = `/images/players/${player.name.toLowerCase().replace(/\s+/g, "
         <p class="stat-amount actual">{player.season_stats.goals}</p>
       </div>
       <div class="stat assists">
-        <p class="stat-name">{t("stats.assists")}</p>
-        <p class="stat-amount">{player.total_stats.assists}</p>
-        <p class="stat-amount actual">{player.season_stats.assists}</p>
+        <p class="stat-name">{t("stats.goalsXMatch")}</p>
+        <p class="stat-amount">
+          {roundTo(player.total_stats.goals / player.total_stats.matches, 2)}
+        </p>
+        <p class="stat-amount actual">
+          {roundTo(player.season_stats.goals / player.season_stats.matches, 2)}
+        </p>
       </div>
       <p class="actual-season-header">{t("stats.season")} 2024-2025</p>
     </section>
@@ -184,11 +189,9 @@ const imagePath = `/images/players/${player.name.toLowerCase().replace(/\s+/g, "
     display: flex;
     justify-content: center;
     text-align: center;
-    gap: 1rem;
     position: absolute;
-    bottom: -5%;
-    left: 50%;
-    transform: translate3d(-50%, 0, 0);
+    width: 100%;
+    bottom: -7.5%;
     z-index: 10;
     opacity: 0;
   }
@@ -202,6 +205,8 @@ const imagePath = `/images/players/${player.name.toLowerCase().replace(/\s+/g, "
     text-transform: uppercase;
     font-size: 0.5rem;
     font-weight: 100;
+    height: 1.25rem;
+    width: 5rem;
   }
 
   .stat-amount {
