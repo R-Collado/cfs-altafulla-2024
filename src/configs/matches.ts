@@ -56,6 +56,10 @@ export const matches: Match[] = [
     date: "2024-10-05T19:00:00",
     rival: "Montblanc CFS A",
     atHome: true,
+    result: {
+      goalsFulla: 4,
+      goalsRival: 6,
+    },
   },
   {
     date: "2024-10-12T18:30:00",
