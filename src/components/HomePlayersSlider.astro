@@ -18,7 +18,10 @@ const playersList = getPlayersByScore();
         playersList.map((player) => {
           return (
             <div>
-              <HomePlayerCard player={player} />
+              <HomePlayerCard
+                player={player}
+                isKeeper={player.role === "keeper"}
+              />
             </div>
           );
         })

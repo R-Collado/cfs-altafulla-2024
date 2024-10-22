@@ -25,6 +25,7 @@ interface PlayerCardProps {
 }
 
 const { player }: PlayerCardProps = Astro.props as PlayerCardProps;
+const imagePath = `/images/players/${player.name.toLowerCase().replace(/\s+/g, "")}-gk`;
 ---
 
 <div class="player-card" id=`${player.number}-card`>
@@ -34,8 +35,11 @@ const { player }: PlayerCardProps = Astro.props as PlayerCardProps;
         class="player-card__img__bg"
         src={images[player.background - 1].src}
       />
-      <img class="player-card__img first" src={playerImgTest.src} />
-      <img class="player-card__img hover" src={playerImgChangerTest.src} />
+      <img class="player-card__img first" src={`${imagePath}-base.webp`} />
+      <img
+        class="player-card__img hover"
+        src={`${imagePath}-celebration.webp`}
+      />
     </div>
     <main class="player-card__info">
       <p>
@@ -113,7 +117,7 @@ const { player }: PlayerCardProps = Astro.props as PlayerCardProps;
 
   .player-card__img {
     position: absolute;
-    bottom: 0;
+    bottom: -20%;
     left: 50%;
     max-width: 80%;
     transform: translate3d(-50%, 0, 0);

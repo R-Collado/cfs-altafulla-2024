@@ -18,10 +18,15 @@ const translatePath = useTranslatedPath(lang);
 interface PlayerCardProps {
   player: FieldPlayer;
   roleTranslation: string;
+  isKeeper: boolean;
 }
 
-const { player, roleTranslation }: PlayerCardProps =
+const { player, roleTranslation, isKeeper }: PlayerCardProps =
   Astro.props as PlayerCardProps;
+
+const imagePath = isKeeper
+  ? `/images/keepers/${player.name.toLowerCase().replace(/\s+/g, "")}-gk`
+  : `/images/players/${player.name.toLowerCase().replace(/\s+/g, "")}`;
 ---
 
 <div class="player-card" id=`${player.number}-card`>
@@ -31,13 +36,10 @@ const { player, roleTranslation }: PlayerCardProps =
         class="player-card__img__bg"
         src={images[player.background - 1].src}
       />
-      <img
-        class="player-card__img first"
-        src={`/images/players/${player.name.toLowerCase().replace(/\s+/g, "")}-base.webp`}
-      />
+      <img class="player-card__img first" src={`${imagePath}-base.webp`} />
       <img
         class="player-card__img hover"
-        src={`/images/players/${player.name.toLowerCase().replace(/\s+/g, "")}-celebration.webp`}
+        src={`${imagePath}-celebration.webp`}
       />
     </div>
     <main class="player-card__info">
