@@ -13,7 +13,7 @@ const t = useTranslations(lang);
 
 const roles = ["keeper", "defender", "wing", "pivot"];
 
-const players = await Astro.glob(`../content/players-json/*.json`);
+const players = await Astro.glob(`../content/players/*.json`);
 
 const playersByRole = roles.map((role) => {
   return players.filter((player) => player.role === role);
