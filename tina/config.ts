@@ -62,7 +62,6 @@ export default defineConfig({
             type: "string",
             name: "role",
             label: "Posición",
-            list: true,
             options: [
               {
                 value: "keeper",
@@ -81,6 +80,10 @@ export default defineConfig({
                 label: "Pivot",
               },
             ],
+            ui: {
+              component: "radio-group",
+              direction: "vertical",
+            },
           },
           {
             type: "number",

@@ -14,9 +14,9 @@ const t = useTranslations(lang);
 const roles = ["keeper", "defender", "wing", "pivot"];
 
 const players = await Astro.glob(`../../content/players/*.json`);
-
+const playersByNumber = players.sort((a, b) => a.number - b.number);
 const playersByRole = roles.map((role) => {
-  return players.filter((player) => player.role === role);
+  return playersByNumber.filter((player) => player.role === role);
 });
 ---
 
