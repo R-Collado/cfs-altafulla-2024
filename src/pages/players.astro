@@ -12,6 +12,12 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const roles = ["keeper", "defender", "wing", "pivot"];
+
+const players = await Astro.glob(`../content/players-json/*.json`);
+
+const playersByRole = roles.map((role) => {
+  return players.filter((player) => player.role === role);
+});
 ---
 
 <Layout title={t("nav.players")}>
@@ -33,11 +39,13 @@ const roles = ["keeper", "defender", "wing", "pivot"];
   </header>
   <main>
     {
-      roles.map((role) => {
-        if (role === "keeper") {
-          return <PlayersSection playersList={keepersList} role={role} />;
+      playersByRole.map((players) => {
+        if (players[0].role === "keeper") {
+          return (
+            <PlayersSection playersList={keepersList} role={players[0].role} />
+          );
         }
-        return <PlayersSection playersList={playersList} role={role} />;
+        return <PlayersSection playersList={players} role={players[0].role} />;
       })
     }
   </main>

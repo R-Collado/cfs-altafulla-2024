@@ -1,0 +1,24 @@
+{
+  "name": "Joel",
+  "first_surname": "Mera",
+  "second_surname": "",
+  "nickname": "Mera",
+  "role": "wing",
+  "age": 22,
+  "birth_date": "21/12/2001",
+  "birth_place": "Altafulla",
+  "birth_country": "Spain",
+  "number": "19",
+  "background": 3,
+  "last_teams": ["Camp Clar", "Tarragona Futbol Club"],
+  "total_stats": {
+    "matches": 1,
+    "goals": 1,
+    "assists": 0
+  },
+  "season_stats": {
+    "matches": 1,
+    "goals": 1,
+    "assists": 0
+  }
+}
