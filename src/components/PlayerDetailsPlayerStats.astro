@@ -1,5 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { roundTo } from "@/utils/round";
 
 const { player } = Astro.props;
 
@@ -21,10 +22,21 @@ const t = useTranslations(lang);
     <p class="stat actual-season">{player.season_stats.goals}</p>
   </div>
   <div class="assists stat-container">
-    <p class="stat-header">{t("stats.assists")}</p>
-    <p class="stat">{player.total_stats.assists}</p>
+    <p class="stat-header">{t("stats.goalsXMatch")}</p>
+    <p class="stat">
+      {roundTo(player.total_stats.goals / player.total_stats.matches, 2)}
+    </p>
     <p class="actual-season-header">{t("player.info.actual_season")}</p>
-    <p class="stat actual-season">{player.season_stats.assists}</p>
+    <p class="stat actual-season">
+      {roundTo(player.season_stats.goals / player.season_stats.matches, 2)}
+    </p>
+    <!-- 
+    <p class="stat-amount">
+          {roundTo(player.total_stats.goals / player.total_stats.matches, 2)}
+        </p>
+        <p class="stat-amount actual">
+          {roundTo(player.season_stats.goals / player.season_stats.matches, 2)}
+        </p> -->
   </div>
 </div>
 
