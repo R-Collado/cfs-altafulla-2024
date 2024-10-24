@@ -5,11 +5,14 @@ import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import PlayerBiography from "@/components/PlayerBiography.astro";
 import PlayerDetailsPlayerStats from "@/components/PlayerDetailsPlayerStats.astro";
 import PlayerDetailsKeeperStats from "@/components/PlayerDetailsKeeperStats.astro";
+import { getImagePath } from "@/utils/players";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const { player, playerContent, isKeeper } = Astro.props;
+
+const imagePath = getImagePath(player);
 ---
 
 <html>
@@ -28,10 +31,7 @@ const { player, playerContent, isKeeper } = Astro.props;
         <div class="header-container flex">
           <p class="nickname">{player.nickname || player.name}</p>
           <div class="image-container">
-            <img
-              src={`/images/players/${player.name.toLowerCase().replace(/\s+/g, "")}-celebration.webp`}
-              alt=""
-            />
+            <img src={`${imagePath}-celebration.webp`} alt="" />
           </div>
           <div class="player-info-container">
             <p class="player-role">{t(`roles.${player.role}`)}</p>

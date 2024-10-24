@@ -18,3 +18,23 @@ export const getPlayersByScore = () => {
 
   return players;
 };
+
+export const getImagePath = (player: any) => {
+  const playerName = player.name.toLowerCase().replace(/\s+/g, "");
+
+  if (player.role === "keeper") {
+    return `/images/players/${playerName}-gk`;
+  } else {
+    return `/images/players/${playerName}`;
+  }
+};
+
+export const getHandshakeImage = (player: any) => {
+  const playerName = player.name.toLowerCase().replace(/\s+/g, "");
+
+  if (player.role === "keeper") {
+    return `/images/players/handshake/${playerName}-gk.webp`;
+  } else {
+    return `/images/players/handshake/${playerName}.webp`;
+  }
+};

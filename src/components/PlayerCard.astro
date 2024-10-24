@@ -1,7 +1,4 @@
 ---
-import playerImgTest from "@/images/player-img-test.webp";
-import playerImgChangerTest from "@/images/image-changer-test.webp";
-
 import playerBg1 from "@/images/player-background-keeper.svg";
 import playerBg2 from "@/images/player-background-wing.svg";
 import playerBg3 from "@/images/player-img-background-3.webp";
@@ -14,6 +11,7 @@ import {
   useTranslatedPath,
   useTranslations,
 } from "@/i18n/utils";
+import { getImagePath } from "@/utils/players";
 
 const images: ImageMetadata[] = [playerBg1, playerBg2, playerBg3, playerBg4];
 
@@ -29,7 +27,7 @@ interface PlayerCardProps {
 const { player, roleTranslation }: PlayerCardProps =
   Astro.props as PlayerCardProps;
 
-const imagePath = `/images/players/${player.name.toLowerCase().replace(/\s+/g, "")}`;
+const imagePath = getImagePath(player);
 ---
 
 <div class="player-card" id=`${player.number}-card`>

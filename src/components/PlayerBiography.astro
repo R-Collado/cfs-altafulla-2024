@@ -2,8 +2,7 @@
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import PlayerBirthInfo from "./PlayerBirthInfo.astro";
 import SideDialog from "./SideDialog.astro";
-
-import playerBiographyImg from "@/images/player-images/2/img-biography.webp";
+import { getHandshakeImage } from "@/utils/players";
 
 const { player, playerContent } = Astro.props;
 const { Content } = await playerContent.render();
@@ -15,11 +14,13 @@ const separatedPlayerContent = playerContent.body.split("\n");
 
 const bioFirstParagraph = separatedPlayerContent[3];
 const bioSecondParagraph = separatedPlayerContent[5];
+
+const imagePath = getHandshakeImage(player);
 ---
 
 <section class="player-biography">
   <div class="player-img-wrapper">
-    <img src={playerBiographyImg.src} alt="" />
+    <img src={imagePath} alt="" />
   </div>
   <section class="player-short-bio">
     <p class="header">
