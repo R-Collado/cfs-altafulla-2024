@@ -4,21 +4,15 @@
   "second_surname": "",
   "nickname": "Hicham",
   "role": "pivot",
-  "age": "24",
+  "age": 24,
   "birth_date": "07/01/2000",
   "birth_place": "Marruecos",
   "birth_country": "morocco",
   "last_teams": ["CFS Altafulla"],
   "number": "8",
   "background": 3,
-  "total_stats": {
-    "matches": 3,
-    "goals": 1,
-    "assists": 0
-  },
-  "season_stats": {
-    "matches": 3,
-    "goals": 1,
-    "assists": 0
-  }
+  "season_matches": 3,
+  "season_goals": 1,
+  "total_matches": 3,
+  "total_goals": 1
 }

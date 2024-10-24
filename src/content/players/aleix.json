@@ -1,0 +1,22 @@
+{
+  "birth_date": "12/07/2004",
+  "birth_place": "Altafulla",
+  "birth_country": "spain",
+  "number": "10",
+  "name": "Aleix",
+  "first_surname": "Roberto",
+  "second_surname": "Mestre",
+  "nickname": "Mamut",
+  "role": ["pivot"],
+  "age": 20,
+  "background": 4,
+  "last_teams": [
+    "Club Futbol Sala Altafulla",
+    "Club Vila-Seca Futbol Sala",
+    "Centre Esports Altafulla"
+  ],
+  "season_matches": 3,
+  "season_goals": 1,
+  "total_matches": 3,
+  "total_goals": 1
+}

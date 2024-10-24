@@ -20,8 +20,10 @@ export interface Keeper extends Player {
 
 export interface FieldPlayer extends Player {
   role: "defender" | "wing" | "pivot";
-  total_stats: PlayerStats;
-  season_stats: PlayerStats;
+  season_matches: number;
+  season_goals: number;
+  total_matches: number;
+  total_goals: number;
 }
 
 interface PlayerStats {

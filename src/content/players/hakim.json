@@ -17,14 +17,8 @@
     "Futsalpax Tarragona Club Esportiu"
   ],
   "background": 2,
-  "total_stats": {
-    "matches": 3,
-    "goals": 3,
-    "assists": 0
-  },
-  "season_stats": {
-    "matches": 3,
-    "goals": 3,
-    "assists": 0
-  }
+  "season_matches": 3,
+  "season_goals": 3,
+  "total_matches": 3,
+  "total_goals": 3
 }

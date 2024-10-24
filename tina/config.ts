@@ -29,25 +29,152 @@ export default defineConfig({
   schema: {
     collections: [
       {
-        name: "post",
-        label: "Posts",
-        path: "content/posts",
+        name: "player",
+        label: "Players",
+        path: "src/content/players",
+        format: "json",
         fields: [
           {
             type: "string",
-            name: "title",
-            label: "Title",
-            isTitle: true,
+            name: "name",
+            label: "Nombre del jugador",
             required: true,
           },
           {
-            type: "rich-text",
-            name: "body",
-            label: "Body",
-            isBody: true,
+            type: "string",
+            name: "first_surname",
+            label: "Primer apellido",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "second_surname",
+            label: "Segundo apellido",
+            required: false,
+          },
+          {
+            type: "string",
+            name: "nickname",
+            label: "Apodo",
+            required: false,
+          },
+          {
+            type: "string",
+            name: "role",
+            label: "Posición",
+            list: true,
+            options: [
+              {
+                value: "keeper",
+                label: "Portero",
+              },
+              {
+                value: "defender",
+                label: "Cierre",
+              },
+              {
+                value: "wing",
+                label: "Ala",
+              },
+              {
+                value: "pivot",
+                label: "Pivot",
+              },
+            ],
+          },
+          {
+            type: "number",
+            name: "number",
+            label: "Dorsal",
+            required: true,
+          },
+          {
+            type: "number",
+            name: "age",
+            label: "Edad",
+            required: true,
+          },
+          {
+            type: "datetime",
+            name: "birth_date",
+            label: "Fecha de nacimiento",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "birth_place",
+            label: "Lugar de nacimiento",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "birth_country",
+            label: "País de nacimiento",
+            required: true,
+          },
+          {
+            type: "number",
+            name: "background",
+            label: "Background",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "last_teams",
+            label: "Otros equipos",
+            list: true,
+            ui: {
+              component: "tags",
+              min: 1,
+            },
+            required: true,
+          },
+          {
+            type: "number",
+            name: "season_matches",
+            label: "Partidos esta temporada",
+            required: true,
+          },
+          {
+            type: "number",
+            name: "season_goals",
+            label: "Goles esta temporada",
+            required: true,
+          },
+          {
+            type: "number",
+            name: "total_matches",
+            label: "Partidos totales",
+            required: true,
+          },
+          {
+            type: "number",
+            name: "total_goals",
+            label: "Goles totales",
+            required: true,
           },
         ],
       },
+      // {
+      //   name: "post",
+      //   label: "Posts",
+      //   path: "content/posts",
+      //   fields: [
+      //     {
+      //       type: "string",
+      //       name: "title",
+      //       label: "Title",
+      //       isTitle: true,
+      //       required: true,
+      //     },
+      //     {
+      //       type: "rich-text",
+      //       name: "body",
+      //       label: "Body",
+      //       isBody: true,
+      //     },
+      //   ],
+      // },
     ],
   },
 });

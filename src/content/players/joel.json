@@ -11,14 +11,8 @@
   "number": "19",
   "background": 3,
   "last_teams": ["Camp Clar", "Tarragona Futbol Club"],
-  "total_stats": {
-    "matches": 1,
-    "goals": 1,
-    "assists": 0
-  },
-  "season_stats": {
-    "matches": 1,
-    "goals": 1,
-    "assists": 0
-  }
+  "season_matches": 1,
+  "season_goals": 1,
+  "total_matches": 1,
+  "total_goals": 1
 }

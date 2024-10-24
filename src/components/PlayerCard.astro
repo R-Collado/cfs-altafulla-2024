@@ -56,21 +56,21 @@ const imagePath = getImagePath(player);
     <section class="player-stats">
       <div class="stat matches">
         <p class="stat-name">{t("stats.matches")}</p>
-        <p class="stat-amount">{player.total_stats.matches}</p>
-        <p class="stat-amount actual">{player.season_stats.matches}</p>
+        <p class="stat-amount">{player.total_matches}</p>
+        <p class="stat-amount actual">{player.season_matches}</p>
       </div>
       <div class="stat goals">
         <p class="stat-name">{t("stats.goals")}</p>
-        <p class="stat-amount">{player.total_stats.goals}</p>
-        <p class="stat-amount actual">{player.season_stats.goals}</p>
+        <p class="stat-amount">{player.total_goals}</p>
+        <p class="stat-amount actual">{player.season_goals}</p>
       </div>
       <div class="stat assists">
         <p class="stat-name">{t("stats.goalsXMatch")}</p>
         <p class="stat-amount">
-          {roundTo(player.total_stats.goals / player.total_stats.matches, 2)}
+          {roundTo(player.total_goals / player.total_matches, 2)}
         </p>
         <p class="stat-amount actual">
-          {roundTo(player.season_stats.goals / player.season_stats.matches, 2)}
+          {roundTo(player.season_goals / player.season_matches, 2)}
         </p>
       </div>
       <p class="actual-season-header">{t("stats.season")} 2024-2025</p>

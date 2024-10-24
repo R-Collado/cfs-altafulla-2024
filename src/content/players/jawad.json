@@ -4,21 +4,15 @@
   "second_surname": "Amahdar",
   "nickname": "Jawad",
   "role": "wing",
-  "age": "21",
+  "age": 21,
   "birth_date": "08/01/2003",
   "birth_place": "Altafulla",
   "birth_country": "Spain",
   "number": "12",
   "background": 3,
   "last_teams": ["Centre Esports Altafulla"],
-  "total_stats": {
-    "matches": 1,
-    "goals": 0,
-    "assists": 0
-  },
-  "season_stats": {
-    "matches": 1,
-    "goals": 0,
-    "assists": 0
-  }
+  "season_matches": 1,
+  "season_goals": 0,
+  "total_matches": 1,
+  "total_goals": 0
 }
