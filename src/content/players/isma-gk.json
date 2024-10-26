@@ -1,16 +1,4 @@
 {
-  "name": "Ismael",
-  "first_surname": "Aammouri",
-  "second_surname": "El Hasnaoui",
-  "nickname": "Bombas",
-  "role": "keeper",
-  "age": 22,
-  "birth_date": "31/10/2002",
-  "birth_place": "Altafulla",
-  "birth_country": "Spain",
-  "number": "69",
-  "background": 2,
-  "last_teams": ["Centre Esports Altafulla"],
   "total_stats": {
     "matches": 3,
     "clean_sheets": 0,
@@ -20,5 +8,23 @@
     "matches": 3,
     "clean_sheets": 0,
     "saves": 14
-  }
+  },
+  "name": "Ismael",
+  "first_surname": "Aammouri",
+  "second_surname": "El Hasnaoui",
+  "nickname": "Bombas",
+  "role": "keeper",
+  "number": 69,
+  "age": 22,
+  "birth_date": "2002-10-30T23:00:00.000Z",
+  "birth_place": "Altafulla",
+  "birth_country": "Spain",
+  "background": 2,
+  "last_teams": [
+    "Centre Esports Altafulla"
+  ],
+  "season_matches": 4,
+  "season_goals": 0,
+  "total_matches": 4,
+  "total_goals": 0
 }
