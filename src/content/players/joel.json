@@ -4,15 +4,18 @@
   "second_surname": "",
   "nickname": "Mera",
   "role": "wing",
+  "number": 3,
   "age": 22,
-  "birth_date": "21/12/2001",
+  "birth_date": "2001-12-20T23:00:00.000Z",
   "birth_place": "Altafulla",
   "birth_country": "Spain",
-  "number": "19",
   "background": 3,
-  "last_teams": ["Camp Clar", "Tarragona Futbol Club"],
-  "season_matches": 1,
+  "last_teams": [
+    "Camp Clar",
+    "Tarragona Futbol Club"
+  ],
+  "season_matches": 2,
   "season_goals": 1,
-  "total_matches": 1,
+  "total_matches": 2,
   "total_goals": 1
 }
