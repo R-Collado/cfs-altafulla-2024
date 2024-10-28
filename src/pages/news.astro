@@ -5,45 +5,25 @@ import BlogPostPreview from "@/components/BlogPostPreview.astro";
 import { getCollection } from "astro:content";
 import FirstBlogPostPreview from "@/components/FirstBlogPostPreview.astro";
 
-const images = await Astro.glob("/src/assets/images/post-covers/*").then(
-  (files) => {
-    return files.map((file) => file.default);
-  },
-);
-
-const imagesReversed = images.reverse();
+const posts = await getCollection("articles");
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const blogEntries = await getCollection("blog");
-const blogEntriesFiltered = blogEntries.filter(
-  (entry: any) => entry.data.lang === lang,
-);
-const blogEntriesSorted = blogEntriesFiltered.sort((a: any, b: any) =>
-  b.data.date.localeCompare(a.data.date),
-);
+const postsByLanguage = posts.filter((post) => post.data.lang === lang);
+const postsByDate = postsByLanguage.sort((a, b) => {
+  return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+});
 ---
 
 <Layout title={t("nav.news")}>
   <section class="blog-posts">
     {
-      blogEntriesSorted.map((entry: any, idx: number) => {
+      postsByLanguage.map((post, idx) => {
         if (idx === 0) {
-          return (
-            <FirstBlogPostPreview
-              blogPostData={entry.data}
-              cover={imagesReversed[idx]}
-            />
-          );
-        } else {
-          return (
-            <BlogPostPreview
-              blogPostData={entry.data}
-              cover={imagesReversed[idx]}
-            />
-          );
+          return <FirstBlogPostPreview post={post} />;
         }
+        return <BlogPostPreview post={post} />;
       })
     }
   </section>

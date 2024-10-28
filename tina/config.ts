@@ -158,26 +158,97 @@ export default defineConfig({
           },
         ],
       },
-      // {
-      //   name: "post",
-      //   label: "Posts",
-      //   path: "content/posts",
-      //   fields: [
-      //     {
-      //       type: "string",
-      //       name: "title",
-      //       label: "Title",
-      //       isTitle: true,
-      //       required: true,
-      //     },
-      //     {
-      //       type: "rich-text",
-      //       name: "body",
-      //       label: "Body",
-      //       isBody: true,
-      //     },
-      //   ],
-      // },
+      {
+        name: "article",
+        label: "Articles",
+        path: "src/content/articles",
+        defaultItem: () => {
+          return {
+            date: new Date().toISOString(),
+          };
+        },
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Título",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "post_id",
+            label: "Id del post",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "author",
+            label: "Autor",
+            required: true,
+          },
+          {
+            type: "image",
+            name: "imageSrc",
+            label: "Featured Image",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "imageAlt",
+            label: "Alt text for Featured Image",
+            required: true,
+          },
+          {
+            type: "datetime",
+            name: "date",
+            label: "Date",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "excerpt",
+            label: "Resumen",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "tags",
+            label: "Tags",
+            list: true,
+            ui: {
+              component: "tags",
+              min: 1,
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "lang",
+            label: "Idioma",
+            options: [
+              {
+                value: "es",
+                label: "Español",
+              },
+              {
+                value: "ca",
+                label: "Catalán",
+              },
+              {
+                value: "en",
+                label: "Inglés",
+              },
+            ],
+          },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Cuerpo del artículo",
+            isBody: true,
+          },
+        ],
+      },
     ],
   },
 });

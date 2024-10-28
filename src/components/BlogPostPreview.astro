@@ -6,34 +6,36 @@ import {
 } from "@/i18n/utils";
 import { truncateText } from "@/utils/text";
 
-const { blogPostData, cover } = Astro.props;
-const { title, tags, date, summary, post_id } = blogPostData;
+const { post } = Astro.props;
+const { imageSrc, imageAlt, date, tags, title, excerpt } = post.data;
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
 const t = useTranslations(lang);
-const charactersLimit = 50;
+const charactersLimit = 65;
+
+const day = date.getDate();
+const year = date.getFullYear();
+const month = date.toLocaleString("default", { month: "short" });
 ---
 
-<article class="blog-post-preview" id={post_id}>
+<article class="blog-post-preview" id={post.slug}>
   <a
     class="blog-post-preview__link"
-    href={translatePath(`/news/${post_id}`, lang)}
+    href={translatePath(`/news/${post.data.post_id}`, lang)}
   >
     <div class="blog-post-preview__image-wrapper">
-      <img
-        class="blog-post-preview__image"
-        src={cover.src}
-        alt="Imagen de la entrada del blog"
-      />
+      <img class="blog-post-preview__image" src={imageSrc} alt={imageAlt} />
     </div>
     <main class="blog-post-preview__main">
       <h3 class="blog-post-preview__title">
         {title}
       </h3>
-      <p class="blog-post-preview__tag">{date} - {tags[0]}</p>
+      <p class="blog-post-preview__tag">
+        {`${day} ${month}, ${year} - ${tags[0]}`}
+      </p>
       <p class="blog-post-preview__summary">
-        {truncateText(summary, charactersLimit)}
+        {truncateText(excerpt, charactersLimit)}
       </p>
       <button class="blog-post-preview__button">
         {t("blog.readMore")}
