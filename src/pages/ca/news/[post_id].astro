@@ -6,21 +6,22 @@ import { getLangFromUrl } from "@/i18n/utils";
 const { post_id } = Astro.params;
 const lang = getLangFromUrl(Astro.url);
 
-const blogEntries = await getCollection("blog");
+const blogEntries = await getCollection("articles");
 const blogEntriesFiltered = blogEntries.filter(
-  (entry) => entry.data.lang === lang,
+  (entry: any) => entry.data.lang === lang,
 );
 
 const entry = blogEntriesFiltered.find(
-  (entry) => entry.data.post_id === post_id,
+  (entry: any) => entry.data.post_id === post_id,
 );
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("blog");
+  const blogEntries = await getCollection("articles");
+  console.log(blogEntries[0].slug);
 
-  return blogEntries.map((entry) => ({
+  return blogEntries.map((entry: any) => ({
     params: {
-      post_id: entry.data.post_id,
+      post_id: entry.slug,
     },
   }));
 }
