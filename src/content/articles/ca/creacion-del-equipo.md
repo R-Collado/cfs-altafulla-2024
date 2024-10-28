@@ -1,11 +1,4 @@
 ---
-cover: ./post-test-img.png
-summary: >-
-  Ens complau anunciar la creació del nostre nou equip, Club Futsal Altafulla,
-  un projecte nascut de l'amor pel futbol sala i la passió per l'esport a la
-  nostra estimada localitat d'Altafulla. Aquest equip és el resultat de l'esforç
-  conjunt d'aficionats, jugadors i entrenadors que volen fer història en
-  l'esport local.
 authorImg: ./images/roger-img.png
 hour: "9:05"
 post_id: creacion-del-equipo

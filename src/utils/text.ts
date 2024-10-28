@@ -7,7 +7,6 @@ export const truncateText = (text: string, maxLength: number) => {
 
 export const truncateBlogEntry = (text: string, type: string) => {
   if (type === "firstPost") {
-    console.log(window.innerWidth);
     return truncateText(text, 250);
   } else {
     return truncateText(text, 50);

@@ -17,11 +17,10 @@ const entry = blogEntriesFiltered.find(
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("articles");
-  console.log(blogEntries[0].slug);
 
   return blogEntries.map((entry: any) => ({
     params: {
-      post_id: entry.slug,
+      post_id: entry.data.post_id,
     },
   }));
 }

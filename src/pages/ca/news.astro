@@ -19,7 +19,7 @@ const postsByDate = postsByLanguage.sort((a, b) => {
 <Layout title={t("nav.news")}>
   <section class="blog-posts">
     {
-      postsByLanguage.map((post, idx) => {
+      postsByDate.map((post, idx) => {
         if (idx === 0) {
           return <FirstBlogPostPreview post={post} />;
         }
