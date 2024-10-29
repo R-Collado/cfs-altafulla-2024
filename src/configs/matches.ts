@@ -71,12 +71,16 @@ export const matches: Match[] = [
     },
   },
   {
-    date: "2024-10-26T19:00:00",
+    date: "2024-10-26T16:00:00",
     rival: "Spicy La Lira Vendrellenca FS A",
     atHome: true,
+    result: {
+      goalsFulla: 9,
+      goalsRival: 4,
+    },
   },
   {
-    date: "2024-11-02T19:00:00",
+    date: "2024-11-02T16:15:00",
     rival: "Fundació Pef. La Pobla Mafumet A",
     atHome: true,
   },
