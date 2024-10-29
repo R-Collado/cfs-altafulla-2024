@@ -141,8 +141,12 @@ export default defineConfig({
           {
             type: "number",
             name: "season_goals",
-            label: "Goles esta temporada",
-            required: true,
+            label: "Goles esta temporada (solo jugadores)",
+          },
+          {
+            type: "number",
+            name: "season_saves",
+            label: "Paradas esta temporada (solo porteros)",
           },
           {
             type: "number",
@@ -153,8 +157,12 @@ export default defineConfig({
           {
             type: "number",
             name: "total_goals",
-            label: "Goles totales",
-            required: true,
+            label: "Goles totales (solo jugadores)",
+          },
+          {
+            type: "number",
+            name: "total_saves",
+            label: "Paradas totales (solo porteros)",
           },
         ],
       },
