@@ -1,11 +1,6 @@
 ---
-import {
-  getLangFromUrl,
-  useTranslatedPath,
-  useTranslations,
-} from "@/i18n/utils";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import Layout from "@/layouts/Layout.astro";
-import { keepersList, playersList } from "@/configs/players.ts";
 import PlayersSection from "@/components/PlayersSection.astro";
 
 const lang = getLangFromUrl(Astro.url);
@@ -42,7 +37,7 @@ const playersByRole = roles.map((role) => {
       playersByRole.map((players) => {
         if (players[0].role === "keeper") {
           return (
-            <PlayersSection playersList={keepersList} role={players[0].role} />
+            <PlayersSection playersList={players} role={players[0].role} />
           );
         }
         return <PlayersSection playersList={players} role={players[0].role} />;
