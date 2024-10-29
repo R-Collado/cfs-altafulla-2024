@@ -12,7 +12,7 @@ const t = useTranslations(lang);
 
 const { player, playerContent, isKeeper } = Astro.props;
 
-const imagePath = getImagePath(player);
+const imagePath = getImagePath(player.data);
 ---
 
 <html>
@@ -44,9 +44,9 @@ const imagePath = getImagePath(player);
             </div>
             {
               isKeeper ? (
-                <PlayerDetailsKeeperStats keeper={player} />
+                <PlayerDetailsKeeperStats keeper={player.data} />
               ) : (
-                <PlayerDetailsPlayerStats player={player} />
+                <PlayerDetailsPlayerStats player={player.data} />
               )
             }
           </div>
