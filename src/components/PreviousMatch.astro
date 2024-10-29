@@ -4,7 +4,8 @@ import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 const lang = getLangFromUrl(Astro.url).toString();
 const t = useTranslations(lang);
 
-const { atHome, date, rival, result, matchType } = Astro.props.match;
+const { atHome, date, rival, goalsFulla, goalsRival, matchType } =
+  Astro.props.match;
 
 const matchDate = new Date(date);
 const month = matchDate.toLocaleString(lang, { month: "short" }).slice(0, 3);
@@ -28,14 +29,14 @@ const type = t(`match.type.${matchType}`) || t("match.type.league");
           {atHome ? "CFS Altafulla" : rival}</span
         >
         <span class="match__team__goals"
-          >{atHome ? result?.goalsFulla : result?.goalsRival}</span
+          >{atHome ? goalsFulla : goalsRival}</span
         >
       </div>
       <div class="match__team match__team--away">
         <span class="match__team__name">{atHome ? rival : "CFS Altafulla"}</span
         >
         <span class="match__team__goals"
-          >{atHome ? result?.goalsRival : result?.goalsFulla}</span
+          >{atHome ? goalsRival : goalsFulla}</span
         >
       </div>
     </main>

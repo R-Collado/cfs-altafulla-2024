@@ -1,13 +1,14 @@
 ---
 import { getNextMatch } from "@/utils/matches";
 import Timer from "./Timer.astro";
-import { matches } from "@/configs/matches";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url).toString();
 const t = useTranslations(lang);
 
-const nextMatch = getNextMatch(matches);
+const matchList = await Astro.glob("../content/matches/*.json");
+const nextMatch = getNextMatch(matchList);
+
 const matchType = nextMatch?.matchType || "league";
 const matchDate = new Date(nextMatch!.date);
 const matchMonth = matchDate
@@ -41,7 +42,7 @@ const type = t(`match.type.${matchType}`) || t("match.type.league");
         rel="noopener noreferrer nofollow"
         target="_blank"
       >
-        Clasificación
+        {t("match.standings")}
       </a>
     </div>
   </main>

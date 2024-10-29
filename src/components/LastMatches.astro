@@ -1,13 +1,14 @@
 ---
 import PreviousMatch from "./PreviousMatch.astro";
-import { matches } from "@/configs/matches";
 import { getLastTwoMatches } from "@/utils/matches";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const matchList = await Astro.glob("../content/matches/*.json");
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const lastMatches = getLastTwoMatches(matches);
+const lastMatches = getLastTwoMatches(matchList);
 ---
 
 <div class="last-matches">

@@ -257,6 +257,59 @@ export default defineConfig({
           },
         ],
       },
+      {
+        name: "match",
+        label: "Matches",
+        path: "src/content/matches",
+        format: "json",
+        defaultItem: () => {
+          return {
+            matchType: "league",
+          };
+        },
+        fields: [
+          {
+            type: "datetime",
+            name: "date",
+            label: "Fecha del partido",
+            ui: {
+              timeFormat: "HH:mm",
+            },
+            required: true,
+          },
+          {
+            type: "string",
+            name: "rival",
+            label: "Rival",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "matchType",
+            label: "Tipo de partido",
+            options: [
+              { value: "friendly", label: "Amistoso" },
+              { value: "league", label: "Liga" },
+            ],
+          },
+          {
+            type: "boolean",
+            name: "atHome",
+            label: "En casa",
+            required: true,
+          },
+          {
+            type: "number",
+            name: "goalsFulla",
+            label: "Goles del CFS Altafulla",
+          },
+          {
+            type: "number",
+            name: "goalsRival",
+            label: "Goles del rival",
+          },
+        ],
+      },
     ],
   },
 });
