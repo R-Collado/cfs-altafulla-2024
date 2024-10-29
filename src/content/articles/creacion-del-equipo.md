@@ -49,7 +49,3 @@ Si te apasiona el fútbol sala y quieres formar parte de un equipo en crecimient
 El **Club Futsal Altafulla** está dando sus primeros pasos, pero estamos llenos de ilusión y energía para enfrentar los desafíos que vienen. Pronto nos verás en las canchas, y esperamos contar con tu apoyo en esta emocionante aventura.
 
 ¡Nos vemos en los partidos!
-
-## Os esperamos en el próximo partido
-
-Muchas gracias por apoyar al equipo en cada partido. Seguiremos dándolo todo por vosotros y para llevar el equipo al máximo nivel

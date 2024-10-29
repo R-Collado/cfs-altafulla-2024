@@ -27,9 +27,6 @@ const blogEntriesSorted = blogEntriesFiltered.sort(
     <div class="embla__container">
       {
         blogEntriesSorted.map((entry: any) => {
-          const entryCover = posts.find(
-            (post: any) => entry.data.id === post.id,
-          );
           return (
             <div class="embla__slide || post-preview">
               <a
@@ -44,7 +41,11 @@ const blogEntriesSorted = blogEntriesFiltered.sort(
                 </span>
 
                 <div class="post-preview__image-container">
-                  <img class="slide-img" src={entryCover?.cover.src} />
+                  <img
+                    class="slide-img"
+                    src={entry.data.imageSrc}
+                    alt={entry.data.imageAlt}
+                  />
                 </div>
               </a>
             </div>

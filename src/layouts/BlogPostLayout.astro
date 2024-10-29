@@ -6,12 +6,6 @@ import authorImg from "@/images/roger.jpeg";
 const { blogPost } = Astro.props;
 
 const { Content } = await blogPost.render();
-
-const images = await Astro.glob("/src/assets/images/post-covers/*").then(
-  (files) => {
-    return files.map((file) => file.default);
-  },
-);
 ---
 
 <html>
@@ -27,7 +21,11 @@ const images = await Astro.glob("/src/assets/images/post-covers/*").then(
     <PrimaryNav />
     <article class="blog-post">
       <header class="blog-post__header">
-        <img class="blog-post__img" src={images[blogPost.data.id].src} />
+        <img
+          class="blog-post__img"
+          src={blogPost.data.imageSrc}
+          alt={blogPost.data.imageAlt}
+        />
         <h3 class="blog-post__heading">{blogPost.data.title}</h3>
       </header>
       <div class="blog-post__container">
@@ -35,6 +33,12 @@ const images = await Astro.glob("/src/assets/images/post-covers/*").then(
           <div class="blog-post__body-text">
             <Content />
           </div>
+          <h4>Os esperamos en el próximo partido</h4>
+          <p>
+            Muchas gracias por apoyar al equipo en cada partido. Seguiremos
+            dándolo todo por vosotros y para llevar el equipo al máximo nivel
+          </p>
+
           <hr />
           <footer class="author-info">
             <img class="author-img" src={authorImg.src} />

@@ -20,7 +20,3 @@ El desafío de enfrentarnos a equipos más experimentados ha sido una oportunida
 Con la pretemporada concluida, ya estamos enfocados en lo que viene: el inicio de la liga. Los entrenamientos ya han comenzado, y con la misma pasión y dedicación que nos ha caracterizado, estamos listos para enfrentar nuevos retos y seguir creciendo como equipo.
 
 Gracias a todos los que nos han apoyado a lo largo de esta pretemporada. ¡El próximo capítulo promete ser aún más emocionante!
-
-## Os esperamos en el próximo partido
-
-Muchas gracias por apoyar al equipo en cada partido. Seguiremos dándolo todo por vosotros y para llevar el equipo al máximo nivel

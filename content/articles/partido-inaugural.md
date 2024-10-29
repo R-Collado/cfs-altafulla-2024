@@ -21,7 +21,3 @@ El entrenador del equipo expresó su satisfacción con el progreso visto hasta a
 Este primer partido en casa ha sido un hito importante para nosotros. Ha establecido un sólido punto de partida y ha demostrado el potencial de lo que estamos creando juntos. Mirando hacia el futuro, estamos emocionados por las oportunidades que están por venir y por la posibilidad de seguir creciendo como equipo.
 
 Aunque la victoria no estuvo de nuestro lado hoy, los signos de progreso son claros y prometedores. Estamos más determinados que nunca a continuar trabajando, mejorando y fortaleciendo los lazos que nos han llevado hasta aquí. ¡Vamos equipo!
-
-## Os esperamos en el próximo partido
-
-Muchas gracias por apoyar al equipo en cada partido. Seguiremos dándolo todo por vosotros y para llevar el equipo al máximo nivel
