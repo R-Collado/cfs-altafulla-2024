@@ -22,24 +22,24 @@ const imagePath = getImagePath(player.data);
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{`${player.name} ${player.first_surname}`}</title>
+    <title>{`${player.data.name} ${player.data.first_surname}`}</title>
   </head>
   <body>
     <PrimaryNav />
     <main class="main">
       <header>
         <div class="header-container flex">
-          <p class="nickname">{player.nickname || player.name}</p>
+          <p class="nickname">{player.data.nickname || player.data.name}</p>
           <div class="image-container">
             <img src={`${imagePath}-celebration.webp`} alt="" />
           </div>
           <div class="player-info-container">
-            <p class="player-role">{t(`roles.${player.role}`)}</p>
+            <p class="player-role">{t(`roles.${player.data.role}`)}</p>
             <div class="flex">
-              <p class="player-number">{player.number}</p>
+              <p class="player-number">{player.data.number}</p>
               <p class="player-name">
-                {player.name}
-                <span class="player-surname"> {player.first_surname}</span>
+                {player.data.name}
+                <span class="player-surname"> {player.data.first_surname}</span>
               </p>
             </div>
             {

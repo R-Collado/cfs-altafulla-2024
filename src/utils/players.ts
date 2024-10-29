@@ -29,3 +29,13 @@ export const getHandshakeImage = (player: any) => {
     return `/images/players/handshake/${playerName}.webp`;
   }
 };
+
+export const formatPlayerBirthDate = (date: string) => {
+  const newDate = new Date(date);
+
+  const day = newDate.getDate();
+  const year = newDate.getFullYear();
+  const month = `0${newDate.getMonth() + 1}`.slice(-2);
+
+  return `${day}/${month}/${year}`;
+};

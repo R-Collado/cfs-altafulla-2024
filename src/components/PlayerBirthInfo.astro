@@ -5,6 +5,7 @@ import {
   useTranslations,
 } from "@/i18n/utils";
 import type { FieldPlayer, Keeper } from "@/types/player";
+import { formatPlayerBirthDate } from "@/utils/players";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -15,7 +16,8 @@ interface Props {
 
 const { player } = Astro.props;
 
-const playerCountry = t(`country.${player.birth_country}`);
+const playerCountry = t(`country.${player.birth_country.toLowerCase()}`);
+const birthDate = formatPlayerBirthDate(player.birth_date);
 ---
 
 <section class="player-birth-info">
@@ -29,7 +31,7 @@ const playerCountry = t(`country.${player.birth_country}`);
   </div>
   <div>
     <p class="heading">{t("player.info.birthday")}</p>
-    <p class="info">{player.birth_date}</p>
+    <p class="info">{birthDate}</p>
   </div>
 </section>
 
