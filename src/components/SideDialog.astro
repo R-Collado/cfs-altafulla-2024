@@ -1,11 +1,5 @@
 ---
-import type { FieldPlayer, Keeper } from "@/types/player";
 import cross from "@/svgs/cross.svg";
-
-interface Props {
-  isOpen: boolean;
-  player: FieldPlayer | Keeper;
-}
 
 const { isOpen, player } = Astro.props;
 ---
@@ -17,7 +11,7 @@ const { isOpen, player } = Astro.props;
     </div>
     <div class="text">
       <h2 class="biography-header">
-        {`${player.name} ${player.first_surname}`}
+        {`${player.data.name} ${player.data.first_surname}`}
       </h2>
       <main>
         <slot />
