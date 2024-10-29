@@ -15,7 +15,7 @@ const separatedPlayerContent = playerContent.body.split("\n");
 const bioFirstParagraph = separatedPlayerContent[3];
 const bioSecondParagraph = separatedPlayerContent[5];
 
-const imagePath = getHandshakeImage(player);
+const imagePath = getHandshakeImage(player.data);
 ---
 
 <section class="player-biography">
