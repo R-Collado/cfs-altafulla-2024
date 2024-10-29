@@ -6,16 +6,16 @@ import HomePlayerCard from "./HomePlayerCard.astro";
 import { getPlayersByScore } from "@/utils/players";
 
 const lang = getLangFromUrl(Astro.url);
-const translatePath = useTranslatedPath(lang);
 
-const playersList = getPlayersByScore();
+const players = await Astro.glob(`../content/players/*.json`);
+const playersByScore = getPlayersByScore(players);
 ---
 
 <section class="embla || players">
   <div class="embla__viewport || players__viewport">
     <div class="players__container embla__container">
       {
-        playersList.map((player) => {
+        playersByScore.map((player: any) => {
           return (
             <div>
               <HomePlayerCard

@@ -1,18 +1,9 @@
-import { playersList } from "@/configs/players";
-import { keepersList } from "@/configs/players";
-
-export const getPlayersByScore = () => {
-  const players = [...playersList, ...keepersList];
-
-  players.sort((a, b) => {
+export const getPlayersByScore = (players: any) => {
+  players.sort((a: any, b: any) => {
     const scoreA =
-      a.role === "keeper"
-        ? a.season_stats.clean_sheets * 2 + a.season_stats.saves * 0.25
-        : a.season_stats.goals * 4 + a.season_stats.assists;
+      a.role === "keeper" ? a.season_saves * 0.25 : a.season_goals * 4;
     const scoreB =
-      b.role === "keeper"
-        ? b.season_stats.clean_sheets * 4 + b.season_stats.saves * 0.25
-        : b.season_stats.goals * 4 + b.season_stats.assists;
+      b.role === "keeper" ? b.season_saves * 0.25 : b.season_goals * 4;
     return scoreB - scoreA;
   });
 

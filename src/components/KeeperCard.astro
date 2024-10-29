@@ -4,7 +4,6 @@ import playerBg2 from "@/images/player-background-wing.svg";
 import playerBg3 from "@/images/player-img-background-3.webp";
 import playerBg4 from "@/images/player-background-pivot.svg";
 
-import type { Keeper } from "../types/player";
 import {
   getLangFromUrl,
   useTranslatedPath,
@@ -17,12 +16,10 @@ const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
 const t = useTranslations(lang);
 
-interface PlayerCardProps {
-  player: Keeper;
-}
-
-const { player }: PlayerCardProps = Astro.props as PlayerCardProps;
+const { player } = Astro.props;
 const imagePath = `/images/players/${player.name.toLowerCase().replace(/\s+/g, "")}-gk`;
+
+console.log(player);
 ---
 
 <div class="player-card" id=`${player.number}-card`>
@@ -51,18 +48,20 @@ const imagePath = `/images/players/${player.name.toLowerCase().replace(/\s+/g, "
     <section class="player-stats">
       <div class="stat matches">
         <p class="stat-name">{t("stats.matches")}</p>
-        <p class="stat-amount">{player.total_stats.matches}</p>
-        <p class="stat-amount actual">{player.season_stats.matches}</p>
+        <p class="stat-amount">{player.total_matches}</p>
+        <p class="stat-amount actual">{player.season_matches}</p>
       </div>
-      <div class="stat goals">
+      <div class="stat saves">
         <p class="stat-name">{t("stats.saves")}</p>
-        <p class="stat-amount">{player.total_stats.saves}</p>
-        <p class="stat-amount actual">{player.season_stats.saves}</p>
+        <p class="stat-amount">{player.total_saves}</p>
+        <p class="stat-amount actual">{player.season_saves}</p>
       </div>
-      <div class="stat assists">
-        <p class="stat-name">{t("stats.clean_sheets")}</p>
-        <p class="stat-amount">{player.total_stats.clean_sheets}</p>
-        <p class="stat-amount actual">{player.season_stats.clean_sheets}</p>
+      <div class="stat savesXMatch">
+        <p class="stat-name">{t("stats.savesXMatch")}</p>
+        <p class="stat-amount">{player.total_saves / player.total_matches}</p>
+        <p class="stat-amount actual">
+          {player.season_saves / player.total_matches}
+        </p>
       </div>
       <p class="actual-season-header">{t("stats.season")} 2024-2025</p>
     </section>
@@ -172,15 +171,21 @@ const imagePath = `/images/players/${player.name.toLowerCase().replace(/\s+/g, "
     margin-block: 0.5rem 1.5rem;
   }
 
+  .player-position {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin-block: 0.5rem 1.5rem;
+  }
+
   .player-stats {
     display: flex;
     justify-content: center;
     text-align: center;
-    gap: 1rem;
     position: absolute;
-    bottom: -5%;
-    left: 50%;
-    transform: translate3d(-50%, 0, 0);
+    width: 100%;
+    bottom: -7.5%;
     z-index: 10;
     opacity: 0;
   }
@@ -194,6 +199,8 @@ const imagePath = `/images/players/${player.name.toLowerCase().replace(/\s+/g, "
     text-transform: uppercase;
     font-size: 0.5rem;
     font-weight: 100;
+    height: 1.25rem;
+    width: 5rem;
   }
 
   .stat-amount {
