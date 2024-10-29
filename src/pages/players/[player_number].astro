@@ -1,39 +1,30 @@
 ---
 import { getCollection } from "astro:content";
 import PlayerDetailsLayout from "@/layouts/PlayerDetailsLayout.astro";
-import { playersList, keeperNumbers } from "@/configs/players";
-import type { Keeper, Player } from "@/types/player";
-import { keepersList } from "@/configs/players";
 import { getLangFromUrl } from "@/i18n/utils";
 
 const { player_number } = Astro.params;
 const lang = getLangFromUrl(Astro.url);
 
-const playersEntries = await getCollection("players-old");
-const playersListFiltered = playersEntries.filter(
+const players = await getCollection("players");
+const playersBios = await getCollection("players-bio");
+const playersListFiltered = playersBios.filter(
   (player: any) => player.data.lang === lang,
 );
 
-let player: Player | Keeper | undefined;
-let isKeeper: boolean = false;
-
-if (keeperNumbers.includes(player_number)) {
-  isKeeper = true;
-  player = keepersList.find(
-    (keeper: Keeper) => keeper.number.toString() === player_number,
-  );
-} else {
-  player = playersList.find(
-    (player: Player) => player.number.toString() === player_number,
-  );
-}
-
-const playerContent = playersListFiltered.find(
-  (player: any) => player.data.number === player_number,
+// player information such as name, surname, role, number, stats, etc
+const player = players.find(
+  (player: any) => player.data.number.toString() === player_number,
 );
 
+const playerBio = playersListFiltered.find(
+  (player: any) => player.data.number.toString() === player_number,
+);
+
+const isKeeper = player?.data.role === "keeper";
+
 export async function getStaticPaths() {
-  const playersEntries = await getCollection("players-old");
+  const playersEntries = await getCollection("players-bio");
   return playersEntries.map((player: any) => ({
     params: {
       player_number: player.data.number,
@@ -44,6 +35,6 @@ export async function getStaticPaths() {
 
 <PlayerDetailsLayout
   player={player}
-  playerContent={playerContent}
+  playerContent={playerBio}
   isKeeper={isKeeper}
 />
