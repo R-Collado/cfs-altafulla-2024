@@ -2,10 +2,14 @@
 import PrimaryNav from "@/components/PrimaryNav.astro";
 import "@/styles/global.css";
 import authorImg from "@/images/roger.jpeg";
+import { formatTimerDate } from "@/utils/matches";
+import { formatBlogPostDate } from "@/utils/dates";
 
 const { blogPost } = Astro.props;
 
 const { Content } = await blogPost.render();
+
+const date = formatBlogPostDate(blogPost.data.date);
 ---
 
 <html>
@@ -44,7 +48,7 @@ const { Content } = await blogPost.render();
             <img class="author-img" src={authorImg.src} />
             <div class="post-info">
               <p class="author-name">{blogPost.data.author}</p>
-              <p class="post-date">{blogPost.data.date}</p>
+              <p class="post-date">{date}</p>
             </div>
           </footer>
         </div>
