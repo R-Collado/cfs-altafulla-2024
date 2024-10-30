@@ -1,30 +1,31 @@
 ---
-title: ¡Partido y castañada popular este sábado 2 de noviembre!
+title: Partit i castanyada popular aquest dissabte 2 de novembre!
 post_id: castañada-popular
 author: Roger Collado
 imageSrc: /images/articles/post-6.webp
 imageAlt: flyer representing the event
-date: 2024-10-30T10:21:46.296Z
+date: '2024-10-30T10:25:05.547Z'
 excerpt: >-
-  Este sábado, 2 de noviembre, nuestro equipo de fútbol sala se enfrentará a
-  Fundació Pef. La Pobla Mafumet A en un emocionante partido en casa. Estamos
-  listos para darlo todo en la cancha y seguir construyendo sobre el buen nivel
-  de juego que venimos demostrando. Será un encuentro clave, en el que esperamos
-  el apoyo de todos nuestros seguidores para empujarnos a la victoria.
+  Aquest dissabte, 2 de novembre, el nostre equip de futbol sala s'enfrontarà a
+  Fundació Pef. La Pobla Mafumet A en un partit emocionant a casa. Estem
+  preparats per donar-ho tot a la pista i continuar construint sobre el bon
+  nivell de joc que estem demostrant. Serà un partit clau, en què esperem el
+  suport de tots els nostres seguidors per impulsar-nos cap a la victòria.
 tags:
-  - primer-equipo
-  - eventos
-lang: es
+  - events
+  - primer-equip
+lang: ca
 ---
 
-Este sábado, 2 de noviembre, nuestro equipo de fútbol sala se enfrentará a Fundació Pef. La Pobla Mafumet A en un emocionante partido en casa. Estamos listos para darlo todo en la cancha y seguir construyendo sobre el buen nivel de juego que venimos demostrando. Será un encuentro clave, en el que esperamos el apoyo de todos nuestros seguidores para empujarnos a la victoria.
 
-Pero eso no es todo: después del partido, organizaremos una Castañada Popular en el pabellón, abierta a todos los asistentes. Queremos celebrar esta tradición con nuestra comunidad y pasar un buen rato juntos, disfrutando de castañas y ambiente festivo.
+Aquest dissabte, 2 de novembre, el nostre equip de futbol sala s'enfrontarà a Fundació Pef. La Pobla Mafumet A en un partit emocionant a casa. Estem preparats per donar-ho tot a la pista i continuar construint sobre el bon nivell de joc que estem demostrant. Serà un partit clau, en què esperem el suport de tots els nostres seguidors per impulsar-nos cap a la victòria.
 
-La invitación está abierta a todos: seguidores, familiares, amigos y cualquier persona que quiera unirse a esta celebración. Será una gran oportunidad para reunirnos, compartir buenos momentos y festejar juntos, independientemente del resultado del partido.
+Però això no és tot: després del partit, organitzarem una Castanyada Popular al pavelló, oberta a tots els assistents! Volem celebrar aquesta tradició amb la nostra comunitat i passar una bona estona junts, gaudint de castanyes i d'un ambient festiu.
 
-### ¡Apoyo y Diversión para Toda la Familia!
+La invitació és oberta a tothom: seguidors, familiars, amics i qualsevol persona que vulgui sumar-se a la celebració. És una gran oportunitat per reunir-nos, compartir bons moments i celebrar junts, independentment del resultat del partit.
 
-Les animamos a todos a venir, disfrutar del partido y quedarse a celebrar con nosotros en la castañada. ¡No solo se trata de fútbol, sino de comunidad, tradición y el orgullo de compartir momentos especiales juntos!
+### Suport i Diversió per a Tota la Família!
 
-¡Nos vemos el sábado en el pabellón!
+Animem a tothom a venir, gaudir del partit i quedar-se a celebrar la castanyada amb nosaltres. Això no és només futbol; és comunitat, tradició i l'orgull de compartir moments especials plegats!
+
+Ens veiem dissabte al pavelló!
