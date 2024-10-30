@@ -22,6 +22,8 @@ const { variant, icon, link } = Astro.props;
     --instagram-pink: #ee2a7b;
     --instagram-purple: #6228d7;
 
+    --twitch-purple: #6441a5;
+
     display: inline-block;
     height: 8rem;
     width: 14rem;
@@ -55,6 +57,11 @@ const { variant, icon, link } = Astro.props;
 
   .social-network[data-variant="tiktok"] {
     background-color: #000;
+    color: var(--bg-color);
+  }
+
+  .social-network[data-variant="twitch"] {
+    background: var(--twitch-purple);
     color: var(--bg-color);
   }
 </style>

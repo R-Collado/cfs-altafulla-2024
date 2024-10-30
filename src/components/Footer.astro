@@ -6,6 +6,8 @@ import instagramIcon from "@/svgs/socials/instagram-icon.svg";
 import spotifyIcon from "@/svgs/socials/spotify-icon.svg";
 import tiktokIcon from "@/svgs/socials/tiktok-icon.svg";
 
+import twitchIcon from "@/svgs/socials/twitch-icon.svg";
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
@@ -30,33 +32,38 @@ const t = useTranslations(lang);
       icon={tiktokIcon.src}
       link="https://www.tiktok.com/@cfsaltafulla"
     />
+    <SocialNetwork
+      variant="twitch"
+      icon={twitchIcon.src}
+      link="https://www.twitch.tv/cfsaltafulla"
+    />
   </div>
-</footer>
 
-<style>
-  .footer {
-    padding-block: 5rem;
-    width: 100vw;
-    background-color: var(--secondary-color);
-  }
-
-  .social-media-message {
-    color: var(--bg-color);
-    margin-inline: auto;
-    margin-bottom: 2rem;
-    width: max-content;
-  }
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  @media (min-width: 768px) {
-    .social-icons {
-      flex-direction: row;
+  <style>
+    .footer {
+      padding-block: 5rem;
+      width: 100vw;
+      background-color: var(--secondary-color);
     }
-  }
-</style>
+
+    .social-media-message {
+      color: var(--bg-color);
+      margin-inline: auto;
+      margin-bottom: 2rem;
+      width: max-content;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .social-icons {
+        flex-direction: row;
+      }
+    }
+  </style>
+</footer>
