@@ -30,6 +30,16 @@ export const getHandshakeImage = (player: any) => {
   }
 };
 
+export const getPlayerInfoImage = (player: any) => {
+  const playerName = player.name.toLowerCase().replace(/\s+/g, "");
+
+  if (player.role === "keeper") {
+    return `/images/players/player-info/${playerName}-gk.webp`;
+  } else {
+    return `/images/players/player-info/${playerName}.webp`;
+  }
+};
+
 export const formatPlayerBirthDate = (date: string) => {
   const newDate = new Date(date);
 
