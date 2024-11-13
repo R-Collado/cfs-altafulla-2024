@@ -10,11 +10,13 @@
   "birth_place": "Altafulla",
   "birth_country": "Spain",
   "background": 2,
-  "last_teams": ["Centre Esports Altafulla"],
-  "season_matches": 4,
+  "last_teams": [
+    "Centre Esports Altafulla"
+  ],
+  "season_matches": 5,
   "season_goals": 0,
-  "season_saves": 23,
-  "total_matches": 4,
+  "season_saves": 30,
+  "total_matches": 5,
   "total_goals": 0,
-  "total_saves": 23
+  "total_saves": 30
 }
