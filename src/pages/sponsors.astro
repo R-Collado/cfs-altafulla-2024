@@ -51,7 +51,6 @@ const t = useTranslations(lang);
   header {
     padding-top: 3.5rem;
     padding-inline: 1rem;
-    width: 100vw;
     height: 80vh;
     overflow: hidden;
     position: relative;
@@ -142,8 +141,13 @@ const t = useTranslations(lang);
   }
 
   .sponsor {
-    width: 15rem;
+    width: 10rem;
     height: 6rem;
+
+    @media (min-width: 768px) {
+      width: 15rem;
+      height: 6rem;
+    }
   }
 
   .sponsor-main {
