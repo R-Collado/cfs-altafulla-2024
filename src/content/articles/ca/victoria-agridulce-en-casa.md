@@ -1,10 +1,10 @@
 ---
-title: 'Important victòria a casa, però que ens deixa amb un sentiment agredolç'
-post_id: victoria-agredolça-a-casa
+title: 'Victòria important a casa, però que ens deixa un sentiment agredolç'
+post_id: victoria-agridulce-en-casa
 author: Roger Collado
 imageSrc: /images/articles/post-7.webp
 imageAlt: futsal player on the court
-date: 2024-11-18T11:15:34.373Z
+date: 2024-11-18T11:37:21.694Z
 excerpt: >-
   El nostre equip va aconseguir una important victòria per 4-2 davant un rival
   de gran nivell, en un partit que va entusiasmar els aficionats però que també
@@ -13,8 +13,9 @@ excerpt: >-
   partit, fet que obliga l’equip a afrontar les pròximes jornades sense la seva
   figura emblemàtica.
 tags:
-  - victoria
+  - victòria
   - primer-equip
+lang: ca
 ---
 
 El nostre equip va aconseguir una important victòria per 4-2 davant un rival de gran nivell, en un partit que va entusiasmar els aficionats però que també va portar una notícia amarga que va entelar la celebració. Aleix, el capità i líder indiscutible de l’equip, va patir una lesió a l’espatlla durant el partit, fet que obliga l’equip a afrontar les pròximes jornades sense la seva figura emblemàtica.

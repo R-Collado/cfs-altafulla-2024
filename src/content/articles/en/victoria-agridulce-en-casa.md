@@ -1,6 +1,6 @@
 ---
-title: 'Important victory at home, although it left us with a bittersweet feeling'
-post_id: bittersweet-victory-at-home
+title: "Important victory at home, although it left us with a bittersweet feeling"
+post_id: victoria-agridulce-en-casa
 author: Roger Collado
 imageSrc: /images/articles/post-7.webp
 imageAlt: futsal player on the court
