@@ -18,6 +18,7 @@ import lolaBistro from "@/images/logos/lola-bistro.png";
 import nogues from "@/images/logos/nogues.png";
 import pinturas from "@/images/logos/pinturas.png";
 import pirata from "@/images/logos/pirata.png";
+import qYp from "@/images/logos/q&p.webp";
 import ramona from "@/images/logos/ramona.png";
 import siOSi from "@/images/logos/si-o-si.png";
 import tMax from "@/images/logos/t-max.png";
@@ -155,6 +156,11 @@ export const sponsors: Sponsor[] = [
   {
     name: "Vitali",
     logo: vitali.src,
+    isMainSponsor: false,
+  },
+  {
+    name: "Q&P",
+    logo: qYp.src,
     isMainSponsor: false,
   },
 ];
