@@ -2,5 +2,7 @@
   "date": "2024-11-10T16:00:00.000Z",
   "rival": "Huracans Transpaís Sub-20 B",
   "matchType": "league",
-  "atHome": false
+  "atHome": false,
+  "goalsFulla": 4,
+  "goalsRival": 4
 }
