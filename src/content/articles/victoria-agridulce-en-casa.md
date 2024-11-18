@@ -4,7 +4,7 @@ title: >-
   agridulce
 post_id: victoria-agridulce-en-casa
 author: Roger Collado
-imageSrc: /post-7.webp
+imageSrc: /images/articles/post-7.webp
 imageAlt: futsal player on the court
 date: 2024-11-18T11:06:03.070Z
 excerpt: >-
