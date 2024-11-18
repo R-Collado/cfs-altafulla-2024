@@ -9,6 +9,7 @@ import {
   useTranslatedPath,
   useTranslations,
 } from "@/i18n/utils";
+import { roundTo } from "@/utils/round";
 
 const images: ImageMetadata[] = [playerBg1, playerBg2, playerBg3, playerBg4];
 
@@ -56,9 +57,11 @@ const imagePath = `/images/players/${player.name.toLowerCase().replace(/\s+/g, "
       </div>
       <div class="stat savesXMatch">
         <p class="stat-name">{t("stats.savesXMatch")}</p>
-        <p class="stat-amount">{player.total_saves / player.total_matches}</p>
+        <p class="stat-amount">
+          {roundTo(player.total_saves / player.total_matches, 2)}
+        </p>
         <p class="stat-amount actual">
-          {player.season_saves / player.total_matches}
+          {roundTo(player.season_saves / player.total_matches, 2)}
         </p>
       </div>
       <p class="actual-season-header">{t("stats.season")} 2024-2025</p>
