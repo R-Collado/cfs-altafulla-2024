@@ -30,13 +30,13 @@ export const getHandshakeImage = (player: any) => {
   }
 };
 
-export const getPlayerInfoImage = (player: any) => {
+export const getPlayerDetailsImage = (player: any) => {
   const playerName = player.name.toLowerCase().replace(/\s+/g, "");
 
   if (player.role === "keeper") {
-    return `/images/players/player-info/${playerName}-gk.webp`;
+    return `/images/players/player-details/${playerName}-gk.jpeg`;
   } else {
-    return `/images/players/player-info/${playerName}.webp`;
+    return `/images/players/player-details/${playerName}.jpeg`;
   }
 };
 

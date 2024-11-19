@@ -2,7 +2,7 @@
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import PlayerBirthInfo from "./PlayerBirthInfo.astro";
 import SideDialog from "./SideDialog.astro";
-import { getHandshakeImage } from "@/utils/players";
+import { getPlayerDetailsImage } from "@/utils/players";
 
 const { player, playerContent } = Astro.props;
 const { Content } = await playerContent.render();
@@ -15,7 +15,7 @@ const separatedPlayerContent = playerContent.body.split("\n");
 const bioFirstParagraph = separatedPlayerContent[3];
 const bioSecondParagraph = separatedPlayerContent[5];
 
-const imagePath = getHandshakeImage(player.data);
+const imagePath = getPlayerDetailsImage(player.data);
 ---
 
 <section class="player-biography">
