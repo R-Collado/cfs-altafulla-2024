@@ -31,7 +31,9 @@ export const getHandshakeImage = (player: any) => {
 };
 
 export const getPlayerDetailsImage = (player: any) => {
-  const playerName = player.name.toLowerCase().replace(/\s+/g, "");
+  const playerName = removeAccents(
+    player.name.toLowerCase().replace(/\s+/g, ""),
+  );
 
   if (player.role === "keeper") {
     return `/images/players/player-details/${playerName}-gk.jpeg`;
@@ -48,4 +50,33 @@ export const formatPlayerBirthDate = (date: string) => {
   const month = `0${newDate.getMonth() + 1}`.slice(-2);
 
   return `${day}/${month}/${year}`;
+};
+
+const accentsMap: { [key: string]: string } = {
+  à: "a",
+  á: "a",
+  â: "a",
+  ä: "a",
+  è: "e",
+  é: "e",
+  ê: "e",
+  ë: "e",
+  ì: "i",
+  í: "i",
+  î: "i",
+  ï: "i",
+  ò: "o",
+  ó: "o",
+  ô: "o",
+  ö: "o",
+  ù: "u",
+  ú: "u",
+  û: "u",
+};
+
+const removeAccents = (str: string) => {
+  return str
+    .split("")
+    .map((char) => accentsMap[char] || char)
+    .join("");
 };
