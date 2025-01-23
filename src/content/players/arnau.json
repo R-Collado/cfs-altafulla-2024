@@ -1,0 +1,24 @@
+{
+  "name": "Arnau",
+  "first_surname": "Díaz",
+  "nickname": "Kokito",
+  "role": "pivot",
+  "number": 16,
+  "age": 23,
+  "birth_date": "2000-05-23T22:00:00.000Z",
+  "birth_place": "Altafulla",
+  "birth_country": "España",
+  "background": 2,
+  "last_teams": [
+    "Gimnàstic de Tarragona",
+    "Sant Pere i Sant Pau",
+    "Unió Deportiva Torredembarra",
+    "C.E. Altafulla",
+    "La Floresta",
+    "La Riera"
+  ],
+  "season_matches": 3,
+  "season_goals": 5,
+  "total_matches": 3,
+  "total_goals": 5
+}
