@@ -37,9 +37,12 @@ const imagePath = getImagePath(player);
         class="player-card__img__bg"
         src={images[player.background - 1].src}
       />
-      <img class="player-card__img first" src={`${imagePath}-base.webp`} />
       <img
-        class="player-card__img hover"
+        class={`player-card__img first | ${player.name}`}
+        src={`${imagePath}-base.webp`}
+      />
+      <img
+        class={`player-card__img hover | ${player.name}`}
         src={`${imagePath}-celebration.webp`}
       />
     </div>
@@ -128,6 +131,11 @@ const imagePath = getImagePath(player);
     max-width: 80%;
     transform: translate3d(-50%, 0, 0);
     z-index: 2;
+
+    &.Arnau {
+      height: 28rem;
+      object-fit: contain;
+    }
   }
 
   .player-card__img.hover {

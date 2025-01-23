@@ -13,8 +13,6 @@ export const getPlayersByScore = (players: any) => {
 export const getImagePath = (player: any) => {
   let playerName = player.name.toLowerCase().replace(/\s+/g, "");
 
-  if (playerName === "arnau") playerName = "kokito";
-
   if (player.role === "keeper") {
     return `/images/players/${playerName}-gk`;
   } else {
