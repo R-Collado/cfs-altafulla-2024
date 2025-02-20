@@ -2,5 +2,7 @@
   "date": "2025-02-08T15:15:00.000Z",
   "rival": "El Morell CFS A ",
   "matchType": "league",
-  "atHome": true
+  "atHome": true,
+  "goalsFulla": 4,
+  "goalsRival": 3
 }
