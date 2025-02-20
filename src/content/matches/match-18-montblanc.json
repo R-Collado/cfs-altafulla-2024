@@ -2,5 +2,7 @@
   "date": "2025-02-16T18:00:00.000Z",
   "rival": "Montblanc CFS A",
   "matchType": "league",
-  "atHome": false
+  "atHome": false,
+  "goalsFulla": 3,
+  "goalsRival": 7
 }
