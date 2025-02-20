@@ -2,5 +2,7 @@
   "date": "2025-01-25T17:00:00.000Z",
   "rival": "Vila-Rodona CFS B",
   "matchType": "league",
-  "atHome": false
+  "atHome": false,
+  "goalsFulla": 5,
+  "goalsRival": 9
 }
