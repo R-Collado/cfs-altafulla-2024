@@ -2,5 +2,7 @@
   "date": "2025-03-29T19:00:00.000Z",
   "rival": "Sarralenc EC A",
   "matchType": "league",
-  "atHome": false
+  "atHome": false,
+  "goalsFulla": 3,
+  "goalsRival": 5
 }
