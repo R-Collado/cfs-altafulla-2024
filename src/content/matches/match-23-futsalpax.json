@@ -2,5 +2,7 @@
   "date": "2025-04-05T14:15:00.000Z",
   "rival": "FutsalPax Tarragona CE B",
   "matchType": "league",
-  "atHome": true
+  "atHome": true,
+  "goalsFulla": 8,
+  "goalsRival": 3
 }
