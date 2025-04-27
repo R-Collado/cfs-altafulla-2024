@@ -1,6 +1,8 @@
 {
-  "date": "2025-04-26T07:15:00.000Z",
+  "date": "2025-04-26T14:15:00.000Z",
   "rival": "Elisabeth Salou-Mediterrani B B",
   "matchType": "league",
-  "atHome": true
+  "atHome": true,
+  "goalsFulla": 6,
+  "goalsRival": 7
 }
